@@ -32,7 +32,7 @@ const MASTER_MODULES = [
   { id: 'user-management', name: 'User Management', system: 'Tenant-Admin / Master-data', specFile: 'specs/user-management/user-management.spec.js', status: 'ACTIVE' },
   { id: 'authorization', name: 'Authorization', system: 'Tenant-Admin / Master-data', specFile: 'specs/authorization/authorization.spec.js', status: 'ACTIVE' },
   { id: 'organization', name: 'Organization', system: 'Tenant-Admin / Master-data', specFile: 'specs/organization/organization.spec.js', status: 'ACTIVE' },
-  { id: 'settings', name: 'Settings', system: 'Tenant-Admin / Master-data', specFile: null, status: 'PENDING' },
+  { id: 'settings', name: 'Settings', system: 'Tenant-Admin / Master-data', specFile: 'specs/settings/settings.spec.js', status: 'ACTIVE' },
 
   // 20. Tenant-Operation / IM
   { id: 'inventory-master', name: 'Inventory (Kho)', system: 'Tenant-Operation / IM', specFile: 'specs/inventory-master/inventory-master.spec.js', status: 'ACTIVE' },
@@ -43,8 +43,8 @@ const MASTER_MODULES = [
   { id: 'work-order', name: 'Work order', system: 'Tenant-Operation / OMS', specFile: 'specs/work-order/work-order.spec.js', status: 'ACTIVE' },
   { id: 'purchase-order', name: 'Purchase Order', system: 'Tenant-Operation / OMS', specFile: 'specs/purchase-order/purchase-order.spec.js', status: 'ACTIVE' },
   { id: 'internal-order', name: 'Internal Order', system: 'Tenant-Operation / OMS', specFile: 'specs/internal-order/internal-order.spec.js', status: 'ACTIVE' },
-  { id: 'customs-job', name: 'Execution request: Customs Job', system: 'Tenant-Operation / OMS', specFile: null, status: 'PENDING' },
-  { id: 'freight-job', name: 'Execution request: Freight Job', system: 'Tenant-Operation / OMS', specFile: null, status: 'PENDING' },
+  { id: 'customs-job', name: 'Execution request: Customs Job', system: 'Tenant-Operation / OMS', specFile: 'specs/customs-job/customs-job.spec.js', status: 'ACTIVE' },
+  { id: 'freight-job', name: 'Execution request: Freight Job', system: 'Tenant-Operation / OMS', specFile: 'specs/freight-job/freight-job.spec.js', status: 'ACTIVE' },
 
   // 20. Tenant-Operation / TMS
   { id: 'trucking-order', name: 'Trucking Order', system: 'Tenant-Operation / TMS', specFile: 'specs/trucking-order/trucking-order.spec.js', status: 'ACTIVE' },
@@ -52,12 +52,12 @@ const MASTER_MODULES = [
   { id: 'pod-management', name: 'Proof of Delivery', system: 'Tenant-Operation / TMS', specFile: 'specs/pod-management/pod-management.spec.js', status: 'ACTIVE' },
   { id: 'fleet-management', name: 'Fleet Management', system: 'Tenant-Operation / TMS', specFile: 'specs/fleet-management/fleet-management.spec.js', status: 'ACTIVE' },
   { id: 'tms-work-order', name: 'TMS Work Order List', system: 'Tenant-Operation / TMS', specFile: 'specs/tms-work-order/tms-work-order.spec.js', status: 'ACTIVE' },
-  { id: 'driver-management', name: 'Driver Management', system: 'Tenant-Operation / TMS', specFile: null, status: 'PENDING' },
-  { id: 'driver-salary', name: 'Driver Salary', system: 'Tenant-Operation / TMS', specFile: null, status: 'PENDING' },
-  { id: 'maintenance', name: 'Maintenance Management', system: 'Tenant-Operation / TMS', specFile: null, status: 'PENDING' },
-  { id: 'fuel', name: 'Fuel Management', system: 'Tenant-Operation / TMS', specFile: null, status: 'PENDING' },
-  { id: 'charging', name: 'Electric Charging Management', system: 'Tenant-Operation / TMS', specFile: null, status: 'PENDING' },
-  { id: 'replacement', name: 'Maintenance & Replacement', system: 'Tenant-Operation / TMS', specFile: null, status: 'PENDING' }
+  { id: 'driver-management', name: 'Driver Management', system: 'Tenant-Operation / TMS', specFile: 'specs/driver-management/driver-management.spec.js', status: 'ACTIVE' },
+  { id: 'driver-salary', name: 'Driver Salary', system: 'Tenant-Operation / TMS', specFile: 'specs/driver-salary/driver-salary.spec.js', status: 'ACTIVE' },
+  { id: 'maintenance', name: 'Maintenance Management', system: 'Tenant-Operation / TMS', specFile: 'specs/maintenance/maintenance.spec.js', status: 'ACTIVE' },
+  { id: 'fuel', name: 'Fuel Management', system: 'Tenant-Operation / TMS', specFile: 'specs/fuel/fuel.spec.js', status: 'ACTIVE' },
+  { id: 'charging', name: 'Electric Charging Management', system: 'Tenant-Operation / TMS', specFile: 'specs/charging/charging.spec.js', status: 'ACTIVE' },
+  { id: 'replacement', name: 'Maintenance & Replacement', system: 'Tenant-Operation / TMS', specFile: 'specs/replacement/replacement.spec.js', status: 'ACTIVE' }
 ];
 
 // Hàm tìm tất cả tests đệ quy từ file json kết quả của Playwright

@@ -66,858 +66,20 @@
   },
   "suites": [
     {
-      "title": "administrative-info/administrative-info.spec.js",
-      "file": "administrative-info/administrative-info.spec.js",
+      "title": "charging/charging.spec.js",
+      "file": "charging/charging.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Administrative Info — Giao diện",
-          "file": "administrative-info/administrative-info.spec.js",
-          "line": 13,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4413,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:13.517Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5be447d4aba52a0e0599-66466188f48540252f34",
-              "file": "administrative-info/administrative-info.spec.js",
-              "line": 14,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4359,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:18.035Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5be447d4aba52a0e0599-5adf2c210949ff49811c",
-              "file": "administrative-info/administrative-info.spec.js",
-              "line": 23,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Administrative Info — Chức năng & Nghiệp vụ",
-          "file": "administrative-info/administrative-info.spec.js",
-          "line": 38,
-          "column": 6,
-          "specs": [
-            {
-              "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4921,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:22.400Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5be447d4aba52a0e0599-df6319ae8da4ffe29564",
-              "file": "administrative-info/administrative-info.spec.js",
-              "line": 39,
-              "column": 3
-            },
-            {
-              "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4224,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:27.329Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5be447d4aba52a0e0599-c943c66cee7fc8da63ce",
-              "file": "administrative-info/administrative-info.spec.js",
-              "line": 53,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "authorization/authorization.spec.js",
-      "file": "authorization/authorization.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Authorization — Giao diện",
-          "file": "authorization/authorization.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4390,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:31.565Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "a5515db327ff50e23c0f-475e959f6fe09fa53cef",
-              "file": "authorization/authorization.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "business-partner/business-partner.spec.js",
-      "file": "business-partner/business-partner.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Business Partner — Giao diện",
-          "file": "business-partner/business-partner.spec.js",
-          "line": 19,
-          "column": 6,
-          "specs": [
-            {
-              "title": "BP-UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3725,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:35.963Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7309205ddb8282b4a005-32299c40df9d221a8f87",
-              "file": "business-partner/business-partner.spec.js",
-              "line": 20,
-              "column": 3
-            },
-            {
-              "title": "BP-UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5044,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:39.694Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7309205ddb8282b4a005-748865c7230849fd69f1",
-              "file": "business-partner/business-partner.spec.js",
-              "line": 32,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Business Partner — Validation",
-          "file": "business-partner/business-partner.spec.js",
-          "line": 68,
-          "column": 6,
-          "specs": [
-            {
-              "title": "BP-VL-001: Lưu form trống hiện lỗi trường bắt buộc",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5026,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:44.746Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7309205ddb8282b4a005-338f19a6ed0934708ce5",
-              "file": "business-partner/business-partner.spec.js",
-              "line": 69,
-              "column": 3
-            },
-            {
-              "title": "BP-VL-002: Kiểm tra định dạng email và số điện thoại",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4096,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:49.779Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7309205ddb8282b4a005-f1324baf10a9e6fb61be",
-              "file": "business-partner/business-partner.spec.js",
-              "line": 81,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Business Partner — Chức năng & Nghiệp vụ",
-          "file": "business-partner/business-partner.spec.js",
-          "line": 100,
-          "column": 6,
-          "specs": [
-            {
-              "title": "BP-FN-003: Nút Hủy từ Tạo mới → quay về Danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4071,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:53.880Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7309205ddb8282b4a005-4ae354e03bb312df95b1",
-              "file": "business-partner/business-partner.spec.js",
-              "line": 101,
-              "column": 3
-            },
-            {
-              "title": "BP-BR-001 & BP-BR-002: Tạo mới doanh nghiệp thành công, tìm kiếm và kiểm tra trùng MST",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 17873,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Creating Business Partner: QTL Auto BP 200748 with Tax Code: 8320074828\n"
-                        },
-                        {
-                          "text": "Testing Duplicate Tax Code validation with MST: 8320074828\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:29:57.956Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7309205ddb8282b4a005-2f11cc72e488636010dd",
-              "file": "business-partner/business-partner.spec.js",
-              "line": 109,
-              "column": 3
-            },
-            {
-              "title": "BP-BR-003: Hiển thị có điều kiện Tab Cộng tác viên",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4706,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:15.835Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7309205ddb8282b4a005-1e3951cb6865aa0d2b81",
-              "file": "business-partner/business-partner.spec.js",
-              "line": 234,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "common-codes/common-codes.spec.js",
-      "file": "common-codes/common-codes.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Common Code — Giao diện",
-          "file": "common-codes/common-codes.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Common Codes tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4023,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:20.550Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "b65e4eab46bee3cd9e53-dd393d0d73cb80ea53cf",
-              "file": "common-codes/common-codes.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "cost/cost.spec.js",
-      "file": "cost/cost.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Cost Group — Giao diện & Chức năng",
-          "file": "cost/cost.spec.js",
-          "line": 15,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Cost Group tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4545,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:24.582Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-3d170d015678bfce5322",
-              "file": "cost/cost.spec.js",
-              "line": 16,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới Cost Group hiển thị đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4267,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:29.131Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-17c5c21ef3e08d9a6ae3",
-              "file": "cost/cost.spec.js",
-              "line": 25,
-              "column": 3
-            },
-            {
-              "title": "FN-001: Validation lỗi bắt buộc khi lưu Cost Group trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5027,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:33.403Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-864a5f65473ad62e0628",
-              "file": "cost/cost.spec.js",
-              "line": 30,
-              "column": 3
-            },
-            {
-              "title": "FN-002: Nút Hủy từ màn hình tạo mới Cost Group quay lại danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4085,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:38.435Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-9446882bace15f269d58",
-              "file": "cost/cost.spec.js",
-              "line": 42,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Cost Item — Giao diện & Chức năng",
-          "file": "cost/cost.spec.js",
-          "line": 53,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-003: Trang danh sách Cost Item tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4293,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:42.524Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-bf4b7ecf0b43216abad2",
-              "file": "cost/cost.spec.js",
-              "line": 54,
-              "column": 3
-            },
-            {
-              "title": "UI-004: Trang tạo mới Cost Item hiển thị đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4329,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:46.822Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-9953202462c95992d5e8",
-              "file": "cost/cost.spec.js",
-              "line": 63,
-              "column": 3
-            },
-            {
-              "title": "FN-003: Validation lỗi bắt buộc khi lưu Cost Item trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4914,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:51.156Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-821c3a9cff4212bf3c76",
-              "file": "cost/cost.spec.js",
-              "line": 68,
-              "column": 3
-            },
-            {
-              "title": "FN-004: Nút Hủy từ màn hình tạo mới Cost Item quay lại danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3916,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:56.075Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "20b914b3eb68d20c7c3d-1403b328d3be92136978",
-              "file": "cost/cost.spec.js",
-              "line": 80,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "currency/currency.spec.js",
-      "file": "currency/currency.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Currency — Giao diện (Chưa kiểm thử)",
-          "file": "currency/currency.spec.js",
+          "title": "Electric Charging Management — Giao diện (Chưa kiểm thử)",
+          "file": "charging/charging.spec.js",
           "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
+              "title": "UI-001: Trang quản lý sạc điện tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
@@ -927,7 +89,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/currency/currency.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
                         "line": 9,
                         "column": 8
                       }
@@ -946,12 +108,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:30:59.996Z",
+                      "startTime": "2026-06-18T11:22:57.277Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/currency/currency.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
                             "line": 9,
                             "column": 8
                           }
@@ -963,21 +125,21 @@
                   "status": "skipped"
                 }
               ],
-              "id": "3efd0837569ec1a52046-e5b4c9cfe1eae3db0e00",
-              "file": "currency/currency.spec.js",
+              "id": "04710f5e442cb8f2e19c-05ab5db8e02505a505eb",
+              "file": "charging/charging.spec.js",
               "line": 9,
               "column": 8
             }
           ]
         },
         {
-          "title": "Currency — Chức năng (Chưa kiểm thử)",
-          "file": "currency/currency.spec.js",
+          "title": "Electric Charging Management — Chức năng (Chưa kiểm thử)",
+          "file": "charging/charging.spec.js",
           "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "FN-001: Tạo mới Currency thành công",
+              "title": "FN-001: Tạo mới phiếu sạc điện thành công",
               "ok": true,
               "tags": [],
               "tests": [
@@ -987,7 +149,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/currency/currency.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
                         "line": 15,
                         "column": 8
                       }
@@ -1006,12 +168,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:30:59.996Z",
+                      "startTime": "2026-06-18T11:22:57.278Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/currency/currency.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
                             "line": 15,
                             "column": 8
                           }
@@ -1023,8 +185,8 @@
                   "status": "skipped"
                 }
               ],
-              "id": "3efd0837569ec1a52046-ab9935e9f331f4c54b11",
-              "file": "currency/currency.spec.js",
+              "id": "04710f5e442cb8f2e19c-26f3ddd47ec9af8db4fe",
+              "file": "charging/charging.spec.js",
               "line": 15,
               "column": 8
             }
@@ -1033,75 +195,20 @@
       ]
     },
     {
-      "title": "customer-request/customer-request.spec.js",
-      "file": "customer-request/customer-request.spec.js",
+      "title": "customs-job/customs-job.spec.js",
+      "file": "customs-job/customs-job.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Customer Request — Giao diện",
-          "file": "customer-request/customer-request.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4145,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [
-                        {
-                          "text": "Bypassing test for Customer Request due to 403 Forbidden redirect or message.\n"
-                        }
-                      ],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:30:59.999Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "9be75098f6282b9b19d0-b45be6fd6d1237c24657",
-              "file": "customer-request/customer-request.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "exchange-rate/exchange-rate.spec.js",
-      "file": "exchange-rate/exchange-rate.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Exchange Rate — Giao diện (Chưa kiểm thử)",
-          "file": "exchange-rate/exchange-rate.spec.js",
+          "title": "Execution request: Customs Job — Giao diện (Chưa kiểm thử)",
+          "file": "customs-job/customs-job.spec.js",
           "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
+              "title": "UI-001: Trang danh sách Customs Job tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1111,7 +218,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/exchange-rate/exchange-rate.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
                         "line": 9,
                         "column": 8
                       }
@@ -1130,12 +237,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:31:04.149Z",
+                      "startTime": "2026-06-18T11:22:57.278Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/exchange-rate/exchange-rate.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
                             "line": 9,
                             "column": 8
                           }
@@ -1147,21 +254,21 @@
                   "status": "skipped"
                 }
               ],
-              "id": "586f0a21b4c275b7a03a-28cdb75fe4275aba73fb",
-              "file": "exchange-rate/exchange-rate.spec.js",
+              "id": "e0f99243a686de9d5fde-c8158645a670c66a1b07",
+              "file": "customs-job/customs-job.spec.js",
               "line": 9,
               "column": 8
             }
           ]
         },
         {
-          "title": "Exchange Rate — Chức năng (Chưa kiểm thử)",
-          "file": "exchange-rate/exchange-rate.spec.js",
+          "title": "Execution request: Customs Job — Chức năng (Chưa kiểm thử)",
+          "file": "customs-job/customs-job.spec.js",
           "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "FN-001: Tạo mới Exchange Rate thành công",
+              "title": "FN-001: Tạo mới Customs Job thành công",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1171,7 +278,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/exchange-rate/exchange-rate.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
                         "line": 15,
                         "column": 8
                       }
@@ -1190,12 +297,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:31:04.149Z",
+                      "startTime": "2026-06-18T11:22:57.278Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/exchange-rate/exchange-rate.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
                             "line": 15,
                             "column": 8
                           }
@@ -1207,8 +314,8 @@
                   "status": "skipped"
                 }
               ],
-              "id": "586f0a21b4c275b7a03a-f229fbc06f5da6053138",
-              "file": "exchange-rate/exchange-rate.spec.js",
+              "id": "e0f99243a686de9d5fde-9772ace367bf96743c8a",
+              "file": "customs-job/customs-job.spec.js",
               "line": 15,
               "column": 8
             }
@@ -1217,122 +324,20 @@
       ]
     },
     {
-      "title": "fleet-management/fleet-management.spec.js",
-      "file": "fleet-management/fleet-management.spec.js",
+      "title": "driver-management/driver-management.spec.js",
+      "file": "driver-management/driver-management.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Fleet Management — Giao diện",
-          "file": "fleet-management/fleet-management.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang Fleet Management tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3887,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:04.151Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "912310ed0f0da66c3f58-b920b9de644a15286496",
-              "file": "fleet-management/fleet-management.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "internal-order/internal-order.spec.js",
-      "file": "internal-order/internal-order.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Internal Order — Giao diện",
-          "file": "internal-order/internal-order.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4361,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:08.045Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "87b91106092fed65d2c4-5e064f04be485ac08dff",
-              "file": "internal-order/internal-order.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "inventory-master/inventory-master.spec.js",
-      "file": "inventory-master/inventory-master.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Inventory Master — Giao diện (Chưa kiểm thử)",
-          "file": "inventory-master/inventory-master.spec.js",
+          "title": "Driver Management — Giao diện (Chưa kiểm thử)",
+          "file": "driver-management/driver-management.spec.js",
           "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
+              "title": "UI-001: Trang danh sách Driver Management tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1342,7 +347,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/inventory-master/inventory-master.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
                         "line": 9,
                         "column": 8
                       }
@@ -1361,12 +366,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:31:12.412Z",
+                      "startTime": "2026-06-18T11:22:57.278Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/inventory-master/inventory-master.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
                             "line": 9,
                             "column": 8
                           }
@@ -1378,21 +383,21 @@
                   "status": "skipped"
                 }
               ],
-              "id": "9cc596d49aa91221945e-2864c263cf301c3d599e",
-              "file": "inventory-master/inventory-master.spec.js",
+              "id": "f9e850c9546e51c6ecee-02ef8f2fd3d968f5c19f",
+              "file": "driver-management/driver-management.spec.js",
               "line": 9,
               "column": 8
             }
           ]
         },
         {
-          "title": "Inventory Master — Chức năng (Chưa kiểm thử)",
-          "file": "inventory-master/inventory-master.spec.js",
+          "title": "Driver Management — Chức năng (Chưa kiểm thử)",
+          "file": "driver-management/driver-management.spec.js",
           "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "FN-001: Tạo mới Inventory Master thành công",
+              "title": "FN-001: Tạo mới tài xế thành công",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1402,7 +407,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/inventory-master/inventory-master.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
                         "line": 15,
                         "column": 8
                       }
@@ -1421,12 +426,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:31:12.412Z",
+                      "startTime": "2026-06-18T11:22:57.278Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/inventory-master/inventory-master.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
                             "line": 15,
                             "column": 8
                           }
@@ -1438,8 +443,8 @@
                   "status": "skipped"
                 }
               ],
-              "id": "9cc596d49aa91221945e-426ce8562e58f48c28ac",
-              "file": "inventory-master/inventory-master.spec.js",
+              "id": "f9e850c9546e51c6ecee-dcf871edeb6243abd2e6",
+              "file": "driver-management/driver-management.spec.js",
               "line": 15,
               "column": 8
             }
@@ -1448,1568 +453,20 @@
       ]
     },
     {
-      "title": "organization/organization.spec.js",
-      "file": "organization/organization.spec.js",
+      "title": "driver-salary/driver-salary.spec.js",
+      "file": "driver-salary/driver-salary.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Organization — Giao diện",
-          "file": "organization/organization.spec.js",
-          "line": 13,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang Offices tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3784,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:12.414Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5059c7cbf834e03a9952-ff256c5eb75a18a84a0f",
-              "file": "organization/organization.spec.js",
-              "line": 14,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang Departments tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5013,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:16.203Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5059c7cbf834e03a9952-bf5bb7125a8779b29166",
-              "file": "organization/organization.spec.js",
-              "line": 30,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "plan-management/plan-management.spec.js",
-      "file": "plan-management/plan-management.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Plan Management — Giao diện",
-          "file": "plan-management/plan-management.spec.js",
-          "line": 17,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4301,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:21.227Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "e8046fb485da9d7b4e3f-382d353ad9100fc62b2d",
-              "file": "plan-management/plan-management.spec.js",
-              "line": 18,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "pod-management/pod-management.spec.js",
-      "file": "pod-management/pod-management.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Proof of Delivery — Giao diện",
-          "file": "pod-management/pod-management.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang Proof of Delivery tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3790,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:25.535Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "477f835609617c278e41-01c127bdc03259ef66e1",
-              "file": "pod-management/pod-management.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "pricing/pricing.spec.js",
-      "file": "pricing/pricing.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Pricing — Giao diện & Chức năng",
-          "file": "pricing/pricing.spec.js",
-          "line": 15,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Pricing Policy tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4298,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:29.332Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3bb1de75bc88e359b951-24ea58a6ff50661f3b1f",
-              "file": "pricing/pricing.spec.js",
-              "line": 16,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới Pricing Policy hiển thị đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4211,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:33.635Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3bb1de75bc88e359b951-9ab3c2788f1f0fd1aeab",
-              "file": "pricing/pricing.spec.js",
-              "line": 25,
-              "column": 3
-            },
-            {
-              "title": "FN-001: Nút Hủy từ màn hình tạo mới Pricing Policy quay lại danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4616,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:37.852Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3bb1de75bc88e359b951-3d8c3ea0722a396752fb",
-              "file": "pricing/pricing.spec.js",
-              "line": 30,
-              "column": 3
-            },
-            {
-              "title": "UI-003: Trang danh sách Pricing Rule tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4276,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:42.473Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3bb1de75bc88e359b951-a6bfd1c79be47111a514",
-              "file": "pricing/pricing.spec.js",
-              "line": 40,
-              "column": 3
-            },
-            {
-              "title": "UI-004: Trang danh sách Planned Cost tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5055,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:46.757Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3bb1de75bc88e359b951-81854b2003b408df46df",
-              "file": "pricing/pricing.spec.js",
-              "line": 45,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "purchase-order/purchase-order.spec.js",
-      "file": "purchase-order/purchase-order.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Purchase Order — Giao diện",
-          "file": "purchase-order/purchase-order.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3539,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:51.823Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "b2116a9efa085a29c3b4-a60d5b74c54aaf267aa6",
-              "file": "purchase-order/purchase-order.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "quotation/quotation.spec.js",
-      "file": "quotation/quotation.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Quotation — Giao diện",
-          "file": "quotation/quotation.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4164,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:55.369Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "9237cdea6a75565969f5-911c4cb014c483e72807",
-              "file": "quotation/quotation.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "routing/routing.spec.js",
-      "file": "routing/routing.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Routing — Giao diện & Chức năng",
-          "file": "routing/routing.spec.js",
-          "line": 13,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Routing tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4084,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:31:59.540Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "b0741e9f141cf352534a-e977919e559a42dfd764",
-              "file": "routing/routing.spec.js",
-              "line": 14,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới hiển thị đầy đủ các cột và sections",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4024,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:03.629Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "b0741e9f141cf352534a-70a7aa09f4f5e79d9571",
-              "file": "routing/routing.spec.js",
-              "line": 23,
-              "column": 3
-            },
-            {
-              "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5951,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:07.658Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "b0741e9f141cf352534a-c81ba36fa557f9976733",
-              "file": "routing/routing.spec.js",
-              "line": 35,
-              "column": 3
-            },
-            {
-              "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4634,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:13.615Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "b0741e9f141cf352534a-7ae5361d06385c1a0ca6",
-              "file": "routing/routing.spec.js",
-              "line": 47,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "services/services.spec.js",
-      "file": "services/services.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Services — Giao diện & Chức năng",
-          "file": "services/services.spec.js",
-          "line": 13,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Service tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5207,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:18.259Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "49347881eaf25f3d6f51-3abe38fd4f6f7856800f",
-              "file": "services/services.spec.js",
-              "line": 14,
-              "column": 3
-            },
-            {
-              "title": "FN-001: Mở modal Create Service thành công",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4887,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:23.471Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "49347881eaf25f3d6f51-8078e225eac3ccffa205",
-              "file": "services/services.spec.js",
-              "line": 23,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang danh sách Service Group tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3966,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:28.363Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "49347881eaf25f3d6f51-5ccb895fe5518906eb7e",
-              "file": "services/services.spec.js",
-              "line": 40,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "source-master/source-master.spec.js",
-      "file": "source-master/source-master.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Source Master — Giao diện & Chức năng",
-          "file": "source-master/source-master.spec.js",
-          "line": 13,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Source Master tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4664,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:32.336Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7d3b5377ca0fd25e174b-cc446b771ea61af64ce4",
-              "file": "source-master/source-master.spec.js",
-              "line": 14,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới hiển thị đầy đủ các trường",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4132,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:37.007Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7d3b5377ca0fd25e174b-8eb2b5dc734bfc3232a7",
-              "file": "source-master/source-master.spec.js",
-              "line": 23,
-              "column": 3
-            },
-            {
-              "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5005,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:41.145Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7d3b5377ca0fd25e174b-357fa2c69277552a8968",
-              "file": "source-master/source-master.spec.js",
-              "line": 33,
-              "column": 3
-            },
-            {
-              "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3941,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:46.157Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "7d3b5377ca0fd25e174b-e849ed8bf461ecd63704",
-              "file": "source-master/source-master.spec.js",
-              "line": 45,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "subscription/subscription.spec.js",
-      "file": "subscription/subscription.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Subscription — Giao diện",
-          "file": "subscription/subscription.spec.js",
-          "line": 17,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3727,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:50.106Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "c764c862e07d6f0ca6fd-74831cb38f9b90d55a27",
-              "file": "subscription/subscription.spec.js",
-              "line": 18,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "tenant-management/tenant-management.spec.js",
-      "file": "tenant-management/tenant-management.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Tenant Management — Giao diện",
-          "file": "tenant-management/tenant-management.spec.js",
-          "line": 37,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TN-UI-001: Trang danh sách tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4390,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:53.842Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "25522c93901f5e402ab4-bc47f891819d8d056597",
-              "file": "tenant-management/tenant-management.spec.js",
-              "line": 38,
-              "column": 3
-            },
-            {
-              "title": "TN-UI-002: New Tenant form sections display correctly",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4144,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:32:58.237Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "25522c93901f5e402ab4-5dc687d3c0473d5280b2",
-              "file": "tenant-management/tenant-management.spec.js",
-              "line": 50,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Tenant Management — Validation",
-          "file": "tenant-management/tenant-management.spec.js",
-          "line": 63,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TN-VL-001: Required fields cannot be empty",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5161,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:02.386Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "25522c93901f5e402ab4-0423a48180d1d275cc5e",
-              "file": "tenant-management/tenant-management.spec.js",
-              "line": 64,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Tenant Management — Chức năng & Nghiệp vụ",
-          "file": "tenant-management/tenant-management.spec.js",
-          "line": 76,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TN-FN-001 & TN-FN-002: Create tenant successfully and Search it in list",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 12797,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Creating Tenant with code: TNT390228, subdomain: qtltest390228, email: owner.390228@qtllogistics.vn\n"
-                        },
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": ">> Request: POST https://dev-api.movex.vn/api/v1/x-system/tenants\n"
-                        },
-                        {
-                          "text": "<< Response: 201 https://dev-api.movex.vn/api/v1/x-system/tenants\n"
-                        },
-                        {
-                          "text": ">> Request: POST https://dev-api.movex.vn/api/v1/x-system/tenants/58/init-data\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants/58/init-data\n"
-                        },
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
-                        },
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20&search=QTL+Auto+Test+390228\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20&search=QTL+Auto+Test+390228\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:07.552Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "25522c93901f5e402ab4-a28a634b82a7ffe2389c",
-              "file": "tenant-management/tenant-management.spec.js",
-              "line": 77,
-              "column": 3
-            },
-            {
-              "title": "TN-BR-001: Unique Subdomain validation (SR-TN-001)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11251,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
-                        },
-                        {
-                          "text": "Clicking Save for duplicate subdomain...\n"
-                        },
-                        {
-                          "text": ">> Request: POST https://dev-api.movex.vn/api/v1/x-system/tenants\n"
-                        },
-                        {
-                          "text": "<< Response: 400 https://dev-api.movex.vn/api/v1/x-system/tenants\n"
-                        },
-                        {
-                          "text": "<< Response Body (400): {\"isSuccess\":false,\"message\":\"Subdomain already exists: qtl.movex.vn\",\"errorDetails\":{\"code\":\"DNS_RECORD_EXISTS\"},\"timestamp\":\"2026-06-18T01:33:27.157810552\"}\n"
-                        },
-                        {
-                          "text": "Searching for error messages on the page...\n"
-                        }
-                      ],
-                      "stderr": [
-                        {
-                          "text": "UI WARNING: The server returned 400 Bad Request (Subdomain already exists) and registration was successfully blocked, but the UI did not display a visible error toast or inline message.\n"
-                        }
-                      ],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:20.354Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "25522c93901f5e402ab4-ab9338de7ea8a6b6be4e",
-              "file": "tenant-management/tenant-management.spec.js",
-              "line": 176,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "tms-work-order/tms-work-order.spec.js",
-      "file": "tms-work-order/tms-work-order.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "TMS Work Order List — Giao diện",
-          "file": "tms-work-order/tms-work-order.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang Trucking Work Order List tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4202,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:31.613Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "2a818bd7cd5b1c27e480-dc1f7bdfbc9ebbd82b77",
-              "file": "tms-work-order/tms-work-order.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "toll-station/toll-station.spec.js",
-      "file": "toll-station/toll-station.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Toll Station — Giao diện & Chức năng",
-          "file": "toll-station/toll-station.spec.js",
-          "line": 13,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Toll Station tải đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4342,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:35.822Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ddf2619946a68d25621e-20a0d9188b61ba7752a9",
-              "file": "toll-station/toll-station.spec.js",
-              "line": 14,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4033,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:40.170Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ddf2619946a68d25621e-e524eb41fb7762095dc5",
-              "file": "toll-station/toll-station.spec.js",
-              "line": 23,
-              "column": 3
-            },
-            {
-              "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5693,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:44.208Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ddf2619946a68d25621e-e6875faeaf21cbb6b263",
-              "file": "toll-station/toll-station.spec.js",
-              "line": 34,
-              "column": 3
-            },
-            {
-              "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4423,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:49.905Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ddf2619946a68d25621e-5b7e25ff26af1e89d292",
-              "file": "toll-station/toll-station.spec.js",
-              "line": 46,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "trucking-order/trucking-order.spec.js",
-      "file": "trucking-order/trucking-order.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Trucking Order — Giao diện",
-          "file": "trucking-order/trucking-order.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang Trucking Order tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4539,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:54.335Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ea1623d14eb4f0c210c3-7d4ada9b2715aafcaeae",
-              "file": "trucking-order/trucking-order.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "trucking-planning/trucking-planning.spec.js",
-      "file": "trucking-planning/trucking-planning.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Trucking Planning — Giao diện",
-          "file": "trucking-planning/trucking-planning.spec.js",
-          "line": 12,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang Trucking Planning tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3907,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:33:58.881Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "83913323e150eac320f1-1c73331780a61f3cb06a",
-              "file": "trucking-planning/trucking-planning.spec.js",
-              "line": 13,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "unit-of-measure/unit-of-measure.spec.js",
-      "file": "unit-of-measure/unit-of-measure.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Unit of Measure — Giao diện (Chưa kiểm thử)",
-          "file": "unit-of-measure/unit-of-measure.spec.js",
+          "title": "Driver Salary — Giao diện (Chưa kiểm thử)",
+          "file": "driver-salary/driver-salary.spec.js",
           "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
+              "title": "UI-001: Trang tính lương tài xế tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
@@ -3019,7 +476,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/unit-of-measure/unit-of-measure.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
                         "line": 9,
                         "column": 8
                       }
@@ -3038,12 +495,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:34:02.794Z",
+                      "startTime": "2026-06-18T11:22:57.278Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/unit-of-measure/unit-of-measure.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
                             "line": 9,
                             "column": 8
                           }
@@ -3055,21 +512,21 @@
                   "status": "skipped"
                 }
               ],
-              "id": "7d639fcb4057df012c84-5157e359a9fc59fe70b8",
-              "file": "unit-of-measure/unit-of-measure.spec.js",
+              "id": "982cdbabcae24886baaa-25ef4560c910f9c5b255",
+              "file": "driver-salary/driver-salary.spec.js",
               "line": 9,
               "column": 8
             }
           ]
         },
         {
-          "title": "Unit of Measure — Chức năng (Chưa kiểm thử)",
-          "file": "unit-of-measure/unit-of-measure.spec.js",
+          "title": "Driver Salary — Chức năng (Chưa kiểm thử)",
+          "file": "driver-salary/driver-salary.spec.js",
           "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "FN-001: Tạo mới Unit of Measure thành công",
+              "title": "FN-001: Tính lương tháng cho tài xế thành công",
               "ok": true,
               "tags": [],
               "tests": [
@@ -3079,7 +536,7 @@
                     {
                       "type": "skip",
                       "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/unit-of-measure/unit-of-measure.spec.js",
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
                         "line": 15,
                         "column": 8
                       }
@@ -3098,12 +555,12 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:34:02.794Z",
+                      "startTime": "2026-06-18T11:22:57.278Z",
                       "annotations": [
                         {
                           "type": "skip",
                           "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/unit-of-measure/unit-of-measure.spec.js",
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
                             "line": 15,
                             "column": 8
                           }
@@ -3115,8 +572,8 @@
                   "status": "skipped"
                 }
               ],
-              "id": "7d639fcb4057df012c84-c93e128d58f3fce0cd79",
-              "file": "unit-of-measure/unit-of-measure.spec.js",
+              "id": "982cdbabcae24886baaa-f036748c253b9fc64102",
+              "file": "driver-salary/driver-salary.spec.js",
               "line": 15,
               "column": 8
             }
@@ -3125,1712 +582,645 @@
       ]
     },
     {
-      "title": "user-management/user-management.spec.js",
-      "file": "user-management/user-management.spec.js",
+      "title": "freight-job/freight-job.spec.js",
+      "file": "freight-job/freight-job.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "User Management — Giao diện",
-          "file": "user-management/user-management.spec.js",
-          "line": 13,
+          "title": "Execution request: Freight Job — Giao diện (Chưa kiểm thử)",
+          "file": "freight-job/freight-job.spec.js",
+          "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang danh sách tải đúng bố cục",
+              "title": "UI-001: Trang danh sách Freight Job tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
+                        "line": 9,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4127,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:34:02.797Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.278Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
+                            "line": 9,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "cc85b9be5919fd95e296-de3b8f41e0de357bc0d7",
-              "file": "user-management/user-management.spec.js",
-              "line": 14,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới hiển thị đầy đủ trường",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4495,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:06.929Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "cc85b9be5919fd95e296-ec9636645e4c2e71e919",
-              "file": "user-management/user-management.spec.js",
-              "line": 20,
-              "column": 3
+              "id": "a31bb8f7f8444d65b440-23c0881e7a771f9549e7",
+              "file": "freight-job/freight-job.spec.js",
+              "line": 9,
+              "column": 8
             }
           ]
         },
         {
-          "title": "User Management — Chức năng & Nghiệp vụ",
-          "file": "user-management/user-management.spec.js",
-          "line": 27,
+          "title": "Execution request: Freight Job — Chức năng (Chưa kiểm thử)",
+          "file": "freight-job/freight-job.spec.js",
+          "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "FN-001: Nút Hủy từ tạo mới quay lại danh sách",
+              "title": "FN-001: Tạo mới Freight Job thành công",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
+                        "line": 15,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4302,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:34:11.429Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
+                            "line": 15,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "cc85b9be5919fd95e296-fcca198662660187998c",
-              "file": "user-management/user-management.spec.js",
-              "line": 28,
-              "column": 3
-            },
-            {
-              "title": "FN-002: Validation lỗi bắt buộc khi lưu form trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5332,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:15.737Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "cc85b9be5919fd95e296-2f62267dfe52031004cc",
-              "file": "user-management/user-management.spec.js",
-              "line": 37,
-              "column": 3
+              "id": "a31bb8f7f8444d65b440-a82e4f29a85679397a8b",
+              "file": "freight-job/freight-job.spec.js",
+              "line": 15,
+              "column": 8
             }
           ]
         }
       ]
     },
     {
-      "title": "vehicle/vehicle-list.spec.js",
-      "file": "vehicle/vehicle-list.spec.js",
+      "title": "fuel/fuel.spec.js",
+      "file": "fuel/fuel.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Danh sách Phương tiện — Giao diện",
-          "file": "vehicle/vehicle-list.spec.js",
-          "line": 16,
+          "title": "Fuel Management — Giao diện (Chưa kiểm thử)",
+          "file": "fuel/fuel.spec.js",
+          "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "VH-UI-001: Trang tải đúng bố cục",
+              "title": "UI-001: Trang quản lý cấp phát nhiên liệu tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "annotations": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3920,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Database is empty, skipping search input check.\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:21.079Z",
-                      "annotations": [],
-                      "attachments": []
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
+                        "line": 9,
+                        "column": 8
+                      }
                     }
                   ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-4d2c71201986bb891afd",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 17,
-              "column": 3
-            },
-            {
-              "title": "VH-UI-002: Mặc định hiển thị 7 cột",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4462,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Database is empty, skipping columns check.\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:25.004Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-206148b857963fb9b53f",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 34,
-              "column": 3
-            },
-            {
-              "title": "VH-UI-006: Có phân trang",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4670,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:34:29.471Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
+                            "line": 9,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "f593a2aafad5287ee2c7-b70c34c88c6c32c12981",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 61,
-              "column": 3
+              "id": "7ebc550f696e0ddab666-5908fa8288dc9d3e5407",
+              "file": "fuel/fuel.spec.js",
+              "line": 9,
+              "column": 8
             }
           ]
         },
         {
-          "title": "Danh sách Phương tiện — Chức năng",
-          "file": "vehicle/vehicle-list.spec.js",
-          "line": 75,
+          "title": "Fuel Management — Chức năng (Chưa kiểm thử)",
+          "file": "fuel/fuel.spec.js",
+          "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "VH-FN-007: Nhấn hàng → Trang Chi tiết",
+              "title": "FN-001: Tạo mới phiếu đổ nhiên liệu thành công",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "annotations": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3822,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Database is empty, skipping row click check.\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:34.145Z",
-                      "annotations": [],
-                      "attachments": []
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
+                        "line": 15,
+                        "column": 8
+                      }
                     }
                   ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-d272c6dad35ffa3701e0",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 76,
-              "column": 3
-            },
-            {
-              "title": "VH-FN-009: Nút Hủy từ Thêm mới → quay về Danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4118,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:34:37.972Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-5844855ee9cee5f5b61d",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 90,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Thêm mới Phương tiện — Validation",
-          "file": "vehicle/vehicle-list.spec.js",
-          "line": 97,
-          "column": 6,
-          "specs": [
-            {
-              "title": "VH-VL-001→007: Lưu form trống hiện lỗi tất cả trường bắt buộc",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5382,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:42.096Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-6f68f5e9fe4bb1f48d07",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 98,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Thêm mới Phương tiện — Quy tắc nghiệp vụ",
-          "file": "vehicle/vehicle-list.spec.js",
-          "line": 108,
-          "column": 6,
-          "specs": [
-            {
-              "title": "VH-BR-003: Rơ moóc ẩn trường Động cơ/Nhiên liệu/Dung tích (SR-VH-003)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4530,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
                         {
-                          "text": "Bypassing VH-BR-003 because 'Trailer' option is not available.\n"
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
+                            "line": 15,
+                            "column": 8
+                          }
                         }
                       ],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:47.484Z",
-                      "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "f593a2aafad5287ee2c7-318c28478ed37be32995",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 109,
-              "column": 3
-            },
-            {
-              "title": "VH-BR-004: Đầu kéo hiện trường Khối lượng kéo theo (SR-VH-004)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4850,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:52.021Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-1a0f231458170d787fa4",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 127,
-              "column": 3
-            },
-            {
-              "title": "VH-BR-002: Xe tải hiện trường Động cơ, ẩn Khối lượng kéo theo (SR-VH-002)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4917,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:34:56.878Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-c531779db3415ee9228b",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 145,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Phân quyền — Admin",
-          "file": "vehicle/vehicle-list.spec.js",
-          "line": 164,
-          "column": 6,
-          "specs": [
-            {
-              "title": "VH-PM-001: Admin thấy nút Thêm mới và Sửa",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4291,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Database is empty, skipping detail check.\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:01.801Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-2dd239da87bbae26a5c9",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 165,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Chi tiết Phương tiện — Giao diện",
-          "file": "vehicle/vehicle-list.spec.js",
-          "line": 182,
-          "column": 6,
-          "specs": [
-            {
-              "title": "VH-UI-008: Trang chi tiết hiển thị đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4027,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Database is empty, skipping detail layout check.\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:06.097Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-2c08cf4f1b78322634cb",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 183,
-              "column": 3
-            },
-            {
-              "title": "VH-FN-008: Nút Sửa → Trang chỉnh sửa",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4160,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Database is empty, skipping detail edit transition check.\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:10.129Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "f593a2aafad5287ee2c7-242d20e1b7746fb17d6b",
-              "file": "vehicle/vehicle-list.spec.js",
-              "line": 202,
-              "column": 3
+              "id": "7ebc550f696e0ddab666-d159101710a7ee4d416a",
+              "file": "fuel/fuel.spec.js",
+              "line": 15,
+              "column": 8
             }
           ]
         }
       ]
     },
     {
-      "title": "vendor-tariff/vendor-tariff.spec.js",
-      "file": "vendor-tariff/vendor-tariff.spec.js",
+      "title": "maintenance/maintenance.spec.js",
+      "file": "maintenance/maintenance.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Vendor Tariff Trucking Freight — Giao diện & Chức năng",
-          "file": "vendor-tariff/vendor-tariff.spec.js",
-          "line": 15,
+          "title": "Maintenance Management — Giao diện (Chưa kiểm thử)",
+          "file": "maintenance/maintenance.spec.js",
+          "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang danh sách Trucking Freight tải đúng",
+              "title": "UI-001: Trang danh sách bảo trì tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
+                        "line": 9,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4347,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:35:14.297Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
+                            "line": 9,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "51bdb20c6cf96fac9384-53fe03bcf3469ef10307",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 16,
-              "column": 3
-            },
-            {
-              "title": "UI-002: Trang tạo mới Trucking Freight hiển thị đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4201,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:18.649Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "51bdb20c6cf96fac9384-d30f58b22391f4adb511",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 25,
-              "column": 3
-            },
-            {
-              "title": "FN-001: Validation lỗi bắt buộc khi lưu Trucking Freight trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5515,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:22.855Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "51bdb20c6cf96fac9384-e3696d581e9072e69aa2",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 30,
-              "column": 3
-            },
-            {
-              "title": "FN-002: Nút Hủy từ tạo mới Trucking Freight quay lại danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4155,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:28.375Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "51bdb20c6cf96fac9384-214c220937aa8a0a71fa",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 42,
-              "column": 3
+              "id": "c1dc648036bbe71e63fe-673ebd3060e064fb8ec0",
+              "file": "maintenance/maintenance.spec.js",
+              "line": 9,
+              "column": 8
             }
           ]
         },
         {
-          "title": "Vendor Tariff Freight VAS Tariff — Giao diện & Chức năng",
-          "file": "vendor-tariff/vendor-tariff.spec.js",
-          "line": 53,
+          "title": "Maintenance Management — Chức năng (Chưa kiểm thử)",
+          "file": "maintenance/maintenance.spec.js",
+          "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "UI-003: Trang danh sách Freight VAS Tariff tải đúng",
+              "title": "FN-001: Tạo mới yêu cầu bảo trì xe thành công",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
+                        "line": 15,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4212,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:35:32.537Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
+                            "line": 15,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "51bdb20c6cf96fac9384-8eeb6f90fa513ed2a983",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 54,
-              "column": 3
-            },
-            {
-              "title": "UI-004: Trang tạo mới Freight VAS Tariff hiển thị đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4163,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:36.754Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "51bdb20c6cf96fac9384-f0c93daf7bbd92d62532",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 59,
-              "column": 3
-            },
-            {
-              "title": "FN-003: Validation lỗi bắt buộc khi lưu Freight VAS Tariff trống",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4856,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:40.923Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "51bdb20c6cf96fac9384-d437d4563373c78f0b22",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 64,
-              "column": 3
-            },
-            {
-              "title": "FN-004: Nút Hủy từ tạo mới Freight VAS Tariff quay lại danh sách",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4365,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:45.785Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "51bdb20c6cf96fac9384-cd7e5ce67d5782b4feba",
-              "file": "vendor-tariff/vendor-tariff.spec.js",
-              "line": 76,
-              "column": 3
+              "id": "c1dc648036bbe71e63fe-fc581d474b2b612924a3",
+              "file": "maintenance/maintenance.spec.js",
+              "line": 15,
+              "column": 8
             }
           ]
         }
       ]
     },
     {
-      "title": "work-order/work-order.spec.js",
-      "file": "work-order/work-order.spec.js",
+      "title": "replacement/replacement.spec.js",
+      "file": "replacement/replacement.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "TC-MF-001: Tạo Work Order không qua CR / Quotation",
-          "file": "work-order/work-order.spec.js",
-          "line": 33,
+          "title": "Maintenance & Replacement — Giao diện (Chưa kiểm thử)",
+          "file": "replacement/replacement.spec.js",
+          "line": 8,
           "column": 6,
           "specs": [
             {
-              "title": "UI: Trang Work Order List tải đúng bố cục",
+              "title": "UI-001: Trang quản lý cấp phát thay thế phụ tùng tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
+                        "line": 9,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5070,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:35:50.159Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
+                            "line": 9,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "301e417f56bbc75f9050-3835c2837d5feaef1e6d",
-              "file": "work-order/work-order.spec.js",
-              "line": 34,
-              "column": 3
-            },
-            {
-              "title": "Bước 2: Nhấn Add Work Order → mở màn hình Create",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4042,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:55.234Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-ff20047a2d88b3475e6d",
-              "file": "work-order/work-order.spec.js",
-              "line": 44,
-              "column": 3
-            },
-            {
-              "title": "Bước 3: Bỏ trống Quotation Code - không báo lỗi",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6510,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:35:59.281Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-200f9262e764d93f2611",
-              "file": "work-order/work-order.spec.js",
-              "line": 56,
-              "column": 3
-            },
-            {
-              "title": "Bước 4: Nhập đầy đủ Header fields và Save",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4546,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:05.798Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-26ab5a49ae2bf6d0f7a8",
-              "file": "work-order/work-order.spec.js",
-              "line": 85,
-              "column": 3
-            },
-            {
-              "title": "Bước 5: Scope of Services hiển thị đúng",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4444,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:10.349Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-2ffa24dc4ec40d7ae00f",
-              "file": "work-order/work-order.spec.js",
-              "line": 103,
-              "column": 3
-            },
-            {
-              "title": "UI: Status badge hiển thị Draft trước khi Save",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3905,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:14.800Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-19d9e7aa89559b79b9f3",
-              "file": "work-order/work-order.spec.js",
-              "line": 112,
-              "column": 3
+              "id": "cd5d937fe07d5dc655e6-8a5124864f7b0d0a68ca",
+              "file": "replacement/replacement.spec.js",
+              "line": 9,
+              "column": 8
             }
           ]
         },
         {
-          "title": "TC-MF-002: Nhập Baseline Cost cho WO",
-          "file": "work-order/work-order.spec.js",
-          "line": 125,
+          "title": "Maintenance & Replacement — Chức năng (Chưa kiểm thử)",
+          "file": "replacement/replacement.spec.js",
+          "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "UI: WO Detail hiển thị các tab chính xác",
+              "title": "FN-001: Tạo mới yêu cầu thay thế phụ tùng thành công",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
+                        "line": 15,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4787,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:36:18.710Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
+                            "line": 15,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "301e417f56bbc75f9050-bca7f28e7a10b3278c27",
-              "file": "work-order/work-order.spec.js",
-              "line": 126,
-              "column": 3
-            },
+              "id": "cd5d937fe07d5dc655e6-28e898a0ae6350bd4678",
+              "file": "replacement/replacement.spec.js",
+              "line": 15,
+              "column": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "settings/settings.spec.js",
+      "file": "settings/settings.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Settings — Giao diện (Chưa kiểm thử)",
+          "file": "settings/settings.spec.js",
+          "line": 8,
+          "column": 6,
+          "specs": [
             {
-              "title": "Tab Estimated Freight: Hiển thị bảng Sell-out và Buy-in",
+              "title": "UI-001: Trang cấu hình hệ thống tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
+                        "line": 9,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4426,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:36:23.502Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
+                            "line": 9,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "301e417f56bbc75f9050-6ab8865677c482036497",
-              "file": "work-order/work-order.spec.js",
-              "line": 146,
-              "column": 3
+              "id": "1a1306a8582773a33833-643c1b44dc39cc504328",
+              "file": "settings/settings.spec.js",
+              "line": 9,
+              "column": 8
             }
           ]
         },
         {
-          "title": "TC-MF-003: Điều chỉnh giá dự toán",
-          "file": "work-order/work-order.spec.js",
-          "line": 178,
+          "title": "Settings — Chức năng (Chưa kiểm thử)",
+          "file": "settings/settings.spec.js",
+          "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "UI: Summary Cards hiển thị trên tab Estimated Freight",
+              "title": "FN-001: Cập nhật cấu hình hệ thống thành công",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
+                        "line": 15,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4331,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T01:36:27.933Z",
-                      "annotations": [],
+                      "startTime": "2026-06-18T11:22:57.279Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
+                            "line": 15,
+                            "column": 8
+                          }
+                        }
+                      ],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
-              "id": "301e417f56bbc75f9050-ad8867a2107e1fe52926",
-              "file": "work-order/work-order.spec.js",
-              "line": 179,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "TC-MF-004: Submit WO",
-          "file": "work-order/work-order.spec.js",
-          "line": 209,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI: WO Detail có nút Submit hoặc Edit",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4728,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:32.269Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-190c01193c77f662f003",
-              "file": "work-order/work-order.spec.js",
-              "line": 210,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "TC-MF-005: Phê duyệt và thông báo cho các team",
-          "file": "work-order/work-order.spec.js",
-          "line": 229,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI: WO Approved hiển thị read-only form",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3870,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:37.002Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-4dcb1466cad966e0a4a8",
-              "file": "work-order/work-order.spec.js",
-              "line": 230,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "TC-MF-006: Tạo và kiểm tra Work Item",
-          "file": "work-order/work-order.spec.js",
-          "line": 253,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI: Tab Work Item hiển thị danh sách Work Items",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4495,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:40.878Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-1e6d5fbc52a052b6eafc",
-              "file": "work-order/work-order.spec.js",
-              "line": 254,
-              "column": 3
-            },
-            {
-              "title": "UI: Tab Work Item hiển thị Grand Total row",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4794,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:45.378Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-4dc342c55553d0175d4a",
-              "file": "work-order/work-order.spec.js",
-              "line": 283,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "TC-MF-007: Phát hành TO",
-          "file": "work-order/work-order.spec.js",
-          "line": 314,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI: Work Item row có Action buttons",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4319,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:50.178Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-f05d45997a28a5d8b8a6",
-              "file": "work-order/work-order.spec.js",
-              "line": 315,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "TC-MF-010: Container/Truck List tab",
-          "file": "work-order/work-order.spec.js",
-          "line": 345,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI: Tab Container/Truck List hiển thị",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4328,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:54.505Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-277c189ed170ecc96211",
-              "file": "work-order/work-order.spec.js",
-              "line": 346,
-              "column": 3
-            },
-            {
-              "title": "UI: Status badges hiển thị đúng trên WO List",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4659,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:36:58.838Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-22fe59204f19aba0cf4f",
-              "file": "work-order/work-order.spec.js",
-              "line": 370,
-              "column": 3
-            }
-          ]
-        },
-        {
-          "title": "Work Order — Navigation",
-          "file": "work-order/work-order.spec.js",
-          "line": 389,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Điều hướng OMS → Work Order List",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4270,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:37:03.502Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-fd7feea21f74ae0accb6",
-              "file": "work-order/work-order.spec.js",
-              "line": 390,
-              "column": 3
-            },
-            {
-              "title": "Cancel từ Create → quay về List",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4277,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:37:07.777Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-8b4eb476316eca2e73ec",
-              "file": "work-order/work-order.spec.js",
-              "line": 397,
-              "column": 3
-            },
-            {
-              "title": "Click WO row → Detail page",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4113,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:37:12.060Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-0271bce2cc5695e89c73",
-              "file": "work-order/work-order.spec.js",
-              "line": 411,
-              "column": 3
-            },
-            {
-              "title": "Detail → Edit button → Update page",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4279,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T01:37:16.179Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "301e417f56bbc75f9050-8854a43f020cc125acfe",
-              "file": "work-order/work-order.spec.js",
-              "line": 424,
-              "column": 3
+              "id": "1a1306a8582773a33833-09f9573f6ac87ac6be46",
+              "file": "settings/settings.spec.js",
+              "line": 15,
+              "column": 8
             }
           ]
         }
@@ -4839,10 +1229,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-18T01:29:13.250Z",
-    "duration": 487253.477,
-    "expected": 103,
-    "skipped": 8,
+    "startTime": "2026-06-18T11:22:57.214Z",
+    "duration": 65.065,
+    "expected": 0,
+    "skipped": 18,
     "unexpected": 0,
     "flaky": 0
   }
