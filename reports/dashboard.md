@@ -10,10 +10,9 @@
 
 | Chỉ số | Số lượng | Tỷ lệ | Ghi chú |
 | :--- | :---: | :---: | :--- |
-| **Tổng số Phân hệ** | 40 | 100% | Toàn bộ phân hệ trên toàn hệ thống MoveX |
-| **Đã có kịch bản E2E (Spec Files)** | 40 | 100% | 100% các phân hệ đã có file kiểm thử |
-| **Số Phân hệ Đang Chạy (Active)** | 21 | 52.5% | Kịch bản kiểm thử E2E đang chạy thực tế trên UI |
-| **Số Phân hệ Chờ UI (Skipped/Pending)** | 19 | 47.5% | Kịch bản được bỏ qua (skipped) do chưa có UI |
+| **Tổng số Module** | 40 | 100% | Toàn bộ phân hệ trên toàn hệ thống MoveX |
+| **Module Đã Có Test Case/Script** | 21 | 52.5% | Kịch bản kiểm thử E2E đang chạy thực tế trên UI |
+| **Module Chờ UI/Script** | 19 | 47.5% | Kịch bản được bỏ qua (skipped) do chưa có UI |
 | **Tổng số Test Cases** | 129 | — | Chạy tự động qua Playwright |
 | **Số Test Cases Đạt (Passed)** | 103 | 79.8% | Thành công hoàn toàn |
 | **Số Test Cases Bỏ qua (Skipped)** | 26 | 20.2% | Thuộc các phân hệ chờ triển khai UI |

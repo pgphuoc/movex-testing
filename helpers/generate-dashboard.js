@@ -250,17 +250,17 @@ function main() {
       skippedTestCases += m.summary.skipped;
       totalBugs += m.summary.failed; // coi mỗi test case failed là một bug tiềm ẩn
 
-      if (m.summary.total > 0) {
+      const hasRealExecution = m.summary.passed > 0 || m.summary.failed > 0;
+      if (hasRealExecution) {
         activeModules++;
         if (m.summary.failed > 0) {
           failedModules++;
-        } else if (m.summary.passed > 0) {
-          passedModules++;
         } else {
-          skippedModules++;
+          passedModules++;
         }
       } else {
         untestedModules++;
+        skippedModules++;
       }
     } else {
       untestedModules++;
@@ -811,19 +811,19 @@ function main() {
       <div class="stat-sub">Toàn bộ Platform</div>
     </div>
     <div class="stat-card success">
-      <div class="stat-label">Module Đã Kiểm Thử</div>
+      <div class="stat-label">Module Đã Có Test Case/Script</div>
       <div class="stat-val">${activeModules}</div>
-      <div class="stat-sub">Đã thiết lập kịch bản E2E</div>
+      <div class="stat-sub">Đã thiết lập kịch bản chạy thực tế</div>
     </div>
     <div class="stat-card warning">
-      <div class="stat-label">Module Chưa Kiểm Thử</div>
+      <div class="stat-label">Module Chờ UI/Script</div>
       <div class="stat-val">${untestedModules}</div>
-      <div class="stat-sub">Sắp triển khai kịch bản</div>
+      <div class="stat-sub">Chưa có giao diện hoặc chờ thêm kịch bản</div>
     </div>
     <div class="stat-card info">
-      <div class="stat-label">Độ Phủ (Coverage)</div>
+      <div class="stat-label">Tỷ lệ Phủ (Coverage)</div>
       <div class="stat-val">${((activeModules / totalModules) * 100).toFixed(1)}%</div>
-      <div class="stat-sub">Tỷ lệ bao phủ kiểm thử</div>
+      <div class="stat-sub">Tỷ lệ module đã chạy E2E</div>
     </div>
     <div class="stat-card danger">
       <div class="stat-label">Lỗi Hệ Thống (Bugs)</div>
