@@ -84,12 +84,23 @@ function extractTests(suite, filePath = '') {
           error = result.errors.map(e => e.message || e.value).join('\n');
         }
         
-        // Trích xuất screenshot
+        // Trích xuất screenshot & video
         let screenshot = null;
+        let video = null;
         if (result && result.attachments) {
-          const attachment = result.attachments.find(a => a.name === 'screenshot' || (a.contentType && a.contentType.includes('image')));
-          if (attachment) {
-            screenshot = attachment.path;
+          const screenshotAttachment = result.attachments.find(a => a.name === 'screenshot' || (a.contentType && a.contentType.includes('image')));
+          if (screenshotAttachment) {
+            screenshot = screenshotAttachment.path;
+            if (path.isAbsolute(screenshot)) {
+              screenshot = path.relative(path.join(__dirname, '..'), screenshot).replace(/\\/g, '/');
+            }
+          }
+          const videoAttachment = result.attachments.find(a => a.name === 'video' || (a.contentType && a.contentType.includes('video')));
+          if (videoAttachment) {
+            video = videoAttachment.path;
+            if (path.isAbsolute(video)) {
+              video = path.relative(path.join(__dirname, '..'), video).replace(/\\/g, '/');
+            }
           }
         }
 
@@ -99,7 +110,8 @@ function extractTests(suite, filePath = '') {
           status,
           duration,
           error,
-          screenshot
+          screenshot,
+          video
         });
       }
     }
@@ -124,6 +136,21 @@ function main() {
     try {
       registry = JSON.parse(fs.readFileSync(REGISTRY_FILE, 'utf8'));
       console.log('📜 Tìm thấy registry kiểm thử lịch sử.');
+      
+      // Làm sạch và chuyển đổi đường dẫn tuyệt đối sang tương đối
+      for (const mId in registry) {
+        const m = registry[mId];
+        if (m.tests) {
+          for (const t of m.tests) {
+            if (t.screenshot && path.isAbsolute(t.screenshot)) {
+              t.screenshot = path.relative(path.join(__dirname, '..'), t.screenshot).replace(/\\/g, '/');
+            }
+            if (t.video && path.isAbsolute(t.video)) {
+              t.video = path.relative(path.join(__dirname, '..'), t.video).replace(/\\/g, '/');
+            }
+          }
+        }
+      }
     } catch (e) {
       console.warn('⚠️ Lỗi khi đọc file registry cũ, tạo mới:', e.message);
     }
@@ -194,7 +221,8 @@ function main() {
             status: rt.status,
             duration: rt.duration,
             error: rt.error,
-            screenshot: rt.screenshot
+            screenshot: rt.screenshot,
+            video: rt.video
           }));
           m.lastRun = nowStr;
 
@@ -989,12 +1017,24 @@ function main() {
                               <div class="error-log">${t.error}</div>
                             ` : ''}
                             ${t.screenshot ? `
-                              <div>
-                                <a href="../${t.screenshot}" target="_blank" class="screenshot-link">
+                              <div style="margin-top: 0.5rem;">
+                                <a href="../../${t.screenshot}" target="_blank" class="screenshot-link">
                                   <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
                                   <span>Xem ảnh chụp màn hình (Screenshot)</span>
                                 </a>
-                                <img src="../${t.screenshot}" class="screenshot-preview" alt="Test Screenshot">
+                                <img src="../../${t.screenshot}" class="screenshot-preview" alt="Test Screenshot">
+                              </div>
+                            ` : ''}
+                            ${t.video ? `
+                              <div style="margin-top: 0.75rem;">
+                                <a href="../../${t.video}" target="_blank" class="screenshot-link" style="color: var(--warning);">
+                                  <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13H6v-2h8v2z"/></svg>
+                                  <span>Xem video ghi hình (Video Recording)</span>
+                                </a>
+                                <video controls class="screenshot-preview" style="max-height: 350px; display: block; margin-top: 0.5rem; border: 1px solid var(--card-border); border-radius: 8px;">
+                                  <source src="../../${t.video}" type="video/webm">
+                                  Trình duyệt của bạn không hỗ trợ tag video.
+                                </video>
                               </div>
                             ` : ''}
                           </div>
@@ -1170,7 +1210,7 @@ function main() {
     if (m.summary.failed > 0) {
       for (const t of m.tests) {
         if (t.status === 'failed') {
-          failedTests.push({ module: m.name, title: t.title, error: t.error });
+          failedTests.push({ module: m.name, title: t.title, error: t.error, screenshot: t.screenshot, video: t.video });
         }
       }
     }
@@ -1183,6 +1223,13 @@ function main() {
       if (b.error) {
         mdContent += `   \`\`\`\n   ${b.error.replace(/\n/g, '\n   ')}\n   \`\`\`\n`;
       }
+      if (b.screenshot) {
+        mdContent += `   * **Screenshot**: ![Screenshot](../${b.screenshot})\n`;
+      }
+      if (b.video) {
+        mdContent += `   * **Video Recording**: [Xem/Tải video](../${b.video})\n`;
+      }
+      mdContent += `\n`;
     });
   } else {
     mdContent += `Toàn bộ kịch bản kiểm thử chạy thành công. Không phát hiện lỗi mới nào.\n`;

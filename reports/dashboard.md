@@ -25,7 +25,7 @@
 
 | Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
 | :--- | :---: | :---: | :---: | :--- | :---: |
-| **Platform-Admin / Tenant Management** | 🟢 **ACTIVE** | **5 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:40:56 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Platform-Admin / Tenant Management** | 🟢 **ACTIVE** | **5 Passed** / 0 Failed / 0 Skipped | 2026-06-18 13:21:16 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 | **Platform-Admin / Plan Management** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 | **Platform-Admin / Subscription** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 
@@ -39,7 +39,7 @@
 | **Tenant-Admin / Master-data / Source Master** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 | **Tenant-Admin / Master-data / Toll Station** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 | **Tenant-Admin / Master-data / Routing** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **Tenant-Admin / Master-data / Service** | 🔴 **FAILED** | **2 Passed** / 1 Failed / 0 Skipped | 2026-06-18 11:40:56 | Lỗi phát hiện tại 1 test cases. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Service** | 🔴 **FAILED** | **2 Passed** / 1 Failed / 0 Skipped | 2026-06-18 13:21:16 | Lỗi phát hiện tại 1 test cases. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 | **Tenant-Admin / Master-data / Cost** | 🟢 **ACTIVE** | **8 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 | **Tenant-Admin / Master-data / Pricing** | 🟢 **ACTIVE** | **5 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 | **Tenant-Admin / Master-data / Vendor Tariff** | 🟢 **ACTIVE** | **8 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
@@ -116,6 +116,9 @@
      33 |     const cancelBtn = page.locator('.ant-modal-footer button:has-text("Cancel")').or(page.locator('button:has-text("Cancel")')).first();
        at /Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js:30:135
    ```
+   * **Screenshot**: ![Screenshot](../test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/test-failed-1.png)
+   * **Video Recording**: [Xem/Tải video](../test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/video.webm)
+
 
 ---
 

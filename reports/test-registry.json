@@ -11,38 +11,43 @@
         "status": "passed",
         "duration": 4492,
         "error": null,
-        "screenshot": null
+        "screenshot": null,
+        "video": null
       },
       {
         "title": "TN-UI-002: New Tenant form sections display correctly",
         "status": "passed",
         "duration": 4061,
         "error": null,
-        "screenshot": null
+        "screenshot": null,
+        "video": null
       },
       {
         "title": "TN-VL-001: Required fields cannot be empty",
         "status": "passed",
         "duration": 5352,
         "error": null,
-        "screenshot": null
+        "screenshot": null,
+        "video": null
       },
       {
         "title": "TN-FN-001 & TN-FN-002: Create tenant successfully and Search it in list",
         "status": "passed",
         "duration": 13043,
         "error": null,
-        "screenshot": null
+        "screenshot": null,
+        "video": null
       },
       {
         "title": "TN-BR-001: Unique Subdomain validation (SR-TN-001)",
         "status": "passed",
         "duration": 11172,
         "error": null,
-        "screenshot": null
+        "screenshot": null,
+        "video": null
       }
     ],
-    "lastRun": "2026-06-18 11:40:56",
+    "lastRun": "2026-06-18 13:21:16",
     "summary": {
       "passed": 5,
       "failed": 0,
@@ -458,24 +463,27 @@
         "status": "passed",
         "duration": 4748,
         "error": null,
-        "screenshot": null
+        "screenshot": null,
+        "video": null
       },
       {
         "title": "FN-001: Mở modal Create Service thành công",
         "status": "failed",
         "duration": 10545,
         "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\u001b[22m\n\n\n  28 |     \n  29 |     // Kiểm tra modal xuất hiện\n> 30 |     await expect(page.locator('.ant-modal-title:has-text(\"Create Service\")').first().or(page.locator('text=Create Service').first())).toBeVisible();\n     |                                                                                                                                       ^\n  31 |     \n  32 |     // Đóng modal\n  33 |     const cancelBtn = page.locator('.ant-modal-footer button:has-text(\"Cancel\")').or(page.locator('button:has-text(\"Cancel\")')).first();\n    at /Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js:30:135",
-        "screenshot": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/test-failed-1.png"
+        "screenshot": "test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/test-failed-1.png",
+        "video": "test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/video.webm"
       },
       {
         "title": "UI-002: Trang danh sách Service Group tải đúng",
         "status": "passed",
         "duration": 6070,
         "error": null,
-        "screenshot": null
+        "screenshot": null,
+        "video": null
       }
     ],
-    "lastRun": "2026-06-18 11:40:56",
+    "lastRun": "2026-06-18 13:21:16",
     "summary": {
       "passed": 2,
       "failed": 1,
