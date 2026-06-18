@@ -10,14 +10,12 @@
 
 | Chỉ số | Số lượng | Tỷ lệ | Ghi chú |
 | :--- | :---: | :---: | :--- |
-| **Tổng số Module** | 40 | 100% | Toàn bộ phân hệ trên toàn hệ thống MoveX |
-| **Module Đã Có Test Case/Script** | 21 | 52.5% | Kịch bản kiểm thử E2E đang chạy thực tế trên UI |
-| **Module Chờ UI/Script** | 19 | 47.5% | Kịch bản được bỏ qua (skipped) do chưa có UI |
-| **Tổng số Test Cases** | 129 | — | Chạy tự động qua Playwright |
-| **Số Test Cases Đạt (Passed)** | 103 | 79.8% | Thành công hoàn toàn |
-| **Số Test Cases Bỏ qua (Skipped)** | 26 | 20.2% | Thuộc các phân hệ chờ triển khai UI |
-| **Số Test Cases Không Đạt (Failed)** | 0 | 0% | Hoàn thành xuất sắc |
-| **Số lỗi phát hiện (Bugs Found)** | 0 | — | Toàn bộ lỗi cũ đã được đóng |
+| **Tổng số Module cần viết** | 40 | 100% | Toàn bộ phân hệ trên toàn hệ thống MoveX |
+| **Total Module Đã Có Script** | 40 | 100% | Đã thiết lập file kịch bản kiểm thử |
+| **Total Module Chưa Có Script** | 0 | 0% | Chưa có file kịch bản |
+| **Total Module Đã Chạy Script** | 27 | 68% | Đã thực thi (Passed / Failed) trên UI |
+| **Total Module Chưa Chạy Script** | 13 | 33% | Bỏ qua (skipped) do chờ UI/Script |
+| **Số lỗi phát hiện (Bugs Found)** | 1 | — | Tổng số test cases bị lỗi (Failed) |
 
 ---
 
@@ -25,66 +23,99 @@
 
 ### 🔑 Platform & System Admin
 
-| Hệ thống / Module | Trạng thái | Mã TC đã chạy | Kết quả kiểm thử | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
+| Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
 | :--- | :---: | :---: | :---: | :--- | :---: |
-| **Platform-Admin / Tenant Management** | 🟢 **ACTIVE** | TN-UI-001 -> TN-BR-001 | **6 Passed** / 0 Failed | Hoạt động tốt. Lỗi RLS đã sửa. Case Unique Subdomain validation (SR-TN-001) passed. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **Platform-Admin / Plan Management** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Giao diện và thông tin các gói plan hiển thị đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **Platform-Admin / Subscription** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Danh sách đăng ký của các tenant hiển thị đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Platform-Admin / Tenant Management** | 🟢 **ACTIVE** | **5 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:40:56 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Platform-Admin / Plan Management** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Platform-Admin / Subscription** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 
 ### 📁 Tenant-Admin / Master-data
 
-| Module | Trạng thái | Mã TC đã chạy | Kết quả kiểm thử | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
+| Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
 | :--- | :---: | :---: | :---: | :--- | :---: |
-| **1. Business Partner** | 🟢 **ACTIVE** | BP-UI-001 -> BP-BR-003 | **7 Passed** / 0 Failed | Hoạt động chính xác, ràng buộc trùng MST hoạt động tốt. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **2. Vehicle** | 🟢 **ACTIVE** | VH-UI-001 -> VH-PM-001 | **11 Passed** / 0 Failed | Cố định lỗi dropdown selector và thêm cơ chế kiểm tra option tồn tại. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **3. Administrative Info** | 🟢 **ACTIVE** | UI-001 -> FN-002 | **4 Passed** / 0 Failed | Hoạt động tốt, kiểm thử thành công form tạo mới & validation. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **4. Source Master** | 🟢 **ACTIVE** | UI-001 -> FN-002 | **4 Passed** / 0 Failed | Giao diện và các nút thao tác phản hồi đúng theo đặc tả. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **5. Toll Station** | 🟢 **ACTIVE** | UI-001 -> FN-002 | **4 Passed** / 0 Failed | Các tab con (Identification, Toll Tariff) hiển thị đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **6. Routing** | 🟢 **ACTIVE** | UI-001 -> FN-002 | **4 Passed** / 0 Failed | Bố cục lưới 2 cột và validation kiểm tra bắt buộc hoạt động đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **7. Service** | 🟢 **ACTIVE** | UI-001 -> FN-001 | **3 Passed** / 0 Failed | Giao diện và modal thêm mới mở thành công. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **8. Cost** | 🟢 **ACTIVE** | UI-001 -> FN-004 | **8 Passed** / 0 Failed | Kiểm thử đầy đủ cho cả Cost Group và Cost Items. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **9. Pricing** | 🟢 **ACTIVE** | UI-001 -> FN-001 | **5 Passed** / 0 Failed | Chạy kiểm thử thành công các phân hệ con (Policy, Rule, Planned Cost). | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **10. Vendor Tariff** | 🟢 **ACTIVE** | UI-001 -> FN-004 | **8 Passed** / 0 Failed | Chạy kiểm thử thành công Trucking Freight và Freight VAS Tariff. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **11. Common Code** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Trang danh sách hiển thị đúng (Common Code là Read-only). | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **12. User Management** | 🟢 **ACTIVE** | UI-001 -> FN-002 | **4 Passed** / 0 Failed | Kiểm thử thành công danh sách người dùng và tạo mới. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **13. Authorization** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Vai trò & Phân quyền tải giao diện chính xác. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **14. Organization** | 🟢 **ACTIVE** | UI-001 -> UI-002 | **2 Passed** / 0 Failed | Hỗ trợ bypass 403 Forbidden nếu tài khoản không có quyền văn phòng/phòng ban. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **15. Exchange Rate** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase frontend. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **16. Currency** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase frontend. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **17. Unit of Measure** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase frontend. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **18. Inventory Master** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase frontend. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **19. Settings** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase frontend. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Business Partner** | 🟢 **ACTIVE** | **7 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Vehicle** | 🟢 **ACTIVE** | **12 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Administrative Info** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Source Master** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Toll Station** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Routing** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Service** | 🔴 **FAILED** | **2 Passed** / 1 Failed / 0 Skipped | 2026-06-18 11:40:56 | Lỗi phát hiện tại 1 test cases. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Cost** | 🟢 **ACTIVE** | **8 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Pricing** | 🟢 **ACTIVE** | **5 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Vendor Tariff** | 🟢 **ACTIVE** | **8 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Common Code** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Exchange Rate** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Currency** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Unit of Measure** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / User Management** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Authorization** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Organization** | 🟢 **ACTIVE** | **2 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Admin / Master-data / Settings** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
 
-### 🚛 Tenant-Operation / OMS & TMS
+### 📦 Tenant-Operation / IM
 
-| Hệ thống / Module | Trạng thái | Mã TC đã chạy | Kết quả kiểm thử | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
+| Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
 | :--- | :---: | :---: | :---: | :--- | :---: |
-| **OMS / Work Order** | 🟢 **ACTIVE** | TC-MF-001 -> TC-MF-010 | **18 Passed** / 0 Failed | Toàn bộ 18 test cases đã chạy thành công, sửa lỗi cú pháp chọn table/empty selector. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **OMS / Customer Request** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Hoạt động chính xác, bypass 403 Forbidden nếu tài khoản không có quyền. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **OMS / Quotation** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Giao diện danh sách báo giá tải đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **OMS / Purchase Order** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Trang danh sách tải đúng, bypass 403 Forbidden thành công. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **OMS / Internal Order** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Trang danh sách tải đúng, bypass 403 Forbidden thành công. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **OMS / Customs Job** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **OMS / Freight Job** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Trucking Order** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Danh sách lệnh vận chuyển tải đúng, bypass 403 Forbidden thành công. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Trucking Planning** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Giao diện lập kế hoạch tải đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Proof of Delivery** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Giao diện POD tải đúng, bypass 403 Forbidden thành công. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Fleet Management** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Giao diện Fleet Management tải đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / TMS Work Order List** | 🟢 **ACTIVE** | UI-001 | **1 Passed** / 0 Failed | Giao diện danh sách tải đúng. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Driver Management** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Driver Salary** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Maintenance Management** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Fuel Management** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Electric Charging Management** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
-| **TMS / Maintenance & Replacement** | 🟡 *PENDING* | UI-001, FN-001 | **2 Skipped** | Chưa được triển khai giao diện (UI/Route) trên codebase. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / IM / Inventory (Kho)** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+
+### 🚛 Tenant-Operation / OMS
+
+| Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
+| :--- | :---: | :---: | :---: | :--- | :---: |
+| **Tenant-Operation / OMS / Customer request** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / OMS / Quotation** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / OMS / Work order** | 🟢 **ACTIVE** | **20 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / OMS / Purchase Order** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / OMS / Internal Order** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / OMS / Execution request: Customs Job** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / OMS / Execution request: Freight Job** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+
+### 🚚 Tenant-Operation / TMS
+
+| Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
+| :--- | :---: | :---: | :---: | :--- | :---: |
+| **Tenant-Operation / TMS / Trucking Order** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Trucking Planning** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Proof of Delivery** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Fleet Management** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / TMS Work Order List** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Driver Management** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Driver Salary** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Maintenance Management** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Fuel Management** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Electric Charging Management** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+| **Tenant-Operation / TMS / Maintenance & Replacement** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI. | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |
+
 
 ---
 
 ## 3. Nhật ký lỗi phát hiện (Bugs Registry Log)
 
-Tất cả các lỗi phát hiện trước đó đã được giải quyết hoặc phân loại chính xác:
-1. **BUG-001 (RLS 500 khi tạo Tenant)**: Đã được sửa trên Database của môi trường Staging (Closed).
-2. **BUG-002 (Không hiện toast lỗi trùng subdomain)**: Đã xác nhận đây là hành vi hợp lệ của hệ thống để chặn đăng ký trùng subdomain. Test case `TN-BR-001` đã chuyển sang Passed (Closed).
+Đã phát hiện 1 lỗi trong quá trình kiểm thử:
+
+1. **[Service] — FN-001: Mở modal Create Service thành công**
+   ```
+   Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+   
+   Locator: locator('.ant-modal-title:has-text("Create Service")').first().or(locator('text=Create Service').first())
+   Expected: visible
+   Timeout: 5000ms
+   Error: element(s) not found
+   
+   Call log:
+   [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+   [2m  - waiting for locator('.ant-modal-title:has-text("Create Service")').first().or(locator('text=Create Service').first())[22m
+   
+   
+     28 |     
+     29 |     // Kiểm tra modal xuất hiện
+   > 30 |     await expect(page.locator('.ant-modal-title:has-text("Create Service")').first().or(page.locator('text=Create Service').first())).toBeVisible();
+        |                                                                                                                                       ^
+     31 |     
+     32 |     // Đóng modal
+     33 |     const cancelBtn = page.locator('.ant-modal-footer button:has-text("Cancel")').or(page.locator('button:has-text("Cancel")')).first();
+       at /Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js:30:135
+   ```
 
 ---
 

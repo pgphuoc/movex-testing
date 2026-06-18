@@ -5,14 +5,51 @@
     "system": "Platform-Admin",
     "specFile": "specs/tenant-management/tenant-management.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "TN-UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 4492,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "TN-UI-002: New Tenant form sections display correctly",
+        "status": "passed",
+        "duration": 4061,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "TN-VL-001: Required fields cannot be empty",
+        "status": "passed",
+        "duration": 5352,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "TN-FN-001 & TN-FN-002: Create tenant successfully and Search it in list",
+        "status": "passed",
+        "duration": 13043,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "TN-BR-001: Unique Subdomain validation (SR-TN-001)",
+        "status": "passed",
+        "duration": 11172,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:40:56",
     "summary": {
-      "passed": 0,
+      "passed": 5,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 5
+    },
+    "activeStatus": "passed"
   },
   "plan-management": {
     "id": "plan-management",
@@ -20,14 +57,23 @@
     "system": "Platform-Admin",
     "specFile": "specs/plan-management/plan-management.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 4853,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "subscription": {
     "id": "subscription",
@@ -35,14 +81,23 @@
     "system": "Platform-Admin",
     "specFile": "specs/subscription/subscription.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 4621,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "business-partner": {
     "id": "business-partner",
@@ -50,14 +105,65 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/business-partner/business-partner.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "BP-UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 5414,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "BP-UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con",
+        "status": "passed",
+        "duration": 5771,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "BP-VL-001: Lưu form trống hiện lỗi trường bắt buộc",
+        "status": "passed",
+        "duration": 4541,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "BP-VL-002: Kiểm tra định dạng email và số điện thoại",
+        "status": "passed",
+        "duration": 5659,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "BP-FN-003: Nút Hủy từ Tạo mới → quay về Danh sách",
+        "status": "passed",
+        "duration": 4158,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "BP-BR-001 & BP-BR-002: Tạo mới doanh nghiệp thành công, tìm kiếm và kiểm tra trùng MST",
+        "status": "passed",
+        "duration": 18542,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "BP-BR-003: Hiển thị có điều kiện Tab Cộng tác viên",
+        "status": "passed",
+        "duration": 5369,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 7,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 7
+    },
+    "activeStatus": "passed"
   },
   "vehicle": {
     "id": "vehicle",
@@ -65,14 +171,100 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/vehicle/vehicle-list.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "VH-UI-001: Trang tải đúng bố cục",
+        "status": "passed",
+        "duration": 4241,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-UI-002: Mặc định hiển thị 7 cột",
+        "status": "passed",
+        "duration": 4301,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-UI-006: Có phân trang",
+        "status": "passed",
+        "duration": 4277,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-FN-007: Nhấn hàng → Trang Chi tiết",
+        "status": "passed",
+        "duration": 4420,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-FN-009: Nút Hủy từ Thêm mới → quay về Danh sách",
+        "status": "passed",
+        "duration": 5621,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-VL-001→007: Lưu form trống hiện lỗi tất cả trường bắt buộc",
+        "status": "passed",
+        "duration": 6636,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-BR-003: Rơ moóc ẩn trường Động cơ/Nhiên liệu/Dung tích (SR-VH-003)",
+        "status": "passed",
+        "duration": 6000,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-BR-004: Đầu kéo hiện trường Khối lượng kéo theo (SR-VH-004)",
+        "status": "passed",
+        "duration": 5425,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-BR-002: Xe tải hiện trường Động cơ, ẩn Khối lượng kéo theo (SR-VH-002)",
+        "status": "passed",
+        "duration": 4863,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-PM-001: Admin thấy nút Thêm mới và Sửa",
+        "status": "passed",
+        "duration": 4870,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-UI-008: Trang chi tiết hiển thị đúng bố cục",
+        "status": "passed",
+        "duration": 4238,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "VH-FN-008: Nút Sửa → Trang chỉnh sửa",
+        "status": "passed",
+        "duration": 4375,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 12,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 12
+    },
+    "activeStatus": "passed"
   },
   "administrative-info": {
     "id": "administrative-info",
@@ -80,14 +272,44 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/administrative-info/administrative-info.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 6843,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con",
+        "status": "passed",
+        "duration": 6204,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
+        "status": "passed",
+        "duration": 7888,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
+        "status": "passed",
+        "duration": 5218,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 4,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 4
+    },
+    "activeStatus": "passed"
   },
   "source-master": {
     "id": "source-master",
@@ -95,14 +317,44 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/source-master/source-master.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Source Master tải đúng",
+        "status": "passed",
+        "duration": 4586,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới hiển thị đầy đủ các trường",
+        "status": "passed",
+        "duration": 4527,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
+        "status": "passed",
+        "duration": 5958,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
+        "status": "passed",
+        "duration": 4330,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 4,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 4
+    },
+    "activeStatus": "passed"
   },
   "toll-station": {
     "id": "toll-station",
@@ -110,14 +362,44 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/toll-station/toll-station.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Toll Station tải đúng",
+        "status": "passed",
+        "duration": 5816,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con",
+        "status": "passed",
+        "duration": 4911,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
+        "status": "passed",
+        "duration": 5530,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
+        "status": "passed",
+        "duration": 4365,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 4,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 4
+    },
+    "activeStatus": "passed"
   },
   "routing": {
     "id": "routing",
@@ -125,14 +407,44 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/routing/routing.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Routing tải đúng",
+        "status": "passed",
+        "duration": 4991,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới hiển thị đầy đủ các cột và sections",
+        "status": "passed",
+        "duration": 4405,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Validation lỗi bắt buộc khi lưu form trống",
+        "status": "passed",
+        "duration": 5648,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách",
+        "status": "passed",
+        "duration": 4773,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 4,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 4
+    },
+    "activeStatus": "passed"
   },
   "services": {
     "id": "services",
@@ -140,14 +452,37 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/services/services.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Service tải đúng",
+        "status": "passed",
+        "duration": 4748,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Mở modal Create Service thành công",
+        "status": "failed",
+        "duration": 10545,
+        "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\u001b[22m\n\n\n  28 |     \n  29 |     // Kiểm tra modal xuất hiện\n> 30 |     await expect(page.locator('.ant-modal-title:has-text(\"Create Service\")').first().or(page.locator('text=Create Service').first())).toBeVisible();\n     |                                                                                                                                       ^\n  31 |     \n  32 |     // Đóng modal\n  33 |     const cancelBtn = page.locator('.ant-modal-footer button:has-text(\"Cancel\")').or(page.locator('button:has-text(\"Cancel\")')).first();\n    at /Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js:30:135",
+        "screenshot": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/test-failed-1.png"
+      },
+      {
+        "title": "UI-002: Trang danh sách Service Group tải đúng",
+        "status": "passed",
+        "duration": 6070,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:40:56",
     "summary": {
-      "passed": 0,
-      "failed": 0,
+      "passed": 2,
+      "failed": 1,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 3
+    },
+    "activeStatus": "failed"
   },
   "cost": {
     "id": "cost",
@@ -155,14 +490,72 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/cost/cost.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Cost Group tải đúng",
+        "status": "passed",
+        "duration": 4655,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới Cost Group hiển thị đúng",
+        "status": "passed",
+        "duration": 4186,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Validation lỗi bắt buộc khi lưu Cost Group trống",
+        "status": "passed",
+        "duration": 6236,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-002: Nút Hủy từ màn hình tạo mới Cost Group quay lại danh sách",
+        "status": "passed",
+        "duration": 4705,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-003: Trang danh sách Cost Item tải đúng",
+        "status": "passed",
+        "duration": 5079,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-004: Trang tạo mới Cost Item hiển thị đúng",
+        "status": "passed",
+        "duration": 7135,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-003: Validation lỗi bắt buộc khi lưu Cost Item trống",
+        "status": "passed",
+        "duration": 6164,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-004: Nút Hủy từ màn hình tạo mới Cost Item quay lại danh sách",
+        "status": "passed",
+        "duration": 4813,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 8,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 8
+    },
+    "activeStatus": "passed"
   },
   "pricing": {
     "id": "pricing",
@@ -170,14 +563,51 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/pricing/pricing.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Pricing Policy tải đúng",
+        "status": "passed",
+        "duration": 4280,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới Pricing Policy hiển thị đúng",
+        "status": "passed",
+        "duration": 4377,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Nút Hủy từ màn hình tạo mới Pricing Policy quay lại danh sách",
+        "status": "passed",
+        "duration": 5526,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-003: Trang danh sách Pricing Rule tải đúng",
+        "status": "passed",
+        "duration": 4314,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-004: Trang danh sách Planned Cost tải đúng",
+        "status": "passed",
+        "duration": 4780,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 5,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 5
+    },
+    "activeStatus": "passed"
   },
   "vendor-tariff": {
     "id": "vendor-tariff",
@@ -185,14 +615,72 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/vendor-tariff/vendor-tariff.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Trucking Freight tải đúng",
+        "status": "passed",
+        "duration": 4968,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới Trucking Freight hiển thị đúng",
+        "status": "passed",
+        "duration": 4312,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Validation lỗi bắt buộc khi lưu Trucking Freight trống",
+        "status": "passed",
+        "duration": 5774,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-002: Nút Hủy từ tạo mới Trucking Freight quay lại danh sách",
+        "status": "passed",
+        "duration": 5426,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-003: Trang danh sách Freight VAS Tariff tải đúng",
+        "status": "passed",
+        "duration": 4710,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-004: Trang tạo mới Freight VAS Tariff hiển thị đúng",
+        "status": "passed",
+        "duration": 4551,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-003: Validation lỗi bắt buộc khi lưu Freight VAS Tariff trống",
+        "status": "passed",
+        "duration": 5378,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-004: Nút Hủy từ tạo mới Freight VAS Tariff quay lại danh sách",
+        "status": "passed",
+        "duration": 4416,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 8,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 8
+    },
+    "activeStatus": "passed"
   },
   "common-codes": {
     "id": "common-codes",
@@ -200,14 +688,23 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/common-codes/common-codes.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Common Codes tải đúng",
+        "status": "passed",
+        "duration": 5075,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "exchange-rate": {
     "id": "exchange-rate",
@@ -215,14 +712,30 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/exchange-rate/exchange-rate.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới Exchange Rate thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "currency": {
     "id": "currency",
@@ -230,14 +743,30 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/currency/currency.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới Currency thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "unit-of-measure": {
     "id": "unit-of-measure",
@@ -245,14 +774,30 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/unit-of-measure/unit-of-measure.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới Unit of Measure thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "user-management": {
     "id": "user-management",
@@ -260,14 +805,44 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/user-management/user-management.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 4576,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang tạo mới hiển thị đầy đủ trường",
+        "status": "passed",
+        "duration": 3935,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Nút Hủy từ tạo mới quay lại danh sách",
+        "status": "passed",
+        "duration": 4032,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-002: Validation lỗi bắt buộc khi lưu form trống",
+        "status": "passed",
+        "duration": 5615,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 4,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 4
+    },
+    "activeStatus": "passed"
   },
   "authorization": {
     "id": "authorization",
@@ -275,14 +850,23 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/authorization/authorization.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 6978,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "organization": {
     "id": "organization",
@@ -290,29 +874,61 @@
     "system": "Tenant-Admin / Master-data",
     "specFile": "specs/organization/organization.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang Offices tải đúng bố cục",
+        "status": "passed",
+        "duration": 3874,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI-002: Trang Departments tải đúng bố cục",
+        "status": "passed",
+        "duration": 4324,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 2,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 2
+    },
+    "activeStatus": "passed"
   },
   "settings": {
     "id": "settings",
     "name": "Settings",
     "system": "Tenant-Admin / Master-data",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/settings/settings.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang cấu hình hệ thống tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Cập nhật cấu hình hệ thống thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "inventory-master": {
     "id": "inventory-master",
@@ -320,14 +936,30 @@
     "system": "Tenant-Operation / IM",
     "specFile": "specs/inventory-master/inventory-master.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới Inventory Master thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "customer-request": {
     "id": "customer-request",
@@ -335,14 +967,23 @@
     "system": "Tenant-Operation / OMS",
     "specFile": "specs/customer-request/customer-request.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 4838,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "quotation": {
     "id": "quotation",
@@ -350,14 +991,23 @@
     "system": "Tenant-Operation / OMS",
     "specFile": "specs/quotation/quotation.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 4713,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "work-order": {
     "id": "work-order",
@@ -365,14 +1015,156 @@
     "system": "Tenant-Operation / OMS",
     "specFile": "specs/work-order/work-order.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI: Trang Work Order List tải đúng bố cục",
+        "status": "passed",
+        "duration": 4050,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Bước 2: Nhấn Add Work Order → mở màn hình Create",
+        "status": "passed",
+        "duration": 4554,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Bước 3: Bỏ trống Quotation Code - không báo lỗi",
+        "status": "passed",
+        "duration": 6374,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Bước 4: Nhập đầy đủ Header fields và Save",
+        "status": "passed",
+        "duration": 4862,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Bước 5: Scope of Services hiển thị đúng",
+        "status": "passed",
+        "duration": 4506,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: Status badge hiển thị Draft trước khi Save",
+        "status": "passed",
+        "duration": 4040,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: WO Detail hiển thị các tab chính xác",
+        "status": "passed",
+        "duration": 5027,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Tab Estimated Freight: Hiển thị bảng Sell-out và Buy-in",
+        "status": "passed",
+        "duration": 4139,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: Summary Cards hiển thị trên tab Estimated Freight",
+        "status": "passed",
+        "duration": 4067,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: WO Detail có nút Submit hoặc Edit",
+        "status": "passed",
+        "duration": 4294,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: WO Approved hiển thị read-only form",
+        "status": "passed",
+        "duration": 4285,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: Tab Work Item hiển thị danh sách Work Items",
+        "status": "passed",
+        "duration": 4544,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: Tab Work Item hiển thị Grand Total row",
+        "status": "passed",
+        "duration": 4537,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: Work Item row có Action buttons",
+        "status": "passed",
+        "duration": 4795,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: Tab Container/Truck List hiển thị",
+        "status": "passed",
+        "duration": 4263,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "UI: Status badges hiển thị đúng trên WO List",
+        "status": "passed",
+        "duration": 4120,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Điều hướng OMS → Work Order List",
+        "status": "passed",
+        "duration": 4147,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Cancel từ Create → quay về List",
+        "status": "passed",
+        "duration": 5177,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Click WO row → Detail page",
+        "status": "passed",
+        "duration": 3945,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "Detail → Edit button → Update page",
+        "status": "passed",
+        "duration": 4311,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 20,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 20
+    },
+    "activeStatus": "passed"
   },
   "purchase-order": {
     "id": "purchase-order",
@@ -380,14 +1172,23 @@
     "system": "Tenant-Operation / OMS",
     "specFile": "specs/purchase-order/purchase-order.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 3753,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "internal-order": {
     "id": "internal-order",
@@ -395,44 +1196,85 @@
     "system": "Tenant-Operation / OMS",
     "specFile": "specs/internal-order/internal-order.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách tải đúng bố cục",
+        "status": "passed",
+        "duration": 4099,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "customs-job": {
     "id": "customs-job",
     "name": "Execution request: Customs Job",
     "system": "Tenant-Operation / OMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/customs-job/customs-job.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Customs Job tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới Customs Job thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "freight-job": {
     "id": "freight-job",
     "name": "Execution request: Freight Job",
     "system": "Tenant-Operation / OMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/freight-job/freight-job.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Freight Job tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới Freight Job thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "trucking-order": {
     "id": "trucking-order",
@@ -440,14 +1282,23 @@
     "system": "Tenant-Operation / TMS",
     "specFile": "specs/trucking-order/trucking-order.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang Trucking Order tải đúng bố cục",
+        "status": "passed",
+        "duration": 5018,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "trucking-planning": {
     "id": "trucking-planning",
@@ -455,14 +1306,23 @@
     "system": "Tenant-Operation / TMS",
     "specFile": "specs/trucking-planning/trucking-planning.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang Trucking Planning tải đúng bố cục",
+        "status": "passed",
+        "duration": 3843,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "pod-management": {
     "id": "pod-management",
@@ -470,14 +1330,23 @@
     "system": "Tenant-Operation / TMS",
     "specFile": "specs/pod-management/pod-management.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang Proof of Delivery tải đúng bố cục",
+        "status": "passed",
+        "duration": 4606,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "fleet-management": {
     "id": "fleet-management",
@@ -485,14 +1354,23 @@
     "system": "Tenant-Operation / TMS",
     "specFile": "specs/fleet-management/fleet-management.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang Fleet Management tải đúng bố cục",
+        "status": "passed",
+        "duration": 3924,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "tms-work-order": {
     "id": "tms-work-order",
@@ -500,103 +1378,208 @@
     "system": "Tenant-Operation / TMS",
     "specFile": "specs/tms-work-order/tms-work-order.spec.js",
     "status": "ACTIVE",
-    "tests": [],
-    "lastRun": null,
+    "tests": [
+      {
+        "title": "UI-001: Trang Trucking Work Order List tải đúng bố cục",
+        "status": "passed",
+        "duration": 4603,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
-      "passed": 0,
+      "passed": 1,
       "failed": 0,
       "skipped": 0,
-      "total": 0
-    }
+      "total": 1
+    },
+    "activeStatus": "passed"
   },
   "driver-management": {
     "id": "driver-management",
     "name": "Driver Management",
     "system": "Tenant-Operation / TMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/driver-management/driver-management.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách Driver Management tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới tài xế thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "driver-salary": {
     "id": "driver-salary",
     "name": "Driver Salary",
     "system": "Tenant-Operation / TMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/driver-salary/driver-salary.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang tính lương tài xế tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tính lương tháng cho tài xế thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "maintenance": {
     "id": "maintenance",
     "name": "Maintenance Management",
     "system": "Tenant-Operation / TMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/maintenance/maintenance.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang danh sách bảo trì tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới yêu cầu bảo trì xe thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "fuel": {
     "id": "fuel",
     "name": "Fuel Management",
     "system": "Tenant-Operation / TMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/fuel/fuel.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang quản lý cấp phát nhiên liệu tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới phiếu đổ nhiên liệu thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "charging": {
     "id": "charging",
     "name": "Electric Charging Management",
     "system": "Tenant-Operation / TMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/charging/charging.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang quản lý sạc điện tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới phiếu sạc điện thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   },
   "replacement": {
     "id": "replacement",
     "name": "Maintenance & Replacement",
     "system": "Tenant-Operation / TMS",
-    "specFile": null,
-    "status": "PENDING",
-    "tests": [],
-    "lastRun": null,
+    "specFile": "specs/replacement/replacement.spec.js",
+    "status": "ACTIVE",
+    "tests": [
+      {
+        "title": "UI-001: Trang quản lý cấp phát thay thế phụ tùng tải đúng bố cục",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      },
+      {
+        "title": "FN-001: Tạo mới yêu cầu thay thế phụ tùng thành công",
+        "status": "skipped",
+        "duration": 0,
+        "error": null,
+        "screenshot": null
+      }
+    ],
+    "lastRun": "2026-06-18 11:39:33",
     "summary": {
       "passed": 0,
       "failed": 0,
-      "skipped": 0,
-      "total": 0
-    }
+      "skipped": 2,
+      "total": 2
+    },
+    "activeStatus": "skipped"
   }
 }

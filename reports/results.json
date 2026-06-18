@@ -66,1161 +66,452 @@
   },
   "suites": [
     {
-      "title": "charging/charging.spec.js",
-      "file": "charging/charging.spec.js",
+      "title": "services/services.spec.js",
+      "file": "services/services.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Electric Charging Management — Giao diện (Chưa kiểm thử)",
-          "file": "charging/charging.spec.js",
-          "line": 8,
+          "title": "Services — Giao diện & Chức năng",
+          "file": "services/services.spec.js",
+          "line": 13,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang quản lý sạc điện tải đúng bố cục",
+              "title": "UI-001: Trang danh sách Service tải đúng",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
+                  "annotations": [],
+                  "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4748,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.277Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
-                        }
-                      ],
+                      "startTime": "2026-06-18T11:39:54.325Z",
+                      "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "04710f5e442cb8f2e19c-05ab5db8e02505a505eb",
-              "file": "charging/charging.spec.js",
-              "line": 9,
-              "column": 8
-            }
-          ]
-        },
-        {
-          "title": "Electric Charging Management — Chức năng (Chưa kiểm thử)",
-          "file": "charging/charging.spec.js",
-          "line": 14,
-          "column": 6,
-          "specs": [
+              "id": "49347881eaf25f3d6f51-3abe38fd4f6f7856800f",
+              "file": "services/services.spec.js",
+              "line": 14,
+              "column": 3
+            },
             {
-              "title": "FN-001: Tạo mới phiếu sạc điện thành công",
+              "title": "FN-001: Mở modal Create Service thành công",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10545,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\u001b[22m\n\n    at /Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js:30:135",
+                        "location": {
+                          "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js",
+                          "column": 135,
+                          "line": 30
+                        },
+                        "snippet": "  28 |     \n  29 |     // Kiểm tra modal xuất hiện\n> 30 |     await expect(page.locator('.ant-modal-title:has-text(\"Create Service\")').first().or(page.locator('text=Create Service').first())).toBeVisible();\n     |                                                                                                                                       ^\n  31 |     \n  32 |     // Đóng modal\n  33 |     const cancelBtn = page.locator('.ant-modal-footer button:has-text(\"Cancel\")').or(page.locator('button:has-text(\"Cancel\")')).first();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js",
+                            "column": 135,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.ant-modal-title:has-text(\"Create Service\")').first().or(locator('text=Create Service').first())\u001b[22m\n\n\n  28 |     \n  29 |     // Kiểm tra modal xuất hiện\n> 30 |     await expect(page.locator('.ant-modal-title:has-text(\"Create Service\")').first().or(page.locator('text=Create Service').first())).toBeVisible();\n     |                                                                                                                                       ^\n  31 |     \n  32 |     // Đóng modal\n  33 |     const cancelBtn = page.locator('.ant-modal-footer button:has-text(\"Cancel\")').or(page.locator('button:has-text(\"Cancel\")')).first();\n    at /Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js:30:135"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-18T11:39:59.170Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/test-results/services-services-Services-ba9c1-l-Create-Service-thành-công-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/services/services.spec.js",
+                        "column": 135,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "49347881eaf25f3d6f51-8078e225eac3ccffa205",
+              "file": "services/services.spec.js",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "UI-002: Trang danh sách Service Group tải đúng",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
+                  "annotations": [],
+                  "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6070,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/charging/charging.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
-                        }
-                      ],
+                      "startTime": "2026-06-18T11:40:09.967Z",
+                      "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "04710f5e442cb8f2e19c-26f3ddd47ec9af8db4fe",
-              "file": "charging/charging.spec.js",
-              "line": 15,
-              "column": 8
+              "id": "49347881eaf25f3d6f51-5ccb895fe5518906eb7e",
+              "file": "services/services.spec.js",
+              "line": 40,
+              "column": 3
             }
           ]
         }
       ]
     },
     {
-      "title": "customs-job/customs-job.spec.js",
-      "file": "customs-job/customs-job.spec.js",
+      "title": "tenant-management/tenant-management.spec.js",
+      "file": "tenant-management/tenant-management.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Execution request: Customs Job — Giao diện (Chưa kiểm thử)",
-          "file": "customs-job/customs-job.spec.js",
-          "line": 8,
+          "title": "Tenant Management — Giao diện",
+          "file": "tenant-management/tenant-management.spec.js",
+          "line": 37,
           "column": 6,
           "specs": [
             {
-              "title": "UI-001: Trang danh sách Customs Job tải đúng bố cục",
+              "title": "TN-UI-001: Trang danh sách tải đúng bố cục",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
+                  "annotations": [],
+                  "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4492,
                       "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
+                      "stdout": [
                         {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
                         }
                       ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-18T11:40:16.138Z",
+                      "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "e0f99243a686de9d5fde-c8158645a670c66a1b07",
-              "file": "customs-job/customs-job.spec.js",
-              "line": 9,
-              "column": 8
+              "id": "25522c93901f5e402ab4-bc47f891819d8d056597",
+              "file": "tenant-management/tenant-management.spec.js",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "TN-UI-002: New Tenant form sections display correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4061,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-18T11:40:20.637Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "25522c93901f5e402ab4-5dc687d3c0473d5280b2",
+              "file": "tenant-management/tenant-management.spec.js",
+              "line": 50,
+              "column": 3
             }
           ]
         },
         {
-          "title": "Execution request: Customs Job — Chức năng (Chưa kiểm thử)",
-          "file": "customs-job/customs-job.spec.js",
-          "line": 14,
+          "title": "Tenant Management — Validation",
+          "file": "tenant-management/tenant-management.spec.js",
+          "line": 63,
           "column": 6,
           "specs": [
             {
-              "title": "FN-001: Tạo mới Customs Job thành công",
+              "title": "TN-VL-001: Required fields cannot be empty",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
+                  "annotations": [],
+                  "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5352,
                       "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
+                      "stdout": [
                         {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/customs-job/customs-job.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
                         }
                       ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-18T11:40:24.704Z",
+                      "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "e0f99243a686de9d5fde-9772ace367bf96743c8a",
-              "file": "customs-job/customs-job.spec.js",
-              "line": 15,
-              "column": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "driver-management/driver-management.spec.js",
-      "file": "driver-management/driver-management.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Driver Management — Giao diện (Chưa kiểm thử)",
-          "file": "driver-management/driver-management.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Driver Management tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "f9e850c9546e51c6ecee-02ef8f2fd3d968f5c19f",
-              "file": "driver-management/driver-management.spec.js",
-              "line": 9,
-              "column": 8
+              "id": "25522c93901f5e402ab4-0423a48180d1d275cc5e",
+              "file": "tenant-management/tenant-management.spec.js",
+              "line": 64,
+              "column": 3
             }
           ]
         },
         {
-          "title": "Driver Management — Chức năng (Chưa kiểm thử)",
-          "file": "driver-management/driver-management.spec.js",
-          "line": 14,
+          "title": "Tenant Management — Chức năng & Nghiệp vụ",
+          "file": "tenant-management/tenant-management.spec.js",
+          "line": 76,
           "column": 6,
           "specs": [
             {
-              "title": "FN-001: Tạo mới tài xế thành công",
+              "title": "TN-FN-001 & TN-FN-002: Create tenant successfully and Search it in list",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
+                  "annotations": [],
+                  "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13043,
                       "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
+                      "stdout": [
                         {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-management/driver-management.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
+                          "text": "Creating Tenant with code: TNT833032, subdomain: qtltest833032, email: owner.833032@qtllogistics.vn\n"
+                        },
+                        {
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": ">> Request: POST https://dev-api.movex.vn/api/v1/x-system/tenants\n"
+                        },
+                        {
+                          "text": "<< Response: 201 https://dev-api.movex.vn/api/v1/x-system/tenants\n"
+                        },
+                        {
+                          "text": ">> Request: POST https://dev-api.movex.vn/api/v1/x-system/tenants/65/init-data\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants/65/init-data\n"
+                        },
+                        {
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20\n"
+                        },
+                        {
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20&search=QTL+Auto+Test+833032\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/x-system/tenants?page=0&size=20&search=QTL+Auto+Test+833032\n"
                         }
                       ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-18T11:40:30.062Z",
+                      "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "f9e850c9546e51c6ecee-dcf871edeb6243abd2e6",
-              "file": "driver-management/driver-management.spec.js",
-              "line": 15,
-              "column": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "driver-salary/driver-salary.spec.js",
-      "file": "driver-salary/driver-salary.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Driver Salary — Giao diện (Chưa kiểm thử)",
-          "file": "driver-salary/driver-salary.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
+              "id": "25522c93901f5e402ab4-a28a634b82a7ffe2389c",
+              "file": "tenant-management/tenant-management.spec.js",
+              "line": 77,
+              "column": 3
+            },
             {
-              "title": "UI-001: Trang tính lương tài xế tải đúng bố cục",
+              "title": "TN-BR-001: Unique Subdomain validation (SR-TN-001)",
               "ok": true,
               "tags": [],
               "tests": [
                 {
                   "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
+                  "annotations": [],
+                  "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11172,
                       "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
+                      "stdout": [
                         {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
+                          "text": ">> Request: GET https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": "<< Response: 200 https://dev-api.movex.vn/api/v1/auth/me\n"
+                        },
+                        {
+                          "text": "Clicking Save for duplicate subdomain...\n"
+                        },
+                        {
+                          "text": ">> Request: POST https://dev-api.movex.vn/api/v1/x-system/tenants\n"
+                        },
+                        {
+                          "text": "<< Response: 400 https://dev-api.movex.vn/api/v1/x-system/tenants\n"
+                        },
+                        {
+                          "text": "<< Response Body (400): {\"isSuccess\":false,\"message\":\"Subdomain already exists: qtl.movex.vn\",\"errorDetails\":{\"code\":\"DNS_RECORD_EXISTS\"},\"timestamp\":\"2026-06-18T11:40:49.761515017\"}\n"
+                        },
+                        {
+                          "text": "Searching for error messages on the page...\n"
                         }
                       ],
+                      "stderr": [
+                        {
+                          "text": "UI WARNING: The server returned 400 Bad Request (Subdomain already exists) and registration was successfully blocked, but the UI did not display a visible error toast or inline message.\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "startTime": "2026-06-18T11:40:43.111Z",
+                      "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
-              "id": "982cdbabcae24886baaa-25ef4560c910f9c5b255",
-              "file": "driver-salary/driver-salary.spec.js",
-              "line": 9,
-              "column": 8
-            }
-          ]
-        },
-        {
-          "title": "Driver Salary — Chức năng (Chưa kiểm thử)",
-          "file": "driver-salary/driver-salary.spec.js",
-          "line": 14,
-          "column": 6,
-          "specs": [
-            {
-              "title": "FN-001: Tính lương tháng cho tài xế thành công",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/driver-salary/driver-salary.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "982cdbabcae24886baaa-f036748c253b9fc64102",
-              "file": "driver-salary/driver-salary.spec.js",
-              "line": 15,
-              "column": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "freight-job/freight-job.spec.js",
-      "file": "freight-job/freight-job.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Execution request: Freight Job — Giao diện (Chưa kiểm thử)",
-          "file": "freight-job/freight-job.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách Freight Job tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.278Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "a31bb8f7f8444d65b440-23c0881e7a771f9549e7",
-              "file": "freight-job/freight-job.spec.js",
-              "line": 9,
-              "column": 8
-            }
-          ]
-        },
-        {
-          "title": "Execution request: Freight Job — Chức năng (Chưa kiểm thử)",
-          "file": "freight-job/freight-job.spec.js",
-          "line": 14,
-          "column": 6,
-          "specs": [
-            {
-              "title": "FN-001: Tạo mới Freight Job thành công",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/freight-job/freight-job.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "a31bb8f7f8444d65b440-a82e4f29a85679397a8b",
-              "file": "freight-job/freight-job.spec.js",
-              "line": 15,
-              "column": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "fuel/fuel.spec.js",
-      "file": "fuel/fuel.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Fuel Management — Giao diện (Chưa kiểm thử)",
-          "file": "fuel/fuel.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang quản lý cấp phát nhiên liệu tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7ebc550f696e0ddab666-5908fa8288dc9d3e5407",
-              "file": "fuel/fuel.spec.js",
-              "line": 9,
-              "column": 8
-            }
-          ]
-        },
-        {
-          "title": "Fuel Management — Chức năng (Chưa kiểm thử)",
-          "file": "fuel/fuel.spec.js",
-          "line": 14,
-          "column": 6,
-          "specs": [
-            {
-              "title": "FN-001: Tạo mới phiếu đổ nhiên liệu thành công",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/fuel/fuel.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "7ebc550f696e0ddab666-d159101710a7ee4d416a",
-              "file": "fuel/fuel.spec.js",
-              "line": 15,
-              "column": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "maintenance/maintenance.spec.js",
-      "file": "maintenance/maintenance.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Maintenance Management — Giao diện (Chưa kiểm thử)",
-          "file": "maintenance/maintenance.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang danh sách bảo trì tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "c1dc648036bbe71e63fe-673ebd3060e064fb8ec0",
-              "file": "maintenance/maintenance.spec.js",
-              "line": 9,
-              "column": 8
-            }
-          ]
-        },
-        {
-          "title": "Maintenance Management — Chức năng (Chưa kiểm thử)",
-          "file": "maintenance/maintenance.spec.js",
-          "line": 14,
-          "column": 6,
-          "specs": [
-            {
-              "title": "FN-001: Tạo mới yêu cầu bảo trì xe thành công",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/maintenance/maintenance.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "c1dc648036bbe71e63fe-fc581d474b2b612924a3",
-              "file": "maintenance/maintenance.spec.js",
-              "line": 15,
-              "column": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "replacement/replacement.spec.js",
-      "file": "replacement/replacement.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Maintenance & Replacement — Giao diện (Chưa kiểm thử)",
-          "file": "replacement/replacement.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang quản lý cấp phát thay thế phụ tùng tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "cd5d937fe07d5dc655e6-8a5124864f7b0d0a68ca",
-              "file": "replacement/replacement.spec.js",
-              "line": 9,
-              "column": 8
-            }
-          ]
-        },
-        {
-          "title": "Maintenance & Replacement — Chức năng (Chưa kiểm thử)",
-          "file": "replacement/replacement.spec.js",
-          "line": 14,
-          "column": 6,
-          "specs": [
-            {
-              "title": "FN-001: Tạo mới yêu cầu thay thế phụ tùng thành công",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/replacement/replacement.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "cd5d937fe07d5dc655e6-28e898a0ae6350bd4678",
-              "file": "replacement/replacement.spec.js",
-              "line": 15,
-              "column": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "settings/settings.spec.js",
-      "file": "settings/settings.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Settings — Giao diện (Chưa kiểm thử)",
-          "file": "settings/settings.spec.js",
-          "line": 8,
-          "column": 6,
-          "specs": [
-            {
-              "title": "UI-001: Trang cấu hình hệ thống tải đúng bố cục",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
-                        "line": 9,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
-                            "line": 9,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "1a1306a8582773a33833-643c1b44dc39cc504328",
-              "file": "settings/settings.spec.js",
-              "line": 9,
-              "column": 8
-            }
-          ]
-        },
-        {
-          "title": "Settings — Chức năng (Chưa kiểm thử)",
-          "file": "settings/settings.spec.js",
-          "line": 14,
-          "column": 6,
-          "specs": [
-            {
-              "title": "FN-001: Cập nhật cấu hình hệ thống thành công",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
-                        "line": 15,
-                        "column": 8
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-18T11:22:57.279Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "/Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/specs/settings/settings.spec.js",
-                            "line": 15,
-                            "column": 8
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "1a1306a8582773a33833-09f9573f6ac87ac6be46",
-              "file": "settings/settings.spec.js",
-              "line": 15,
-              "column": 8
+              "id": "25522c93901f5e402ab4-ab9338de7ea8a6b6be4e",
+              "file": "tenant-management/tenant-management.spec.js",
+              "line": 176,
+              "column": 3
             }
           ]
         }
@@ -1229,11 +520,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-18T11:22:57.214Z",
-    "duration": 65.065,
-    "expected": 0,
-    "skipped": 18,
-    "unexpected": 0,
+    "startTime": "2026-06-18T11:39:54.083Z",
+    "duration": 60223.497,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

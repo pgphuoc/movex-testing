@@ -129,7 +129,7 @@ function main() {
     }
   }
 
-  // Khởi tạo các module chưa có trong registry
+  // Khởi tạo và đồng bộ các module từ MASTER_MODULES
   for (const m of MASTER_MODULES) {
     if (!registry[m.id]) {
       registry[m.id] = {
@@ -138,8 +138,15 @@ function main() {
         lastRun: null,
         summary: { passed: 0, failed: 0, skipped: 0, total: 0 }
       };
+    } else {
+      // Đồng bộ thông tin từ MASTER_MODULES để tránh dữ liệu cũ (ví dụ specFile: null)
+      registry[m.id].name = m.name;
+      registry[m.id].system = m.system;
+      registry[m.id].specFile = m.specFile;
+      registry[m.id].status = m.status;
     }
   }
+
 
   // 2. Đọc kết quả mới từ kết quả chạy Playwright
   if (fs.existsSync(RESULTS_FILE)) {
@@ -164,6 +171,10 @@ function main() {
           relFile = path.relative(path.join(__dirname, '..'), relFile);
         }
         relFile = relFile.replace(/\\/g, '/'); // Chuẩn hóa dấu phân cách
+
+        if (!relFile.startsWith('specs/')) {
+          relFile = 'specs/' + relFile;
+        }
 
         if (!testsByFile[relFile]) {
           testsByFile[relFile] = [];
@@ -224,18 +235,18 @@ function main() {
   }
 
   // 3. Tính toán các chỉ số dashboard tổng hợp
-  let totalModules = 0;
-  let activeModules = 0;
-  let passedModules = 0;
-  let failedModules = 0;
-  let skippedModules = 0;
-  let untestedModules = 0;
+  let totalModules = 0;          // Total module cần viết (40)
+  let modulesWithScript = 0;     // Total module đã có script (specFile !== null)
+  let modulesWithoutScript = 0;  // Total module chưa có script (specFile === null)
+  let modulesExecuted = 0;       // Total module đã chạy script (passed > 0 || failed > 0)
+  let modulesNotExecuted = 0;    // Total module chưa chạy script (passed === 0 && failed === 0)
+  let failedModules = 0;         // Số lượng module bị lỗi
+  let totalBugs = 0;             // Số lượng bug tìm được (failed test cases count)
 
   let totalTestCases = 0;
   let passedTestCases = 0;
   let failedTestCases = 0;
   let skippedTestCases = 0;
-  let totalBugs = 0;
 
   const moduleItems = [];
   for (const key in registry) {
@@ -244,26 +255,25 @@ function main() {
     moduleItems.push(m);
 
     if (m.specFile) {
+      modulesWithScript++;
       totalTestCases += m.summary.total;
       passedTestCases += m.summary.passed;
       failedTestCases += m.summary.failed;
       skippedTestCases += m.summary.skipped;
-      totalBugs += m.summary.failed; // coi mỗi test case failed là một bug tiềm ẩn
+      totalBugs += m.summary.failed; // Số lượng bug tìm được
 
-      const hasRealExecution = m.summary.passed > 0 || m.summary.failed > 0;
-      if (hasRealExecution) {
-        activeModules++;
+      const hasRun = m.summary.passed > 0 || m.summary.failed > 0;
+      if (hasRun) {
+        modulesExecuted++;
         if (m.summary.failed > 0) {
           failedModules++;
-        } else {
-          passedModules++;
         }
       } else {
-        untestedModules++;
-        skippedModules++;
+        modulesNotExecuted++;
       }
     } else {
-      untestedModules++;
+      modulesWithoutScript++;
+      modulesNotExecuted++;
     }
   }
 
@@ -804,31 +814,36 @@ function main() {
   </header>
 
   <!-- Stats Grid -->
-  <section class="stats-grid">
+  <section class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
     <div class="stat-card primary">
-      <div class="stat-label">Tổng số Module</div>
+      <div class="stat-label">Tổng Module Cần Viết</div>
       <div class="stat-val">${totalModules}</div>
       <div class="stat-sub">Toàn bộ Platform</div>
     </div>
     <div class="stat-card success">
-      <div class="stat-label">Module Đã Có Test Case/Script</div>
-      <div class="stat-val">${activeModules}</div>
-      <div class="stat-sub">Đã thiết lập kịch bản chạy thực tế</div>
+      <div class="stat-label">Total Module Đã Có Script</div>
+      <div class="stat-val">${modulesWithScript}</div>
+      <div class="stat-sub">Đã thiết lập file kiểm thử</div>
     </div>
     <div class="stat-card warning">
-      <div class="stat-label">Module Chờ UI/Script</div>
-      <div class="stat-val">${untestedModules}</div>
-      <div class="stat-sub">Chưa có giao diện hoặc chờ thêm kịch bản</div>
+      <div class="stat-label">Total Module Chưa Có Script</div>
+      <div class="stat-val">${modulesWithoutScript}</div>
+      <div class="stat-sub">Chưa có file kịch bản</div>
     </div>
     <div class="stat-card info">
-      <div class="stat-label">Tỷ lệ Phủ (Coverage)</div>
-      <div class="stat-val">${((activeModules / totalModules) * 100).toFixed(1)}%</div>
-      <div class="stat-sub">Tỷ lệ module đã chạy E2E</div>
+      <div class="stat-label">Total Module Đã Chạy Script</div>
+      <div class="stat-val">${modulesExecuted}</div>
+      <div class="stat-sub">Đạt hoặc Thất bại thực tế</div>
+    </div>
+    <div class="stat-card warning" style="border-left: 4px solid var(--text-muted);">
+      <div class="stat-label">Total Module Chưa Chạy Script</div>
+      <div class="stat-val">${modulesNotExecuted}</div>
+      <div class="stat-sub">Bỏ qua (skipped) hoặc chưa chạy</div>
     </div>
     <div class="stat-card danger">
-      <div class="stat-label">Lỗi Hệ Thống (Bugs)</div>
+      <div class="stat-label">Số Bug Tìm Được</div>
       <div class="stat-val" style="color: ${totalBugs > 0 ? 'var(--danger)' : 'var(--success)'}">${totalBugs}</div>
-      <div class="stat-sub">Kịch bản lỗi phát hiện</div>
+      <div class="stat-sub">Tổng số test cases failed</div>
     </div>
   </section>
 
@@ -841,9 +856,9 @@ function main() {
     
     <div class="filter-tabs">
       <button class="filter-tab active" onclick="setFilter('all', this)">Tất cả (${totalModules})</button>
-      <button class="filter-tab" onclick="setFilter('active', this)">Đã test (${activeModules})</button>
+      <button class="filter-tab" onclick="setFilter('active', this)">Đã chạy (${modulesExecuted})</button>
       <button class="filter-tab" onclick="setFilter('failed', this)">Lỗi (${failedModules})</button>
-      <button class="filter-tab" onclick="setFilter('pending', this)">Chưa test (${untestedModules})</button>
+      <button class="filter-tab" onclick="setFilter('pending', this)">Chưa chạy (${modulesNotExecuted})</button>
     </div>
   </section>
 
@@ -915,7 +930,7 @@ function main() {
           else if (skipped === total && total > 0) fillClass = 'skipped';
 
           return `
-            <tr class="module-row" data-id="${m.id}" data-system="${m.system}" data-status="${m.specFile ? (m.summary.total > 0 ? (m.summary.failed > 0 ? 'failed' : 'active') : 'active') : 'pending'}">
+            <tr class="module-row" data-id="${m.id}" data-system="${m.system}" data-status="${(m.summary.passed > 0 || m.summary.failed > 0) ? (m.summary.failed > 0 ? 'failed' : 'active') : 'pending'}">
               <td>
                 <div class="module-name">${m.name}</div>
                 <div class="system-category">${m.system}</div>
@@ -1068,6 +1083,124 @@ function main() {
   
   fs.writeFileSync(HTML_FILE, htmlContent, 'utf8');
   console.log(`🎉 Tạo báo cáo Dashboard thành công tại: ${HTML_FILE}`);
+
+  // 5. Tạo báo cáo markdown reports/dashboard.md
+  const mdFile = path.join(REPORT_DIR, 'dashboard.md');
+  
+  const platformAdminModules = moduleItems.filter(m => m.system === 'Platform-Admin');
+  const tenantAdminModules = moduleItems.filter(m => m.system === 'Tenant-Admin / Master-data');
+  const omsModules = moduleItems.filter(m => m.system === 'Tenant-Operation / OMS');
+  const tmsModules = moduleItems.filter(m => m.system === 'Tenant-Operation / TMS');
+  const imModules = moduleItems.filter(m => m.system === 'Tenant-Operation / IM');
+  
+  let mdContent = `# 📊 Bảng Điều Khiển Kiểm Thử Tự Động (E2E Testing Dashboard)
+
+> **Dự án:** MoveX Logistics & E-Commerce Platform
+> **Ngày cập nhật:** ${new Date().toISOString().slice(0, 10)}
+> **Người vận hành:** Senior BA Agent / Antigravity
+
+---
+
+## 1. Tóm tắt chỉ số kiểm thử (Dashboard Metrics)
+
+| Chỉ số | Số lượng | Tỷ lệ | Ghi chú |
+| :--- | :---: | :---: | :--- |
+| **Tổng số Module cần viết** | ${totalModules} | 100% | Toàn bộ phân hệ trên toàn hệ thống MoveX |
+| **Total Module Đã Có Script** | ${modulesWithScript} | ${Math.round((modulesWithScript / totalModules) * 100)}% | Đã thiết lập file kịch bản kiểm thử |
+| **Total Module Chưa Có Script** | ${modulesWithoutScript} | ${Math.round((modulesWithoutScript / totalModules) * 100)}% | Chưa có file kịch bản |
+| **Total Module Đã Chạy Script** | ${modulesExecuted} | ${Math.round((modulesExecuted / totalModules) * 100)}% | Đã thực thi (Passed / Failed) trên UI |
+| **Total Module Chưa Chạy Script** | ${modulesNotExecuted} | ${Math.round((modulesNotExecuted / totalModules) * 100)}% | Bỏ qua (skipped) do chờ UI/Script |
+| **Số lỗi phát hiện (Bugs Found)** | ${totalBugs} | — | Tổng số test cases bị lỗi (Failed) |
+
+---
+
+## 2. Trạng thái kiểm thử theo từng Module (Module Status Board)
+
+`;
+
+  const renderModuleTable = (modules) => {
+    let table = `| Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |\n`;
+    table += `| :--- | :---: | :---: | :---: | :--- | :---: |\n`;
+    
+    for (const m of modules) {
+      let statusText = '🟡 **PENDING**';
+      if (m.specFile) {
+        if (m.summary.total > 0) {
+          if (m.summary.failed > 0) {
+            statusText = '🔴 **FAILED**';
+          } else if (m.summary.passed > 0) {
+            statusText = '🟢 **ACTIVE**';
+          } else {
+            statusText = '🟡 **SKIPPED**';
+          }
+        } else {
+          statusText = '🟡 **PENDING** (Chưa chạy)';
+        }
+      }
+      
+      const tcText = m.summary.total > 0 ? `**${m.summary.passed} Passed** / ${m.summary.failed} Failed / ${m.summary.skipped} Skipped` : 'Chưa chạy';
+      const lastRun = m.lastRun || 'Chưa chạy';
+      
+      let notes = 'Kịch bản kiểm thử hoạt động bình thường.';
+      if (m.summary.total > 0) {
+        if (m.summary.failed > 0) {
+          notes = `Lỗi phát hiện tại ${m.summary.failed} test cases.`;
+        } else if (m.summary.skipped === m.summary.total) {
+          notes = 'Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI.';
+        }
+      } else {
+        notes = 'Kịch bản chưa được chạy.';
+      }
+      
+      table += `| **${m.system} / ${m.name}** | ${statusText} | ${tcText} | ${lastRun} | ${notes} | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |\n`;
+    }
+    return table;
+  };
+
+  mdContent += `### 🔑 Platform & System Admin\n\n` + renderModuleTable(platformAdminModules) + `\n`;
+  mdContent += `### 📁 Tenant-Admin / Master-data\n\n` + renderModuleTable(tenantAdminModules) + `\n`;
+  mdContent += `### 📦 Tenant-Operation / IM\n\n` + renderModuleTable(imModules) + `\n`;
+  mdContent += `### 🚛 Tenant-Operation / OMS\n\n` + renderModuleTable(omsModules) + `\n`;
+  mdContent += `### 🚚 Tenant-Operation / TMS\n\n` + renderModuleTable(tmsModules) + `\n`;
+
+  mdContent += `\n---\n\n## 3. Nhật ký lỗi phát hiện (Bugs Registry Log)\n\n`;
+
+  const failedTests = [];
+  for (const m of moduleItems) {
+    if (m.summary.failed > 0) {
+      for (const t of m.tests) {
+        if (t.status === 'failed') {
+          failedTests.push({ module: m.name, title: t.title, error: t.error });
+        }
+      }
+    }
+  }
+
+  if (failedTests.length > 0) {
+    mdContent += `Đã phát hiện ${failedTests.length} lỗi trong quá trình kiểm thử:\n\n`;
+    failedTests.forEach((b, idx) => {
+      mdContent += `${idx + 1}. **[${b.module}] — ${b.title}**\n`;
+      if (b.error) {
+        mdContent += `   \`\`\`\n   ${b.error.replace(/\n/g, '\n   ')}\n   \`\`\`\n`;
+      }
+    });
+  } else {
+    mdContent += `Toàn bộ kịch bản kiểm thử chạy thành công. Không phát hiện lỗi mới nào.\n`;
+  }
+
+  mdContent += `\n---\n\n## 4. Hướng dẫn chạy kiểm thử toàn bộ hệ thống (Execution Guide)\n\n`;
+  mdContent += `Để thực hiện chạy kiểm thử tự động toàn bộ phân hệ:\n`;
+  mdContent += `\`\`\`bash\n`;
+  mdContent += `# Di chuyển vào project kiểm thử\n`;
+  mdContent += `cd movex-e2e-tests\n\n`;
+  mdContent += `# Chạy kiểm thử E2E bằng Playwright và tự động tổng hợp báo cáo Dashboard\n`;
+  mdContent += `TEST_EMAIL=owner.368329@qtllogistics.vn TEST_PASSWORD=Movex@2026 BASE_URL=https://qtltest368329.movex.vn npx playwright test; node helpers/generate-dashboard.js\n`;
+  mdContent += `\`\`\`\n\n`;
+  mdContent += `Báo cáo kiểm thử dạng HTML chi tiết sẽ được tự động cập nhật tại [reports/html/index.html](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html).\n`;
+
+  fs.writeFileSync(mdFile, mdContent, 'utf8');
+  console.log(`🎉 Tạo báo cáo Markdown thành công tại: ${mdFile}`);
 }
+
 
 main();
