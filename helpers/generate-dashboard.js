@@ -826,6 +826,28 @@ function main() {
         max-width: none;
       }
     }
+
+    .main-tab {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      padding: 1rem 1.5rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: -2px;
+    }
+    
+    .main-tab.active {
+      border-bottom-color: var(--primary);
+      color: var(--text-main);
+    }
+    
+    .main-tab:hover {
+      color: var(--text-main);
+    }
   </style>
 </head>
 <body>
@@ -841,76 +863,67 @@ function main() {
     </div>
   </header>
 
-  <!-- Stats Grid -->
-  <section class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-    <div class="stat-card primary">
-      <div class="stat-label">Tổng Module Cần Viết</div>
-      <div class="stat-val">${totalModules}</div>
-      <div class="stat-sub">Toàn bộ Platform</div>
-    </div>
-    <div class="stat-card success">
-      <div class="stat-label">Total Module Đã Có Script</div>
-      <div class="stat-val">${modulesWithScript}</div>
-      <div class="stat-sub">Đã thiết lập file kiểm thử</div>
-    </div>
-    <div class="stat-card warning">
-      <div class="stat-label">Total Module Chưa Có Script</div>
-      <div class="stat-val">${modulesWithoutScript}</div>
-      <div class="stat-sub">Chưa có file kịch bản</div>
-    </div>
-    <div class="stat-card info">
-      <div class="stat-label">Total Module Đã Chạy Script</div>
-      <div class="stat-val">${modulesExecuted}</div>
-      <div class="stat-sub">Đạt hoặc Thất bại thực tế</div>
-    </div>
-    <div class="stat-card warning" style="border-left: 4px solid var(--text-muted);">
-      <div class="stat-label">Total Module Chưa Chạy Script</div>
-      <div class="stat-val">${modulesNotExecuted}</div>
-      <div class="stat-sub">Bỏ qua (skipped) hoặc chưa chạy</div>
-    </div>
-    <div class="stat-card danger">
-      <div class="stat-label">Số Bug Tìm Được</div>
-      <div class="stat-val" style="color: ${totalBugs > 0 ? 'var(--danger)' : 'var(--success)'}">${totalBugs}</div>
-      <div class="stat-sub">Tổng số test cases failed</div>
-    </div>
-  </section>
+  <!-- Tab Switcher -->
+  <div style="display: flex; gap: 1rem; border-bottom: 2px solid var(--card-border); margin-bottom: 2rem;">
+    <button class="main-tab active" id="tab-modules-btn" onclick="switchMainTab('modules')">
+      📂 Báo Cáo Phân Hệ (Modules Board)
+    </button>
+    <button class="main-tab" id="tab-bugs-btn" onclick="switchMainTab('bugs')" style="display: flex; align-items: center; gap: 0.5rem;">
+      🐞 Nhật Ký Lỗi (Bugs Log) <span style="background: var(--danger-glow); color: var(--danger); font-size: 0.8rem; padding: 0.1rem 0.5rem; border-radius: 9999px; font-weight: 800; border: 1px solid rgba(239, 68, 68, 0.2);">${totalBugs}</span>
+    </button>
+  </div>
 
-  <!-- Controls -->
-  <section class="controls">
-    <div class="search-box">
-      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-      <input type="text" id="search-input" placeholder="Tìm kiếm module..." oninput="filterModules()">
-    </div>
-    
-    <div class="filter-tabs">
-      <button class="filter-tab active" onclick="setFilter('all', this)">Tất cả (${totalModules})</button>
-      <button class="filter-tab" onclick="setFilter('active', this)">Đã chạy (${modulesExecuted})</button>
-      <button class="filter-tab" onclick="setFilter('failed', this)">Lỗi (${failedModules})</button>
-      <button class="filter-tab" onclick="setFilter('pending', this)">Chưa chạy (${modulesNotExecuted})</button>
-    </div>
-  </section>
+  <!-- Tab Modules Content Wrapper -->
+  <div id="main-tab-modules-content">
 
-  <!-- Bugs Section -->
-  ${totalBugs > 0 ? `
-  <section class="bugs-section">
-    <div class="section-title">
-      <span style="color: var(--danger)">🐞</span> Nhật ký lỗi phát hiện (Bugs Registry)
-    </div>
-    <div class="bugs-list">
-      ${moduleItems.filter(m => m.summary.failed > 0).map(m => `
-        ${m.tests.filter(t => t.status === 'failed').map(t => `
-          <div class="bug-item">
-            <div class="bug-info">
-              <h4>${m.name} — ${t.title}</h4>
-              <p>Mã lỗi/Exception chi tiết được lưu trong test report chi tiết bên dưới.</p>
-            </div>
-            <span class="badge badge-failed">Bug</span>
-          </div>
-        `).join('')}
-      `).join('')}
-    </div>
-  </section>
-  ` : ''}
+    <!-- Stats Grid -->
+    <section class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+      <div class="stat-card primary">
+        <div class="stat-label">Tổng Module Cần Viết</div>
+        <div class="stat-val">${totalModules}</div>
+        <div class="stat-sub">Toàn bộ Platform</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-label">Total Module Đã Có Script</div>
+        <div class="stat-val">${modulesWithScript}</div>
+        <div class="stat-sub">Đã thiết lập file kiểm thử</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Total Module Chưa Có Script</div>
+        <div class="stat-val">${modulesWithoutScript}</div>
+        <div class="stat-sub">Chưa có file kịch bản</div>
+      </div>
+      <div class="stat-card info">
+        <div class="stat-label">Total Module Đã Chạy Script</div>
+        <div class="stat-val">${modulesExecuted}</div>
+        <div class="stat-sub">Đạt hoặc Thất bại thực tế</div>
+      </div>
+      <div class="stat-card warning" style="border-left: 4px solid var(--text-muted);">
+        <div class="stat-label">Total Module Chưa Chạy Script</div>
+        <div class="stat-val">${modulesNotExecuted}</div>
+        <div class="stat-sub">Bỏ qua (skipped) hoặc chưa chạy</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-label">Số Bug Tìm Được</div>
+        <div class="stat-val" style="color: ${totalBugs > 0 ? 'var(--danger)' : 'var(--success)'}">${totalBugs}</div>
+        <div class="stat-sub">Tổng số test cases failed</div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" id="search-input" placeholder="Tìm kiếm module..." oninput="filterModules()">
+      </div>
+      
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="setFilter('all', this)">Tất cả (${totalModules})</button>
+        <button class="filter-tab" onclick="setFilter('active', this)">Đã chạy (${modulesExecuted})</button>
+        <button class="filter-tab" onclick="setFilter('failed', this)">Lỗi (${failedModules})</button>
+        <button class="filter-tab" onclick="setFilter('pending', this)">Chưa chạy (${modulesNotExecuted})</button>
+      </div>
+    </section>
 
   <!-- Module Board -->
   <section class="board-container">
@@ -1016,25 +1029,29 @@ function main() {
                             ${t.error ? `
                               <div class="error-log">${t.error}</div>
                             ` : ''}
-                            ${t.screenshot ? `
-                              <div style="margin-top: 0.5rem;">
-                                <a href="../../${t.screenshot}" target="_blank" class="screenshot-link">
-                                  <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-                                  <span>Xem ảnh chụp màn hình (Screenshot)</span>
-                                </a>
-                                <img src="../../${t.screenshot}" class="screenshot-preview" alt="Test Screenshot">
-                              </div>
-                            ` : ''}
-                            ${t.video ? `
-                              <div style="margin-top: 0.75rem;">
-                                <a href="../../${t.video}" target="_blank" class="screenshot-link" style="color: var(--warning);">
-                                  <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13H6v-2h8v2z"/></svg>
-                                  <span>Xem video ghi hình (Video Recording)</span>
-                                </a>
-                                <video controls class="screenshot-preview" style="max-height: 350px; display: block; margin-top: 0.5rem; border: 1px solid var(--card-border); border-radius: 8px;">
-                                  <source src="../../${t.video}" type="video/webm">
-                                  Trình duyệt của bạn không hỗ trợ tag video.
-                                </video>
+                            ${(t.screenshot || t.video) ? `
+                              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                                ${t.video ? `
+                                  <div style="flex: 1; min-width: 300px;">
+                                    <a href="../../${t.video}" target="_blank" class="screenshot-link" style="color: var(--warning); display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                                      <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13H6v-2h8v2z"/></svg>
+                                      <span>Xem video ghi hình (Video Recording)</span>
+                                    </a>
+                                    <video controls class="screenshot-preview" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px;">
+                                      <source src="../../${t.video}" type="video/webm">
+                                      Trình duyệt của bạn không hỗ trợ tag video.
+                                    </video>
+                                  </div>
+                                ` : ''}
+                                ${t.screenshot ? `
+                                  <div style="flex: 1; min-width: 300px;">
+                                    <a href="../../${t.screenshot}" target="_blank" class="screenshot-link" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                                      <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                      <span>Xem ảnh chụp màn hình (Screenshot)</span>
+                                    </a>
+                                    <img src="../../${t.screenshot}" class="screenshot-preview" alt="Test Screenshot" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px; object-fit: contain; background: rgba(0,0,0,0.2);">
+                                  </div>
+                                ` : ''}
                               </div>
                             ` : ''}
                           </div>
@@ -1050,6 +1067,66 @@ function main() {
       </tbody>
     </table>
   </section>
+  </div> <!-- End #main-tab-modules-content -->
+
+  <!-- Tab Bugs Content Wrapper -->
+  <div id="main-tab-bugs-content" style="display: none;">
+    <section class="bugs-section">
+      <div class="section-title" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span style="color: var(--danger)">🐞</span> Nhật ký lỗi phát hiện (Bugs Registry Log)
+      </div>
+      
+      ${totalBugs > 0 ? `
+        <div class="bugs-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          ${moduleItems.filter(m => m.summary.failed > 0).map(m => `
+            ${m.tests.filter(t => t.status === 'failed').map(t => `
+              <div class="bug-item" style="background: var(--card-bg); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 0.75rem;">
+                  <div class="bug-info">
+                    <h4 style="font-size: 1.15rem; font-weight: 700; color: #fca5a5; margin: 0;">${m.name} — ${t.title}</h4>
+                    <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem; color: var(--text-muted);">Hệ thống: <strong>${m.system}</strong> | Chạy lần cuối: <strong>${m.lastRun || 'Chưa rõ'}</strong></p>
+                  </div>
+                  <span class="badge badge-failed" style="margin-left: auto;">Bug</span>
+                </div>
+                ${t.error ? `<div class="error-log" style="margin-top: 0; padding: 1rem; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: #fca5a5; white-space: pre-wrap; word-break: break-all;">${t.error}</div>` : ''}
+                
+                ${(t.screenshot || t.video) ? `
+                  <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
+                    ${t.video ? `
+                      <div style="flex: 1; min-width: 300px;">
+                        <a href="../../${t.video}" target="_blank" class="screenshot-link" style="color: var(--warning); display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                          <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13H6v-2h8v2z"/></svg>
+                          <span>Xem video ghi hình (Video Recording)</span>
+                        </a>
+                        <video controls class="screenshot-preview" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px;">
+                          <source src="../../${t.video}" type="video/webm">
+                        </video>
+                      </div>
+                    ` : ''}
+                    ${t.screenshot ? `
+                      <div style="flex: 1; min-width: 300px;">
+                        <a href="../../${t.screenshot}" target="_blank" class="screenshot-link" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                          <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                          <span>Xem ảnh chụp màn hình (Screenshot)</span>
+                        </a>
+                        <img src="../../${t.screenshot}" class="screenshot-preview" alt="Bug Screenshot" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px; object-fit: contain; background: rgba(0,0,0,0.2);">
+                      </div>
+                    ` : ''}
+                  </div>
+                ` : ''}
+              </div>
+            `).join('')}
+          `).join('')}
+        </div>
+      ` : `
+        <div style="text-align: center; padding: 4rem 1.5rem; background: rgba(16, 185, 129, 0.03); border: 1px dashed rgba(16, 185, 129, 0.15); border-radius: 12px; margin-top: 1rem;">
+          <span style="font-size: 3.5rem;">🎉</span>
+          <h3 style="margin-top: 1rem; font-size: 1.35rem; font-weight: 700; color: var(--success);">Hệ thống sạch lỗi!</h3>
+          <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Tuyệt vời! Không phát hiện bất kỳ test case nào thất bại trong phiên chạy kiểm thử này.</p>
+        </div>
+      `}
+    </section>
+  </div>
 
   <script>
     let currentFilter = 'all';
@@ -1062,8 +1139,8 @@ function main() {
     }
 
     function toggleDetails(id) {
-      const detailRow = document.querySelector(\`[data-id="details-\${id}"]\`);
-      const container = document.getElementById(\`container-\${id}\`);
+      const detailRow = document.querySelector("[data-id='details-" + id + "']");
+      const container = document.getElementById("container-" + id);
       
       if (detailRow.style.display === 'none') {
         detailRow.style.display = 'table-row';
@@ -1085,7 +1162,7 @@ function main() {
         const system = row.getAttribute('data-system').toLowerCase();
         const status = row.getAttribute('data-status');
         const name = row.querySelector('.module-name').textContent.toLowerCase();
-        const detailRow = document.querySelector(\`[data-id="details-\${id}"]\`);
+        const detailRow = document.querySelector("[data-id='details-" + id + "']");
         
         let matchSearch = name.includes(searchVal) || system.includes(searchVal);
         let matchFilter = true;
@@ -1104,11 +1181,30 @@ function main() {
           row.style.display = 'none';
           if (detailRow) {
             detailRow.style.display = 'none';
-            const container = document.getElementById(\`container-\${id}\`);
+            const container = document.getElementById("container-" + id);
             if (container) container.classList.remove('open');
           }
         }
       });
+    }
+
+    function switchMainTab(tab) {
+      document.querySelectorAll('.main-tab').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      const activeBtn = document.getElementById("tab-" + tab + "-btn");
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+      }
+      
+      if (tab === 'modules') {
+        document.getElementById('main-tab-modules-content').style.display = 'block';
+        document.getElementById('main-tab-bugs-content').style.display = 'none';
+      } else {
+        document.getElementById('main-tab-modules-content').style.display = 'none';
+        document.getElementById('main-tab-bugs-content').style.display = 'block';
+      }
     }
   </script>
 
