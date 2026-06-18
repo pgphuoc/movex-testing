@@ -1,0 +1,602 @@
+{
+  "tenant-management": {
+    "id": "tenant-management",
+    "name": "Tenant Management",
+    "system": "Platform-Admin",
+    "specFile": "specs/tenant-management/tenant-management.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "plan-management": {
+    "id": "plan-management",
+    "name": "Plan Management",
+    "system": "Platform-Admin",
+    "specFile": "specs/plan-management/plan-management.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "subscription": {
+    "id": "subscription",
+    "name": "Subscription",
+    "system": "Platform-Admin",
+    "specFile": "specs/subscription/subscription.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "business-partner": {
+    "id": "business-partner",
+    "name": "Business Partner",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/business-partner/business-partner.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "vehicle": {
+    "id": "vehicle",
+    "name": "Vehicle",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/vehicle/vehicle-list.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "administrative-info": {
+    "id": "administrative-info",
+    "name": "Administrative Info",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/administrative-info/administrative-info.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "source-master": {
+    "id": "source-master",
+    "name": "Source Master",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/source-master/source-master.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "toll-station": {
+    "id": "toll-station",
+    "name": "Toll Station",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/toll-station/toll-station.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "routing": {
+    "id": "routing",
+    "name": "Routing",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/routing/routing.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "services": {
+    "id": "services",
+    "name": "Service",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/services/services.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "cost": {
+    "id": "cost",
+    "name": "Cost",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/cost/cost.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "pricing": {
+    "id": "pricing",
+    "name": "Pricing",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/pricing/pricing.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "vendor-tariff": {
+    "id": "vendor-tariff",
+    "name": "Vendor Tariff",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/vendor-tariff/vendor-tariff.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "common-codes": {
+    "id": "common-codes",
+    "name": "Common Code",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/common-codes/common-codes.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "exchange-rate": {
+    "id": "exchange-rate",
+    "name": "Exchange Rate",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/exchange-rate/exchange-rate.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "currency": {
+    "id": "currency",
+    "name": "Currency",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/currency/currency.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "unit-of-measure": {
+    "id": "unit-of-measure",
+    "name": "Unit of Measure",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/unit-of-measure/unit-of-measure.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "user-management": {
+    "id": "user-management",
+    "name": "User Management",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/user-management/user-management.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "authorization": {
+    "id": "authorization",
+    "name": "Authorization",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/authorization/authorization.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "organization": {
+    "id": "organization",
+    "name": "Organization",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": "specs/organization/organization.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "settings": {
+    "id": "settings",
+    "name": "Settings",
+    "system": "Tenant-Admin / Master-data",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "inventory-master": {
+    "id": "inventory-master",
+    "name": "Inventory (Kho)",
+    "system": "Tenant-Operation / IM",
+    "specFile": "specs/inventory-master/inventory-master.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "customer-request": {
+    "id": "customer-request",
+    "name": "Customer request",
+    "system": "Tenant-Operation / OMS",
+    "specFile": "specs/customer-request/customer-request.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "quotation": {
+    "id": "quotation",
+    "name": "Quotation",
+    "system": "Tenant-Operation / OMS",
+    "specFile": "specs/quotation/quotation.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "work-order": {
+    "id": "work-order",
+    "name": "Work order",
+    "system": "Tenant-Operation / OMS",
+    "specFile": "specs/work-order/work-order.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "purchase-order": {
+    "id": "purchase-order",
+    "name": "Purchase Order",
+    "system": "Tenant-Operation / OMS",
+    "specFile": "specs/purchase-order/purchase-order.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "internal-order": {
+    "id": "internal-order",
+    "name": "Internal Order",
+    "system": "Tenant-Operation / OMS",
+    "specFile": "specs/internal-order/internal-order.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "customs-job": {
+    "id": "customs-job",
+    "name": "Execution request: Customs Job",
+    "system": "Tenant-Operation / OMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "freight-job": {
+    "id": "freight-job",
+    "name": "Execution request: Freight Job",
+    "system": "Tenant-Operation / OMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "trucking-order": {
+    "id": "trucking-order",
+    "name": "Trucking Order",
+    "system": "Tenant-Operation / TMS",
+    "specFile": "specs/trucking-order/trucking-order.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "trucking-planning": {
+    "id": "trucking-planning",
+    "name": "Trucking Planning",
+    "system": "Tenant-Operation / TMS",
+    "specFile": "specs/trucking-planning/trucking-planning.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "pod-management": {
+    "id": "pod-management",
+    "name": "Proof of Delivery",
+    "system": "Tenant-Operation / TMS",
+    "specFile": "specs/pod-management/pod-management.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "fleet-management": {
+    "id": "fleet-management",
+    "name": "Fleet Management",
+    "system": "Tenant-Operation / TMS",
+    "specFile": "specs/fleet-management/fleet-management.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "tms-work-order": {
+    "id": "tms-work-order",
+    "name": "TMS Work Order List",
+    "system": "Tenant-Operation / TMS",
+    "specFile": "specs/tms-work-order/tms-work-order.spec.js",
+    "status": "ACTIVE",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "driver-management": {
+    "id": "driver-management",
+    "name": "Driver Management",
+    "system": "Tenant-Operation / TMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "driver-salary": {
+    "id": "driver-salary",
+    "name": "Driver Salary",
+    "system": "Tenant-Operation / TMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "maintenance": {
+    "id": "maintenance",
+    "name": "Maintenance Management",
+    "system": "Tenant-Operation / TMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "fuel": {
+    "id": "fuel",
+    "name": "Fuel Management",
+    "system": "Tenant-Operation / TMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "charging": {
+    "id": "charging",
+    "name": "Electric Charging Management",
+    "system": "Tenant-Operation / TMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  },
+  "replacement": {
+    "id": "replacement",
+    "name": "Maintenance & Replacement",
+    "system": "Tenant-Operation / TMS",
+    "specFile": null,
+    "status": "PENDING",
+    "tests": [],
+    "lastRun": null,
+    "summary": {
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "total": 0
+    }
+  }
+}

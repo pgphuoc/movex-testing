@@ -5,14 +5,16 @@ const { login, navigateTo } = require('../../helpers/auth');
 const MODULE_NAME = 'Common Code';
 const LIST_URL = '/master-data/common-codes';
 
-test.describe(`${MODULE_NAME} — Giao diện (Chưa kiểm thử)`, () => {
-  test.skip('UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
-    // Sẽ thực hiện kiểm thử tự động ở giai đoạn sau
-  });
+test.beforeEach(async ({ page }) => {
+  await login(page);
 });
 
-test.describe(`${MODULE_NAME} — Chức năng (Chưa kiểm thử)`, () => {
-  test.skip('FN-001: Tạo mới Common Code thành công', async ({ page }) => {
-    // Sẽ thực hiện kiểm thử tự động ở giai đoạn sau
+test.describe(`${MODULE_NAME} — Giao diện`, () => {
+  test('UI-001: Trang danh sách Common Codes tải đúng', async ({ page }) => {
+    await navigateTo(page, LIST_URL);
+    await expect(page.locator('text=Common Code List').first()).toBeVisible();
+    
+    // Kiểm tra bộ lọc hoặc bảng hiển thị
+    await expect(page.locator('text=Filters').first().or(page.locator('.ant-table').first())).toBeVisible();
   });
 });

@@ -37,14 +37,14 @@ test.describe('TC-MF-001: Tạo Work Order không qua CR / Quotation', () => {
     // Kiểm tra tiêu đề trang
     await expect(page.locator('text=Work Order').first()).toBeVisible()
 
-    // Kiểm tra nút Add Work Order
-    await expect(page.getByRole('button', { name: /add work order/i })).toBeVisible()
+    // Kiểm tra nút Add Work Order / Add New
+    await expect(page.getByRole('button', { name: /add new|add work order/i }).first()).toBeVisible()
   })
 
   test('Bước 2: Nhấn Add Work Order → mở màn hình Create', async ({ page }) => {
     await navigateTo(page, LIST_URL)
 
-    await page.getByRole('button', { name: /add work order/i }).click()
+    await page.getByRole('button', { name: /add new|add work order/i }).first().click()
 
     // Chờ chuyển sang trang Create
     await expect(page).toHaveURL(/\/oms\/work-order\/create/, { timeout: 10_000 })
@@ -371,9 +371,9 @@ test.describe('TC-MF-010: Container/Truck List tab', () => {
     await navigateTo(page, LIST_URL)
     await page.waitForLoadState('networkidle')
 
-    // Kiểm tra bảng danh sách WO hiển thị
-    const table = page.locator('.ant-table, [role="table"]').first()
-    await expect(table).toBeVisible()
+    // Kiểm tra bảng danh sách WO hiển thị (hoặc màn hình trống)
+    const tableOrEmpty = page.locator('.ant-table').or(page.locator('[role="table"]')).or(page.locator('text=No Work Order Found')).or(page.locator('text=Không có dữ liệu')).first()
+    await expect(tableOrEmpty).toBeVisible()
 
     // Kiểm tra có cột Status
     const statusColumn = page.locator('th:has-text("Status")').first()

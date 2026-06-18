@@ -26,9 +26,10 @@ module.exports = defineConfig({
   // Số worker (1 = chạy tuần tự)
   workers: 1,
 
-  // Reporter: HTML report + console output
+  // Reporter: HTML report + JSON report + console output
   reporter: [
     ['html', { outputFolder: './reports/html', open: 'never' }],
+    ['json', { outputFile: './reports/results.json' }],
     ['list'],
   ],
 
