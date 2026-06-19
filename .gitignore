@@ -1,6 +1,5 @@
 node_modules/
 test-results/
-reports/html/
 playwright-report/
 blob-report/
 .DS_Store
