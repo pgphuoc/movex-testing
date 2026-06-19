@@ -26,11 +26,12 @@ module.exports = defineConfig({
   // Số worker (1 = chạy tuần tự)
   workers: 1,
 
-  // Reporter: HTML report + JSON report + console output
+  // Reporter: HTML report + JSON report + console output + custom ModuleReporter
   reporter: [
     ['html', { outputFolder: './reports/html', open: 'never' }],
     ['json', { outputFile: './reports/results.json' }],
     ['list'],
+    ['./helpers/module-reporter.js']
   ],
 
   // Cấu hình chung cho tất cả tests
@@ -38,8 +39,8 @@ module.exports = defineConfig({
     // ⚠️ THAY ĐỔI URL NÀY nếu server chạy ở port khác
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
 
-    // Chụp screenshot khi test fail
-    screenshot: 'only-on-failure',
+    // Chụp screenshot cho mọi test case làm minh chứng (evidence)
+    screenshot: 'on',
 
     // Quay video khi test fail
     video: 'retain-on-failure',

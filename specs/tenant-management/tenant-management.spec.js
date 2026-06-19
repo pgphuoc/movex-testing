@@ -1,5 +1,5 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('../../helpers/auth');
 const { login, navigateTo } = require('../../helpers/auth');
 
 const LIST_URL = '/platform-admin/tenant-management';

@@ -7,6 +7,15 @@ const REGISTRY_FILE = path.join(REPORT_DIR, 'test-registry.json');
 const RESULTS_FILE = path.join(REPORT_DIR, 'results.json');
 const HTML_FILE = path.join(REPORT_DIR, 'html', 'index.html');
 
+function getRelativeLink(filePath) {
+  if (!filePath) return '';
+  if (filePath.startsWith('reports/')) {
+    return '../' + filePath.substring(8);
+  }
+  return '../../' + filePath;
+}
+
+
 // Danh sách toàn bộ các module trong hệ thống MoveX theo đúng sort order của AGENTS.md
 const MASTER_MODULES = [
   // 00. Platform-Admin
@@ -84,11 +93,15 @@ function extractTests(suite, filePath = '') {
           error = result.errors.map(e => e.message || e.value).join('\n');
         }
         
-        // Trích xuất screenshot & video
+        // Trích xuất screenshot, video & api-log
         let screenshot = null;
         let video = null;
+        let apiLog = null;
         if (result && result.attachments) {
-          const screenshotAttachment = result.attachments.find(a => a.name === 'screenshot' || (a.contentType && a.contentType.includes('image')));
+          let screenshotAttachment = result.attachments.find(a => a.path && a.path.includes('reports/screenshots'));
+          if (!screenshotAttachment) {
+            screenshotAttachment = result.attachments.find(a => a.name === 'screenshot' || (a.contentType && a.contentType.includes('image')));
+          }
           if (screenshotAttachment) {
             screenshot = screenshotAttachment.path;
             if (path.isAbsolute(screenshot)) {
@@ -102,6 +115,33 @@ function extractTests(suite, filePath = '') {
               video = path.relative(path.join(__dirname, '..'), video).replace(/\\/g, '/');
             }
           }
+          const apiLogAttachment = result.attachments.find(a => a.name === 'api-log');
+          if (apiLogAttachment) {
+            if (apiLogAttachment.body) {
+              apiLog = typeof apiLogAttachment.body === 'string' ? apiLogAttachment.body : apiLogAttachment.body.toString('utf8');
+            } else if (apiLogAttachment.path) {
+              try {
+                apiLog = fs.readFileSync(apiLogAttachment.path, 'utf8');
+              } catch (e) {
+                console.warn('Could not read api-log attachment:', e.message);
+              }
+            }
+          }
+        }
+
+        // Trích xuất lý do bỏ qua (skipReason) từ annotations
+        let skipReason = null;
+        if (test.annotations && test.annotations.length > 0) {
+          const skipAnno = test.annotations.find(a => a.type === 'skip' || a.type === 'fixme');
+          if (skipAnno) {
+            skipReason = skipAnno.description || null;
+          }
+        }
+        if (!skipReason && result && result.annotations && result.annotations.length > 0) {
+          const skipAnno = result.annotations.find(a => a.type === 'skip' || a.type === 'fixme');
+          if (skipAnno) {
+            skipReason = skipAnno.description || null;
+          }
         }
 
         tests.push({
@@ -111,7 +151,9 @@ function extractTests(suite, filePath = '') {
           duration,
           error,
           screenshot,
-          video
+          video,
+          apiLog,
+          skipReason
         });
       }
     }
@@ -175,88 +217,88 @@ function main() {
   }
 
 
-  // 2. Đọc kết quả mới từ kết quả chạy Playwright
-  if (fs.existsSync(RESULTS_FILE)) {
+  // 2. Đọc kết quả mới từ các file báo cáo module riêng lẻ
+  const modulesDir = path.join(REPORT_DIR, 'modules');
+  if (fs.existsSync(modulesDir)) {
     try {
-      const resultsData = JSON.parse(fs.readFileSync(RESULTS_FILE, 'utf8'));
-      const allTestsRun = [];
-      
-      if (resultsData.suites) {
-        for (const suite of resultsData.suites) {
-          allTestsRun.push(...extractTests(suite));
-        }
-      }
+      const files = fs.readdirSync(modulesDir).filter(f => f.endsWith('.json'));
+      console.log(`📊 Đang nạp dữ liệu kiểm thử từ các file báo cáo module riêng lẻ tại ${modulesDir}...`);
 
-      console.log(`📊 Đã phân tích được ${allTestsRun.length} test cases từ kết quả chạy mới.`);
+      for (const file of files) {
+        const filePath = path.join(modulesDir, file);
+        try {
+          const modData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+          const mId = modData.moduleId;
 
-      // Nhóm test cases theo file spec
-      const testsByFile = {};
-      for (const t of allTestsRun) {
-        // Chuẩn hóa đường dẫn file (loại bỏ absolute prefix nếu có)
-        let relFile = t.file;
-        if (path.isAbsolute(relFile)) {
-          relFile = path.relative(path.join(__dirname, '..'), relFile);
-        }
-        relFile = relFile.replace(/\\/g, '/'); // Chuẩn hóa dấu phân cách
+          if (registry[mId]) {
+            const nowStr = modData.lastRun || new Date().toISOString().slice(0, 19).replace('T', ' ');
+            
+            // Map screenshots & videos to relative paths from workspace root
+            registry[mId].tests = modData.tests.map(rt => {
+              let screenshot = rt.screenshot;
+              if (screenshot && path.isAbsolute(screenshot)) {
+                screenshot = path.relative(path.join(__dirname, '..'), screenshot).replace(/\\/g, '/');
+              }
+              let video = rt.video;
+              if (video && path.isAbsolute(video)) {
+                video = path.relative(path.join(__dirname, '..'), video).replace(/\\/g, '/');
+              }
 
-        if (!relFile.startsWith('specs/')) {
-          relFile = 'specs/' + relFile;
-        }
+              // Handle Buffer or object apiLog (e.g. from older JSON reports)
+              let apiLog = rt.apiLog;
+              if (apiLog && typeof apiLog === 'object' && apiLog.type === 'Buffer' && Array.isArray(apiLog.data)) {
+                apiLog = Buffer.from(apiLog.data).toString('utf8');
+              } else if (apiLog && typeof apiLog === 'object') {
+                apiLog = JSON.stringify(apiLog);
+              }
 
-        if (!testsByFile[relFile]) {
-          testsByFile[relFile] = [];
-        }
-        testsByFile[relFile].push(t);
-      }
+              return {
+                title: rt.title,
+                status: rt.status,
+                duration: rt.duration,
+                error: rt.error,
+                screenshot,
+                video,
+                apiLog,
+                skipReason: rt.skipReason
+              };
+            });
+            registry[mId].lastRun = nowStr;
 
-      // Cập nhật kết quả vào registry cho các file spec đã thực sự chạy
-      const nowStr = new Date().toISOString().slice(0, 19).replace('T', ' ');
-      
-      for (const mId in registry) {
-        const m = registry[mId];
-        if (m.specFile && testsByFile[m.specFile]) {
-          const runTests = testsByFile[m.specFile];
-          m.tests = runTests.map(rt => ({
-            title: rt.title,
-            status: rt.status,
-            duration: rt.duration,
-            error: rt.error,
-            screenshot: rt.screenshot,
-            video: rt.video
-          }));
-          m.lastRun = nowStr;
-
-          // Tính toán lại summary
-          const passed = m.tests.filter(t => t.status === 'passed').length;
-          const failed = m.tests.filter(t => t.status === 'failed').length;
-          const skipped = m.tests.filter(t => t.status === 'skipped').length;
-          
-          m.summary = {
-            passed,
-            failed,
-            skipped,
-            total: m.tests.length
-          };
-          
-          // Cập nhật trạng thái module thành ACTIVE hoặc PENDING dựa trên test cases
-          if (m.tests.length > 0 && failed === 0 && passed > 0) {
-            m.activeStatus = 'passed';
-          } else if (failed > 0) {
-            m.activeStatus = 'failed';
-          } else if (skipped === m.tests.length) {
-            m.activeStatus = 'skipped';
-          } else {
-            m.activeStatus = 'active';
+            // Tính toán lại summary
+            const passed = registry[mId].tests.filter(t => t.status === 'passed').length;
+            const failed = registry[mId].tests.filter(t => t.status === 'failed').length;
+            const skipped = registry[mId].tests.filter(t => t.status === 'skipped').length;
+            
+            registry[mId].summary = {
+              passed,
+              failed,
+              skipped,
+              total: registry[mId].tests.length
+            };
+            
+            if (registry[mId].tests.length > 0 && failed === 0 && passed > 0) {
+              registry[mId].activeStatus = 'passed';
+            } else if (failed > 0) {
+              registry[mId].activeStatus = 'failed';
+            } else if (skipped === registry[mId].tests.length) {
+              registry[mId].activeStatus = 'skipped';
+            } else {
+              registry[mId].activeStatus = 'active';
+            }
+            console.log(`   - Nạp thành công [${mId}] từ ${file}`);
           }
+        } catch (e) {
+          console.error(`❌ Lỗi khi đọc file báo cáo module ${file}:`, e.message);
         }
       }
       
       // Lưu lại registry mới
       fs.writeFileSync(REGISTRY_FILE, JSON.stringify(registry, null, 2), 'utf8');
       console.log('💾 Đã lưu trữ cập nhật kết quả kiểm thử vào registry.');
-
+      
     } catch (e) {
-      console.error('❌ Lỗi khi phân tích results.json:', e);
+      console.error('❌ Lỗi khi quét thư mục báo cáo module:', e);
     }
   } else {
     console.warn(`⚠️ Không tìm thấy file kết quả chạy mới tại ${RESULTS_FILE}. Sẽ sử dụng dữ liệu cũ từ registry.`);
@@ -1026,30 +1068,41 @@ function main() {
                                 <span>Thời gian: <strong>${(t.duration / 1000).toFixed(2)}s</strong></span>
                               </div>
                             </div>
+                            ${t.skipReason ? `
+                              <div class="skip-reason" style="margin-top: 0.75rem; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.15); padding: 0.75rem 1rem; border-radius: 6px; color: #fcd34d; font-size: 0.85rem;">
+                                <strong>Lý do bỏ qua:</strong> ${t.skipReason}
+                              </div>
+                            ` : ''}
                             ${t.error ? `
                               <div class="error-log">${t.error}</div>
+                            ` : ''}
+                            ${t.apiLog ? `
+                              <div style="margin-top: 0.75rem;">
+                                <div style="font-size: 0.85rem; font-weight: 700; color: #fca5a5; margin-bottom: 0.25rem;">API Requests & Responses:</div>
+                                <pre class="error-log" style="background: rgba(15, 23, 42, 0.6); border-color: rgba(239, 68, 68, 0.25); max-height: 250px; overflow-y: auto;">${t.apiLog}</pre>
+                              </div>
                             ` : ''}
                             ${(t.screenshot || t.video) ? `
                               <div style="display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap;">
                                 ${t.video ? `
                                   <div style="flex: 1; min-width: 300px;">
-                                    <a href="../../${t.video}" target="_blank" class="screenshot-link" style="color: var(--warning); display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                                    <a href="${getRelativeLink(t.video)}" target="_blank" class="screenshot-link" style="color: var(--warning); display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
                                       <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13H6v-2h8v2z"/></svg>
                                       <span>Xem video ghi hình (Video Recording)</span>
                                     </a>
                                     <video controls class="screenshot-preview" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px;">
-                                      <source src="../../${t.video}" type="video/webm">
+                                      <source src="${getRelativeLink(t.video)}" type="video/webm">
                                       Trình duyệt của bạn không hỗ trợ tag video.
                                     </video>
                                   </div>
                                 ` : ''}
                                 ${t.screenshot ? `
                                   <div style="flex: 1; min-width: 300px;">
-                                    <a href="../../${t.screenshot}" target="_blank" class="screenshot-link" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                                    <a href="${getRelativeLink(t.screenshot)}" target="_blank" class="screenshot-link" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
                                       <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
                                       <span>Xem ảnh chụp màn hình (Screenshot)</span>
                                     </a>
-                                    <img src="../../${t.screenshot}" class="screenshot-preview" alt="Test Screenshot" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px; object-fit: contain; background: rgba(0,0,0,0.2);">
+                                    <img src="${getRelativeLink(t.screenshot)}" class="screenshot-preview" alt="Test Screenshot" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px; object-fit: contain; background: rgba(0,0,0,0.2);">
                                   </div>
                                 ` : ''}
                               </div>
@@ -1089,27 +1142,33 @@ function main() {
                   <span class="badge badge-failed" style="margin-left: auto;">Bug</span>
                 </div>
                 ${t.error ? `<div class="error-log" style="margin-top: 0; padding: 1rem; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: #fca5a5; white-space: pre-wrap; word-break: break-all;">${t.error}</div>` : ''}
+                ${t.apiLog ? `
+                  <div style="margin-top: 0.5rem;">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #fca5a5; margin-bottom: 0.25rem;">API Requests & Responses (API Logs):</div>
+                    <pre class="error-log" style="margin-top: 0; padding: 1rem; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: #fca5a5; white-space: pre-wrap; word-break: break-all; max-height: 250px; overflow-y: auto;">${t.apiLog}</pre>
+                  </div>
+                ` : ''}
                 
                 ${(t.screenshot || t.video) ? `
                   <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
                     ${t.video ? `
                       <div style="flex: 1; min-width: 300px;">
-                        <a href="../../${t.video}" target="_blank" class="screenshot-link" style="color: var(--warning); display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                        <a href="${getRelativeLink(t.video)}" target="_blank" class="screenshot-link" style="color: var(--warning); display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
                           <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13H6v-2h8v2z"/></svg>
                           <span>Xem video ghi hình (Video Recording)</span>
                         </a>
                         <video controls class="screenshot-preview" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px;">
-                          <source src="../../${t.video}" type="video/webm">
+                          <source src="${getRelativeLink(t.video)}" type="video/webm">
                         </video>
                       </div>
                     ` : ''}
                     ${t.screenshot ? `
                       <div style="flex: 1; min-width: 300px;">
-                        <a href="../../${t.screenshot}" target="_blank" class="screenshot-link" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
+                        <a href="${getRelativeLink(t.screenshot)}" target="_blank" class="screenshot-link" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; margin-bottom: 0.5rem;">
                           <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
                           <span>Xem ảnh chụp màn hình (Screenshot)</span>
                         </a>
-                        <img src="../../${t.screenshot}" class="screenshot-preview" alt="Bug Screenshot" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px; object-fit: contain; background: rgba(0,0,0,0.2);">
+                        <img src="${getRelativeLink(t.screenshot)}" class="screenshot-preview" alt="Bug Screenshot" style="width: 100%; max-height: 350px; display: block; border: 1px solid var(--card-border); border-radius: 8px; object-fit: contain; background: rgba(0,0,0,0.2);">
                       </div>
                     ` : ''}
                   </div>
@@ -1281,14 +1340,20 @@ function main() {
       if (m.summary.total > 0) {
         if (m.summary.failed > 0) {
           notes = `Lỗi phát hiện tại ${m.summary.failed} test cases.`;
-        } else if (m.summary.skipped === m.summary.total) {
-          notes = 'Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI.';
+        } else {
+          const skippedList = m.tests.filter(t => t.status === 'skipped');
+          if (skippedList.length > 0) {
+            const reasons = skippedList.map(t => t.skipReason ? `"${t.skipReason}"` : 'chờ phát triển UI').filter((val, idx, self) => self.indexOf(val) === idx);
+            notes = `Bỏ qua ${skippedList.length} test cases (${reasons.join(', ')}).`;
+          } else if (m.summary.skipped === m.summary.total) {
+            notes = 'Toàn bộ test cases bị bỏ qua (skipped) do chờ phát triển UI.';
+          }
         }
       } else {
         notes = 'Kịch bản chưa được chạy.';
       }
       
-      table += `| **${m.system} / ${m.name}** | ${statusText} | ${tcText} | ${lastRun} | ${notes} | [Xem HTML](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html) |\n`;
+      table += `| **${m.system} / ${m.name}** | ${statusText} | ${tcText} | ${lastRun} | ${notes} | [Xem HTML](html/index.html) |\n`;
     }
     return table;
   };
@@ -1306,7 +1371,7 @@ function main() {
     if (m.summary.failed > 0) {
       for (const t of m.tests) {
         if (t.status === 'failed') {
-          failedTests.push({ module: m.name, title: t.title, error: t.error, screenshot: t.screenshot, video: t.video });
+          failedTests.push({ module: m.name, title: t.title, error: t.error, screenshot: t.screenshot, video: t.video, apiLog: t.apiLog });
         }
       }
     }
@@ -1318,6 +1383,9 @@ function main() {
       mdContent += `${idx + 1}. **[${b.module}] — ${b.title}**\n`;
       if (b.error) {
         mdContent += `   \`\`\`\n   ${b.error.replace(/\n/g, '\n   ')}\n   \`\`\`\n`;
+      }
+      if (b.apiLog) {
+        mdContent += `   * **API Logs**:\n   \`\`\`\n   ${b.apiLog.replace(/\n/g, '\n   ')}\n   \`\`\`\n`;
       }
       if (b.screenshot) {
         mdContent += `   * **Screenshot**: ![Screenshot](../${b.screenshot})\n`;
@@ -1331,7 +1399,30 @@ function main() {
     mdContent += `Toàn bộ kịch bản kiểm thử chạy thành công. Không phát hiện lỗi mới nào.\n`;
   }
 
-  mdContent += `\n---\n\n## 4. Hướng dẫn chạy kiểm thử toàn bộ hệ thống (Execution Guide)\n\n`;
+  mdContent += `\n---\n\n## 4. Kịch bản kiểm thử bị bỏ qua (Skipped Tests Registry)\n\n`;
+
+  const skippedTests = [];
+  for (const m of moduleItems) {
+    if (m.summary.skipped > 0) {
+      for (const t of m.tests) {
+        if (t.status === 'skipped') {
+          skippedTests.push({ module: m.name, title: t.title, reason: t.skipReason || 'Chờ phát triển giao diện / kịch bản' });
+        }
+      }
+    }
+  }
+
+  if (skippedTests.length > 0) {
+    mdContent += `Có ${skippedTests.length} kịch bản kiểm thử đang tạm thời bị bỏ qua:\n\n`;
+    skippedTests.forEach((s, idx) => {
+      mdContent += `${idx + 1}. **[${s.module}] — ${s.title}**\n`;
+      mdContent += `   * **Lý do**: ${s.reason}\n`;
+    });
+  } else {
+    mdContent += `Không có kịch bản kiểm thử nào bị bỏ qua.\n`;
+  }
+
+  mdContent += `\n---\n\n## 5. Hướng dẫn chạy kiểm thử toàn bộ hệ thống (Execution Guide)\n\n`;
   mdContent += `Để thực hiện chạy kiểm thử tự động toàn bộ phân hệ:\n`;
   mdContent += `\`\`\`bash\n`;
   mdContent += `# Di chuyển vào project kiểm thử\n`;
@@ -1339,7 +1430,7 @@ function main() {
   mdContent += `# Chạy kiểm thử E2E bằng Playwright và tự động tổng hợp báo cáo Dashboard\n`;
   mdContent += `TEST_EMAIL=owner.368329@qtllogistics.vn TEST_PASSWORD=Movex@2026 BASE_URL=https://qtltest368329.movex.vn npx playwright test; node helpers/generate-dashboard.js\n`;
   mdContent += `\`\`\`\n\n`;
-  mdContent += `Báo cáo kiểm thử dạng HTML chi tiết sẽ được tự động cập nhật tại [reports/html/index.html](file:///Users/phuocpg/Documents/20.Projects/MoveX/dev-space/movex-e2e-tests/reports/html/index.html).\n`;
+  mdContent += `Báo cáo kiểm thử dạng HTML chi tiết sẽ được tự động cập nhật tại [reports/html/index.html](html/index.html).\n`;
 
   fs.writeFileSync(mdFile, mdContent, 'utf8');
   console.log(`🎉 Tạo báo cáo Markdown thành công tại: ${mdFile}`);

@@ -1,9 +1,7 @@
-name: Playwright Tests & Deploy Report
+name: Deploy Test Report
 
 on:
   push:
-    branches: [ main, master ]
-  pull_request:
     branches: [ main, master ]
   workflow_dispatch:
 
@@ -18,32 +16,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  test-and-deploy:
-    timeout-minutes: 30
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps chromium
-
-    - name: Run Playwright tests
-      env:
-        BASE_URL: ${{ secrets.BASE_URL || 'https://qtltest368329.movex.vn' }}
-        TEST_EMAIL: ${{ secrets.TEST_EMAIL || 'owner.368329@qtllogistics.vn' }}
-        TEST_PASSWORD: ${{ secrets.TEST_PASSWORD || 'Movex@2026' }}
-      # Run even if some tests fail so we can publish the report showing the test status
-      run: npx playwright test || true
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -51,7 +28,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: './reports/html'
+        path: '.'
 
     - name: Deploy to GitHub Pages
       id: deployment

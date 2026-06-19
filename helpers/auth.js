@@ -1,5 +1,86 @@
-// @ts-check
-const { test: base } = require('@playwright/test')
+const { test: base, expect } = require('@playwright/test');
+const fs = require('fs');
+const path = require('path');
+
+const test = base.extend({
+  page: async ({ page }, use, testInfo) => {
+    const apiLogs = [];
+    
+    page.on('response', async response => {
+      if (response.url().includes('/api/')) {
+        const request = response.request();
+        let logLines = [];
+        
+        // Log Request details (with payload available since request is completed)
+        let reqLog = `>> Request: ${request.method()} ${request.url()}`;
+        const postData = request.postData();
+        if (postData) {
+          reqLog += `\n   Request Payload: ${postData}`;
+        }
+        logLines.push(reqLog);
+        
+        // Log Response details
+        let resLog = `<< Response: ${response.status()} ${response.url()}`;
+        try {
+          const body = await response.text();
+          if (body) {
+            resLog += `\n   Response Body: ${body.slice(0, 5000)}${body.length > 5000 ? '... [Truncated]' : ''}`;
+          }
+        } catch (e) {
+          resLog += `\n   [Could not read response body: ${e.message}]`;
+        }
+        logLines.push(resLog);
+        
+        apiLogs.push(logLines.join('\n'));
+      }
+    });
+
+    page.on('requestfailed', request => {
+      if (request.url().includes('/api/')) {
+        let logLine = `>> Request FAILED: ${request.method()} ${request.url()}`;
+        const postData = request.postData();
+        if (postData) {
+          logLine += `\n   Request Payload: ${postData}`;
+        }
+        logLine += `\n   Error: ${request.failure() ? request.failure().errorText : 'Unknown Error'}`;
+        apiLogs.push(logLine);
+      }
+    });
+
+    try {
+      await use(page);
+    } finally {
+      // Always attach the api-log for debugging & tracing
+      const logsText = apiLogs.join('\n');
+      await testInfo.attach('api-log', {
+        body: logsText,
+        contentType: 'text/plain'
+      });
+
+      // Parse testId from testInfo.title or generate a safe filename
+      const match = testInfo.title.match(/^([A-Z0-9-]+):/);
+      const testId = match ? match[1] : null;
+      const safeTitleName = testInfo.title.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 80);
+      const screenshotFilename = testId ? `${testId}.png` : `${safeTitleName}.png`;
+
+      const reportsDir = path.join(__dirname, '..', 'reports', 'screenshots');
+      if (!fs.existsSync(reportsDir)) {
+        fs.mkdirSync(reportsDir, { recursive: true });
+      }
+      const screenshotPath = path.join(reportsDir, screenshotFilename);
+      try {
+        await page.screenshot({ path: screenshotPath });
+        // Attach the screenshot path to testInfo so Playwright registers it
+        await testInfo.attach('screenshot', {
+          path: screenshotPath,
+          contentType: 'image/png'
+        });
+      } catch (e) {
+        console.warn(`Failed to take screenshot for ${testInfo.title}:`, e.message);
+      }
+    }
+  }
+});
 
 /**
  * Tài khoản test mặc định
@@ -59,4 +140,4 @@ async function navigateTo(page, path) {
   await page.waitForLoadState('networkidle')
 }
 
-module.exports = { TEST_ACCOUNTS, login, navigateTo }
+module.exports = { TEST_ACCOUNTS, login, navigateTo, test, expect }
