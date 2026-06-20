@@ -11,7 +11,7 @@ on:
       test_suite:
         description: 'Test suite to run'
         type: choice
-        default: 'smoke'
+        default: 'full'
         options:
           - smoke
           - regression
@@ -43,7 +43,7 @@ permissions:
 
 jobs:
   test:
-    name: E2E Tests (${{ github.event.inputs.test_suite || 'smoke' }})
+    name: E2E Tests (${{ github.event.inputs.test_suite || 'full' }})
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -65,7 +65,7 @@ jobs:
 
       - name: Run E2E tests
         run: |
-          SUITE="${{ github.event.inputs.test_suite || 'smoke' }}"
+          SUITE="${{ github.event.inputs.test_suite || 'full' }}"
           if [ "$SUITE" = "full" ]; then
             npx playwright test
           else
