@@ -270,12 +270,32 @@ function main() {
             const failed = registry[mId].tests.filter(t => t.status === 'failed').length;
             const skipped = registry[mId].tests.filter(t => t.status === 'skipped').length;
             
+            const total = registry[mId].tests.length;
             registry[mId].summary = {
               passed,
               failed,
               skipped,
-              total: registry[mId].tests.length
+              total
             };
+            
+            // Add to history for trend tracking
+            if (!registry[mId].history) {
+              registry[mId].history = [];
+            }
+            // Chỉ thêm history nếu có test cases (để tránh push data rỗng nhiều lần khi chưa có script)
+            if (total > 0) {
+              registry[mId].history.push({
+                date: nowStr,
+                passed,
+                failed,
+                skipped,
+                total
+              });
+              // Giữ lại 30 lịch sử gần nhất để tối ưu kích thước file
+              if (registry[mId].history.length > 30) {
+                registry[mId].history.shift();
+              }
+            }
             
             if (registry[mId].tests.length > 0 && failed === 0 && passed > 0) {
               registry[mId].activeStatus = 'passed';
@@ -359,6 +379,48 @@ function main() {
     return aIndex - bIndex;
   });
 
+  // 3.5 Prepare Data for Analytics (System Health & RCA)
+  const systemData = {};
+  for (const m of moduleItems) {
+    if (!systemData[m.system]) systemData[m.system] = { passed: 0, failed: 0 };
+    systemData[m.system].passed += m.summary.passed;
+    systemData[m.system].failed += m.summary.failed;
+  }
+  const sysLabels = Object.keys(systemData);
+  const sysPassed = sysLabels.map(s => systemData[s].passed);
+  const sysFailed = sysLabels.map(s => systemData[s].failed);
+
+  const errorPatterns = [
+    { regex: /timeout|timed out|exceeded/i, category: 'Timeout & Performance' },
+    { regex: /500|internal server error/i, category: 'Server Error (500)' },
+    { regex: /401|403|unauthorized|forbidden/i, category: 'Auth & Permissions' },
+    { regex: /404|not found/i, category: 'Not Found (404)' },
+    { regex: /not visible|hidden|detached|intercepted/i, category: 'UI Element Not Interactable' },
+    { regex: /expected.*to be|expected.*to have/i, category: 'Assertion Failed' },
+    { regex: /network|ECONNREFUSED/i, category: 'Network Connection' }
+  ];
+
+  const rcaData = {};
+  for (const m of moduleItems) {
+    if (m.tests) {
+      for (const t of m.tests) {
+        if (t.status === 'failed' && t.error) {
+          let cat = 'Unknown / Other Issues';
+          for (const p of errorPatterns) {
+            if (p.regex.test(t.error)) {
+              cat = p.category;
+              break;
+            }
+          }
+          if (!rcaData[cat]) rcaData[cat] = { count: 0, tests: [] };
+          rcaData[cat].count++;
+          rcaData[cat].tests.push(`[${m.name}] ${t.title}`);
+        }
+      }
+    }
+  }
+  const sortedRca = Object.entries(rcaData).sort((a, b) => b[1].count - a[1].count);
+
   // 4. Tạo giao diện HTML Premium Dashboard
   const htmlContent = `<!DOCTYPE html>
 <html lang="vi">
@@ -367,6 +429,7 @@ function main() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoveX Automation E2E Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --bg-color: #0b0f19;
@@ -913,6 +976,9 @@ function main() {
     <button class="main-tab" id="tab-bugs-btn" onclick="switchMainTab('bugs')" style="display: flex; align-items: center; gap: 0.5rem;">
       🐞 Nhật Ký Lỗi (Bugs Log) <span style="background: var(--danger-glow); color: var(--danger); font-size: 0.8rem; padding: 0.1rem 0.5rem; border-radius: 9999px; font-weight: 800; border: 1px solid rgba(239, 68, 68, 0.2);">${totalBugs}</span>
     </button>
+    <button class="main-tab" id="tab-analytics-btn" onclick="switchMainTab('analytics')">
+      📈 Phân Tích Dữ Liệu (Analytics & RCA)
+    </button>
   </div>
 
   <!-- Tab Modules Content Wrapper -->
@@ -1187,7 +1253,133 @@ function main() {
     </section>
   </div>
 
+  <!-- Tab Analytics Content Wrapper -->
+  <div id="main-tab-analytics-content" style="display: none;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <!-- Execution Status Chart -->
+      <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(12px);">
+        <h3 style="margin-bottom: 1rem; text-align: center; font-size: 1.2rem; font-weight: 700;">Tỷ lệ Thành công Tổng thể</h3>
+        <div style="position: relative; height: 300px; width: 100%;">
+          <canvas id="statusPieChart"></canvas>
+        </div>
+      </div>
+      
+      <!-- System Health Chart -->
+      <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(12px);">
+        <h3 style="margin-bottom: 1rem; text-align: center; font-size: 1.2rem; font-weight: 700;">Tỷ lệ Lỗi theo Hệ thống (System Health)</h3>
+        <div style="position: relative; height: 300px; width: 100%;">
+          <canvas id="systemBarChart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <!-- RCA Section -->
+    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; backdrop-filter: blur(12px);">
+      <h3 style="margin-bottom: 1.5rem; color: var(--warning); display: flex; align-items: center; gap: 0.5rem; font-size: 1.3rem; font-weight: 700;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        Phân Tích Nguyên Nhân Lỗi (Root Cause Analysis - RCA)
+      </h3>
+      ${sortedRca.length > 0 ? `
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Loại lỗi (Error Category)</th>
+              <th style="width: 15%; text-align: center;">Số lượng</th>
+              <th style="width: 55%;">Test Cases Bị Ảnh Hưởng (Top 3)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${sortedRca.map(([cat, data]) => `
+              <tr>
+                <td style="font-weight: 600; color: #fca5a5;">${cat}</td>
+                <td style="text-align: center; font-size: 1.2rem; font-weight: 800; color: var(--danger);">${data.count}</td>
+                <td style="font-size: 0.85rem; color: var(--text-muted);">
+                  <ul style="margin: 0; padding-left: 1.2rem;">
+                    ${data.tests.slice(0, 3).map(t => `<li style="margin-bottom: 0.25rem;">${t.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</li>`).join('')}
+                    ${data.tests.length > 3 ? `<li style="margin-top: 0.25rem;"><em style="color: var(--primary);">+ ${data.tests.length - 3} tests khác...</em></li>` : ''}
+                  </ul>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      ` : `
+        <div style="text-align: center; padding: 2rem; color: var(--success); font-weight: 600; font-size: 1.1rem;">
+          🎉 Không phát hiện lỗi hệ thống nào.
+        </div>
+      `}
+    </div>
+  </div>
+
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Data injected from Node.js
+      const totalPassed = ${passedTestCases};
+      const totalFailed = ${failedTestCases};
+      const totalSkipped = ${skippedTestCases};
+      
+      const sysLabels = ${JSON.stringify(sysLabels)};
+      const sysPassed = ${JSON.stringify(sysPassed)};
+      const sysFailed = ${JSON.stringify(sysFailed)};
+      
+      // Pie Chart
+      const pieCtx = document.getElementById('statusPieChart').getContext('2d');
+      new Chart(pieCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Passed', 'Failed', 'Skipped'],
+          datasets: [{
+            data: [totalPassed, totalFailed, totalSkipped],
+            backgroundColor: ['#10b981', '#ef4444', '#f59e0b'],
+            borderWidth: 0,
+            hoverOffset: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#f3f4f6', font: { family: "'Plus Jakarta Sans', sans-serif" } } }
+          },
+          cutout: '70%'
+        }
+      });
+
+      // Bar Chart
+      const barCtx = document.getElementById('systemBarChart').getContext('2d');
+      new Chart(barCtx, {
+        type: 'bar',
+        data: {
+          labels: sysLabels,
+          datasets: [
+            {
+              label: 'Failed Tests',
+              data: sysFailed,
+              backgroundColor: '#ef4444',
+              borderRadius: 4
+            },
+            {
+              label: 'Passed Tests',
+              data: sysPassed,
+              backgroundColor: '#10b981',
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { stacked: true, ticks: { color: '#9ca3af', font: { size: 11 } }, grid: { display: false } },
+            y: { stacked: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true }
+          },
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#f3f4f6', font: { family: "'Plus Jakarta Sans', sans-serif" } } }
+          }
+        }
+      });
+    });
+
     let currentFilter = 'all';
 
     function setFilter(filter, el) {
@@ -1260,9 +1452,15 @@ function main() {
       if (tab === 'modules') {
         document.getElementById('main-tab-modules-content').style.display = 'block';
         document.getElementById('main-tab-bugs-content').style.display = 'none';
-      } else {
+        document.getElementById('main-tab-analytics-content').style.display = 'none';
+      } else if (tab === 'bugs') {
         document.getElementById('main-tab-modules-content').style.display = 'none';
         document.getElementById('main-tab-bugs-content').style.display = 'block';
+        document.getElementById('main-tab-analytics-content').style.display = 'none';
+      } else if (tab === 'analytics') {
+        document.getElementById('main-tab-modules-content').style.display = 'none';
+        document.getElementById('main-tab-bugs-content').style.display = 'none';
+        document.getElementById('main-tab-analytics-content').style.display = 'block';
       }
     }
   </script>
@@ -1364,7 +1562,20 @@ function main() {
   mdContent += `### 🚛 Tenant-Operation / OMS\n\n` + renderModuleTable(omsModules) + `\n`;
   mdContent += `### 🚚 Tenant-Operation / TMS\n\n` + renderModuleTable(tmsModules) + `\n`;
 
-  mdContent += `\n---\n\n## 3. Nhật ký lỗi phát hiện (Bugs Registry Log)\n\n`;
+  mdContent += `\n---\n\n## 3. Phân Tích Nguyên Nhân Lỗi (Root Cause Analysis - RCA)\n\n`;
+  if (sortedRca.length > 0) {
+    mdContent += `| Loại Lỗi (Error Category) | Số Lượng | Test Cases Bị Ảnh Hưởng (Top 3) |\n`;
+    mdContent += `| :--- | :---: | :--- |\n`;
+    sortedRca.forEach(([cat, data]) => {
+      const topTests = data.tests.slice(0, 3).map(t => `<li>${t.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</li>`).join('');
+      const more = data.tests.length > 3 ? `<li>+ ${data.tests.length - 3} tests khác...</li>` : '';
+      mdContent += `| **${cat}** | 🔴 ${data.count} | <ul>${topTests}${more}</ul> |\n`;
+    });
+  } else {
+    mdContent += `🎉 Không phát hiện lỗi hệ thống nào trong phiên kiểm thử này.\n`;
+  }
+
+  mdContent += `\n---\n\n## 4. Nhật ký lỗi phát hiện chi tiết (Bugs Registry Log)\n\n`;
 
   const failedTests = [];
   for (const m of moduleItems) {

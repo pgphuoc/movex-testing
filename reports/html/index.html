@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoveX Automation E2E Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     :root {
       --bg-color: #0b0f19;
@@ -539,7 +540,7 @@
     </div>
     <div class="meta-badge">
       <div class="pulse"></div>
-      <span>Cập nhật: <strong id="update-time">07:48:46 20/6/2026</strong></span>
+      <span>Cập nhật: <strong id="update-time">08:05:53 20/6/2026</strong></span>
     </div>
   </header>
 
@@ -550,6 +551,9 @@
     </button>
     <button class="main-tab" id="tab-bugs-btn" onclick="switchMainTab('bugs')" style="display: flex; align-items: center; gap: 0.5rem;">
       🐞 Nhật Ký Lỗi (Bugs Log) <span style="background: var(--danger-glow); color: var(--danger); font-size: 0.8rem; padding: 0.1rem 0.5rem; border-radius: 9999px; font-weight: 800; border: 1px solid rgba(239, 68, 68, 0.2);">0</span>
+    </button>
+    <button class="main-tab" id="tab-analytics-btn" onclick="switchMainTab('analytics')">
+      📈 Phân Tích Dữ Liệu (Analytics & RCA)
     </button>
   </div>
 
@@ -5923,7 +5927,109 @@
     </section>
   </div>
 
+  <!-- Tab Analytics Content Wrapper -->
+  <div id="main-tab-analytics-content" style="display: none;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <!-- Execution Status Chart -->
+      <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(12px);">
+        <h3 style="margin-bottom: 1rem; text-align: center; font-size: 1.2rem; font-weight: 700;">Tỷ lệ Thành công Tổng thể</h3>
+        <div style="position: relative; height: 300px; width: 100%;">
+          <canvas id="statusPieChart"></canvas>
+        </div>
+      </div>
+      
+      <!-- System Health Chart -->
+      <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(12px);">
+        <h3 style="margin-bottom: 1rem; text-align: center; font-size: 1.2rem; font-weight: 700;">Tỷ lệ Lỗi theo Hệ thống (System Health)</h3>
+        <div style="position: relative; height: 300px; width: 100%;">
+          <canvas id="systemBarChart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <!-- RCA Section -->
+    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; backdrop-filter: blur(12px);">
+      <h3 style="margin-bottom: 1.5rem; color: var(--warning); display: flex; align-items: center; gap: 0.5rem; font-size: 1.3rem; font-weight: 700;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        Phân Tích Nguyên Nhân Lỗi (Root Cause Analysis - RCA)
+      </h3>
+      
+        <div style="text-align: center; padding: 2rem; color: var(--success); font-weight: 600; font-size: 1.1rem;">
+          🎉 Không phát hiện lỗi hệ thống nào.
+        </div>
+      
+    </div>
+  </div>
+
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Data injected from Node.js
+      const totalPassed = 109;
+      const totalFailed = 0;
+      const totalSkipped = 26;
+      
+      const sysLabels = ["Platform-Admin","Tenant-Admin / Master-data","Tenant-Operation / IM","Tenant-Operation / OMS","Tenant-Operation / TMS"];
+      const sysPassed = [7,73,0,24,5];
+      const sysFailed = [0,0,0,0,0];
+      
+      // Pie Chart
+      const pieCtx = document.getElementById('statusPieChart').getContext('2d');
+      new Chart(pieCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Passed', 'Failed', 'Skipped'],
+          datasets: [{
+            data: [totalPassed, totalFailed, totalSkipped],
+            backgroundColor: ['#10b981', '#ef4444', '#f59e0b'],
+            borderWidth: 0,
+            hoverOffset: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#f3f4f6', font: { family: "'Plus Jakarta Sans', sans-serif" } } }
+          },
+          cutout: '70%'
+        }
+      });
+
+      // Bar Chart
+      const barCtx = document.getElementById('systemBarChart').getContext('2d');
+      new Chart(barCtx, {
+        type: 'bar',
+        data: {
+          labels: sysLabels,
+          datasets: [
+            {
+              label: 'Failed Tests',
+              data: sysFailed,
+              backgroundColor: '#ef4444',
+              borderRadius: 4
+            },
+            {
+              label: 'Passed Tests',
+              data: sysPassed,
+              backgroundColor: '#10b981',
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { stacked: true, ticks: { color: '#9ca3af', font: { size: 11 } }, grid: { display: false } },
+            y: { stacked: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255,255,255,0.05)' }, beginAtZero: true }
+          },
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#f3f4f6', font: { family: "'Plus Jakarta Sans', sans-serif" } } }
+          }
+        }
+      });
+    });
+
     let currentFilter = 'all';
 
     function setFilter(filter, el) {
@@ -5996,9 +6102,15 @@
       if (tab === 'modules') {
         document.getElementById('main-tab-modules-content').style.display = 'block';
         document.getElementById('main-tab-bugs-content').style.display = 'none';
-      } else {
+        document.getElementById('main-tab-analytics-content').style.display = 'none';
+      } else if (tab === 'bugs') {
         document.getElementById('main-tab-modules-content').style.display = 'none';
         document.getElementById('main-tab-bugs-content').style.display = 'block';
+        document.getElementById('main-tab-analytics-content').style.display = 'none';
+      } else if (tab === 'analytics') {
+        document.getElementById('main-tab-modules-content').style.display = 'none';
+        document.getElementById('main-tab-bugs-content').style.display = 'none';
+        document.getElementById('main-tab-analytics-content').style.display = 'block';
       }
     }
   </script>

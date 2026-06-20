@@ -416,7 +416,16 @@
       "skipped": 0,
       "total": 4
     },
-    "activeStatus": "passed"
+    "activeStatus": "passed",
+    "history": [
+      {
+        "date": "2026-06-20 00:48:43",
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "total": 4
+      }
+    ]
   },
   "routing": {
     "id": "routing",
@@ -498,7 +507,16 @@
       "skipped": 0,
       "total": 2
     },
-    "activeStatus": "passed"
+    "activeStatus": "passed",
+    "history": [
+      {
+        "date": "2026-06-19 17:23:06",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      }
+    ]
   },
   "cost": {
     "id": "cost",
@@ -535,7 +553,16 @@
       "skipped": 0,
       "total": 2
     },
-    "activeStatus": "passed"
+    "activeStatus": "passed",
+    "history": [
+      {
+        "date": "2026-06-19 17:23:06",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      }
+    ]
   },
   "pricing": {
     "id": "pricing",
@@ -732,7 +759,16 @@
       "skipped": 0,
       "total": 18
     },
-    "activeStatus": "passed"
+    "activeStatus": "passed",
+    "history": [
+      {
+        "date": "2026-06-19 17:44:54",
+        "passed": 18,
+        "failed": 0,
+        "skipped": 0,
+        "total": 18
+      }
+    ]
   },
   "vendor-tariff": {
     "id": "vendor-tariff",

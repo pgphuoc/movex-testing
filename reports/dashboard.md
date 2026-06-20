@@ -89,7 +89,13 @@
 
 ---
 
-## 3. Nhật ký lỗi phát hiện (Bugs Registry Log)
+## 3. Phân Tích Nguyên Nhân Lỗi (Root Cause Analysis - RCA)
+
+🎉 Không phát hiện lỗi hệ thống nào trong phiên kiểm thử này.
+
+---
+
+## 4. Nhật ký lỗi phát hiện chi tiết (Bugs Registry Log)
 
 Toàn bộ kịch bản kiểm thử chạy thành công. Không phát hiện lỗi mới nào.
 
