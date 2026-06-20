@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
-  test('UI-001: Trang Fleet Management tải đúng bố cục', async ({ page }) => {
+  test('FM-UI-001: Trang Fleet Management tải đúng bố cục', async ({ page }) => {
     await navigateTo(page, LIST_URL);
     await expect(page.locator('text=Fleet Management').or(page.locator('text=Fleet')).first()).toBeVisible();
   });

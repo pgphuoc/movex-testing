@@ -1,23 +1,35 @@
 {
   "name": "movex-e2e-tests",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "MoveX Automation E2E Tests - Playwright",
   "scripts": {
     "test": "npx playwright test",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:regression": "npx playwright test --grep @regression",
     "test:vehicle": "npx playwright test specs/vehicle/",
     "test:bp": "npx playwright test specs/business-partner/",
     "test:admin-info": "npx playwright test specs/administrative-info/",
     "test:toll": "npx playwright test specs/toll-station/",
     "test:routing": "npx playwright test specs/routing/",
-    "test:cost": "npx playwright test specs/cost-group/",
+    "test:cost": "npx playwright test specs/cost/",
+    "test:pricing": "npx playwright test specs/pricing/",
+    "test:services": "npx playwright test specs/services/",
+    "test:source-master": "npx playwright test specs/source-master/",
+    "test:common-codes": "npx playwright test specs/common-codes/",
+    "test:vendor-tariff": "npx playwright test specs/vendor-tariff/",
+    "test:active": "npx playwright test specs/pricing/ specs/cost/ specs/services/",
+    "test:masterdata": "npx playwright test specs/business-partner/ specs/vehicle/ specs/administrative-info/ specs/toll-station/ specs/routing/ specs/source-master/ specs/cost/ specs/services/ specs/pricing/ specs/vendor-tariff/ specs/common-codes/",
     "test:headed": "npx playwright test --headed",
     "test:ui": "npx playwright test --ui",
     "test:debug": "npx playwright test --debug",
     "report": "npx playwright show-report",
+    "report:dashboard": "node helpers/generate-dashboard.js",
+    "test:dashboard": "npx playwright test && node helpers/generate-dashboard.js",
     "install:browsers": "npx playwright install chromium",
     "create:module": "bash create-module.sh"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.52.0",
+    "dotenv": "^17.4.2"
   }
 }

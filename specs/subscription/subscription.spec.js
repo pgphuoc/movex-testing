@@ -15,7 +15,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
-  test('UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
+  test('SUB-UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
     await navigateTo(page, LIST_URL);
     await expect(page.locator('text=Subscription').or(page.locator('text=Subscription List')).or(page.locator('text=Đăng ký')).first()).toBeVisible();
   });

@@ -1,53 +1,43 @@
 # 📝 Test Cases — Pricing
 
 > **Module:** Pricing
-> **URL:** /master-data/pricing
-> **Ngày tạo:** 2026-06-18
-> **Người tạo:** [Tên]
+> **Đường dẫn spec:** `specs/pricing/pricing.spec.js`
+> **Trạng thái:** Đã triển khai
 
 ---
 
-## Tham chiếu chéo
-
-| Nguồn | File | Đã đọc |
-|-------|------|--------|
-| Đặc tả màn hình | `input/11 Screen Specification/...` | ☐ |
-| Quy tắc hệ thống | SR-XX-001 → SR-XX-00N | ☐ |
-| Mã lỗi | ... | ☐ |
-| Phân quyền | Actor & Permission list | ☐ |
-
----
-
-## Danh sách Test Cases
+## Danh sách Test Cases đã triển khai (Implemented E2E)
 
 ### 1. Giao diện (UI)
 
-| Mã TC | Tên kiểm thử | Bước thực hiện | Kết quả kỳ vọng | SR Ref |
-|-------|-------------|----------------|-----------------|--------|
-| UI-001 | Trang danh sách tải đúng | Mở URL module | Hiển thị tiêu đề, bảng, toolbar | — |
-| UI-002 | Các cột mặc định | Kiểm tra header bảng | Đúng theo đặc tả BA | — |
+| Mã TC | Tên kiểm thử |
+|-------|-------------|
+| PR-UI-001 | Trang danh sách Pricing Policy tải đúng bố cục |
+| PR-UI-002 | Trang danh sách Pricing Rule tải đúng bố cục |
+| PR-UI-003 | Trang danh sách Pricing List tải đúng bố cục |
+| PR-UI-004 | Trang danh sách Planned Cost tải đúng bố cục |
 
 ### 2. Chức năng (FN)
 
-| Mã TC | Tên kiểm thử | Bước thực hiện | Kết quả kỳ vọng | SR Ref |
-|-------|-------------|----------------|-----------------|--------|
-| FN-001 | Nhấn hàng → Chi tiết | Nhấn row đầu tiên | URL chuyển sang /id | — |
-| FN-002 | Thêm mới | Nhấn Add New | URL chuyển sang /create | — |
+| Mã TC | Tên kiểm thử |
+|-------|-------------|
+| PR-FN-003 | BA Spec SPR001→SPR002 — Double-click dòng Pricing Rule List mở Detail |
+| PR-FN-004 | BA Spec SPR003 — Nút Hủy từ tạo mới Pricing Rule quay lại danh sách |
+| PR-FN-001 | Tạo Pricing Rule -> Kiểm tra tính giá ở Pricing List -> Tạo mới Pricing Policy |
+| PR-FN-002 | Pricing Rule — Nhập đầy đủ (Full-fill), kiểm tra preview kết quả tính toán và đối chiếu bảng giá (Pricing List) |
+| PC-FN-001 | BA Spec SPC003 — Tạo Planned Cost thành công |
+| PC-FN-002 | BA Spec SPC003 — Planned Cost Create form validation khi thiếu trường bắt buộc |
+| PC-FN-003 | BA Spec SPC001→SPC002 — Double-click Planned Cost List mở Detail |
+| PL-FN-001 | BA Spec SPX001 — Pricing List hiển thị Rate Card inline với Quick Edit |
+| PL-FN-002 | BA Spec SPX002 — Pricing List Detail hiển thị đơn giá lines |
+| PP-FN-001 | BA Spec SPP001→SPP002 — Double-click Pricing Policy List mở Detail |
+| PP-FN-002 | BA Spec SPP003 — Pricing Policy Create page hiển thị đúng layout |
 
 ### 3. Validation (VL)
 
-| Mã TC | Tên kiểm thử | Bước thực hiện | Kết quả kỳ vọng | SR Ref |
-|-------|-------------|----------------|-----------------|--------|
-| VL-001 | Lưu form trống | Nhấn Save khi chưa nhập | Hiện lỗi required | — |
+| Mã TC | Tên kiểm thử |
+|-------|-------------|
+| PR-VL-001 | Validation lỗi bắt buộc khi lưu Pricing Rule trống |
+| PR-VL-002 | Boundary Value — Kiểm tra mã quy tắc định giá bị giới hạn ở 20 ký tự (maxLength) |
+| PR-VL-003 | BA Spec SR-PR-002 — Ngày bắt đầu phải <= Ngày kết thúc |
 
-### 4. Quy tắc nghiệp vụ (BR)
-
-| Mã TC | Tên kiểm thử | Bước thực hiện | Kết quả kỳ vọng | SR Ref |
-|-------|-------------|----------------|-----------------|--------|
-| BR-001 | TODO | TODO | TODO | SR-XX-001 |
-
-### 5. Phân quyền (PM)
-
-| Mã TC | Tên kiểm thử | Bước thực hiện | Kết quả kỳ vọng | SR Ref |
-|-------|-------------|----------------|-----------------|--------|
-| PM-001 | Admin thấy nút hành động | Đăng nhập Admin | Thấy Add New, Edit | — |

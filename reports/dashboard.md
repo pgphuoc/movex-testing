@@ -1,7 +1,7 @@
 # 📊 Bảng Điều Khiển Kiểm Thử Tự Động (E2E Testing Dashboard)
 
 > **Dự án:** MoveX Logistics & E-Commerce Platform
-> **Ngày cập nhật:** 2026-06-19
+> **Ngày cập nhật:** 2026-06-20
 > **Người vận hành:** Senior BA Agent / Antigravity
 
 ---
@@ -37,11 +37,11 @@
 | **Tenant-Admin / Master-data / Vehicle** | 🟢 **ACTIVE** | **12 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Administrative Info** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Source Master** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
-| **Tenant-Admin / Master-data / Toll Station** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
+| **Tenant-Admin / Master-data / Toll Station** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-20 00:48:43 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Routing** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
-| **Tenant-Admin / Master-data / Service** | 🟢 **ACTIVE** | **6 Passed** / 0 Failed / 0 Skipped | 2026-06-19 00:07:19 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
-| **Tenant-Admin / Master-data / Cost** | 🟢 **ACTIVE** | **11 Passed** / 0 Failed / 0 Skipped | 2026-06-19 00:07:19 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
-| **Tenant-Admin / Master-data / Pricing** | 🟢 **ACTIVE** | **8 Passed** / 0 Failed / 0 Skipped | 2026-06-19 00:53:20 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
+| **Tenant-Admin / Master-data / Service** | 🟢 **ACTIVE** | **2 Passed** / 0 Failed / 0 Skipped | 2026-06-19 17:23:06 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
+| **Tenant-Admin / Master-data / Cost** | 🟢 **ACTIVE** | **2 Passed** / 0 Failed / 0 Skipped | 2026-06-19 17:23:06 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
+| **Tenant-Admin / Master-data / Pricing** | 🟢 **ACTIVE** | **18 Passed** / 0 Failed / 0 Skipped | 2026-06-19 17:44:54 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Vendor Tariff** | 🟢 **ACTIVE** | **8 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Common Code** | 🟢 **ACTIVE** | **1 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Exchange Rate** | 🟡 **SKIPPED** | **0 Passed** / 0 Failed / 2 Skipped | 2026-06-18 11:39:33 | Bỏ qua 2 test cases (chờ phát triển UI). | [Xem HTML](html/index.html) |

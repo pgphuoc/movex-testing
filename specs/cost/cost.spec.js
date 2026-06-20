@@ -1,4 +1,23 @@
 // @ts-check
+/**
+ * ===================================================================
+ * Cost — Playwright E2E Test
+ * ===================================================================
+ *
+ * Tham chiếu chéo (Cross-Reference):
+ *  - Đặc tả màn hình: 10-Screen-Specification / Tenant-Admin / Master-data / Cost
+ *  - FE Routes: /master-data/cost/* (Routes.ts → ROUTES.masterData.cost)
+ *  - Quy tắc hệ thống: BR-COST-001 → BR-COST-018 (Cost Group, Cost Item)
+ *  - API: GET/POST /api/cost-groups, /api/cost-items
+ *  - Phân quyền: Owner (Full CRUD) / Admin (CRUD) / Viewer (Read Only)
+ *
+ * Danh mục test case:
+ *  - CS-UI-xxx: Layout & List Views
+ *  - CS-VL-xxx: Validation & Boundaries
+ *  - CS-FN-xxx: Functional (CRUD)
+ *  - CS-IF-xxx: Integration Flow
+ * ===================================================================
+ */
 const { test, expect } = require('../../helpers/auth');
 const { login, navigateTo } = require('../../helpers/auth');
 
@@ -50,6 +69,53 @@ test.describe(`${MODULE_NAME} Group — Giao diện & Chức năng`, () => {
     
     await page.waitForURL(url => url.pathname === GROUP_LIST_URL);
     expect(page.url()).toContain(GROUP_LIST_URL);
+  });
+
+  // --- BA Spec Gap Analysis: New tests from SR-CG-002, SCG001→SCG002, SCG003 AC ---
+
+  test('CS-FN-005: BA Spec SR-CG-002 — Tạo Cost Group trùng mã → 409 Conflict', async ({ page }) => {
+    const timestamp = Date.now().toString().slice(-6);
+    const dupCode = `DUP${timestamp}`;
+    const dupName = `DupGroup ${timestamp}`;
+
+    // Step 1: Tạo bản gốc
+    await navigateTo(page, GROUP_CREATE_URL);
+    const codeInput = page.locator('input[placeholder*="Group Code" i]').or(page.locator('input[placeholder*="Mã nhóm" i]')).first();
+    await codeInput.fill(dupCode);
+    const nameInput = page.locator('input[placeholder*="Group Name" i]').or(page.locator('input[placeholder*="Tên nhóm" i]')).first();
+    await nameInput.fill(dupName);
+    const saveBtn = page.getByRole('button', { name: /save/i }).or(page.locator('button:has-text("Save")')).or(page.locator('button:has-text("Lưu")')).first();
+    await saveBtn.click();
+    await page.waitForURL(url => url.pathname === GROUP_LIST_URL, { timeout: 15000 });
+
+    // Step 2: Tạo bản trùng mã
+    await navigateTo(page, GROUP_CREATE_URL);
+    const codeInput2 = page.locator('input[placeholder*="Group Code" i]').or(page.locator('input[placeholder*="Mã nhóm" i]')).first();
+    await codeInput2.fill(dupCode);
+    const nameInput2 = page.locator('input[placeholder*="Group Name" i]').or(page.locator('input[placeholder*="Tên nhóm" i]')).first();
+    await nameInput2.fill(`Duplicate ${dupName}`);
+    const saveBtn2 = page.getByRole('button', { name: /save/i }).or(page.locator('button:has-text("Save")')).or(page.locator('button:has-text("Lưu")')).first();
+    await saveBtn2.click();
+
+    // Kiểm tra: phải hiển thị lỗi trùng mã (409 Conflict hoặc toast)
+    await page.waitForTimeout(2000);
+    const dupError = page.locator('text=already exists').or(page.locator('text=duplicate')).or(page.locator('text=trùng')).or(page.locator('text=đã tồn tại')).or(page.locator('.ant-message-error'));
+    const errorCount = await dupError.count();
+    expect(errorCount).toBeGreaterThanOrEqual(1);
+  });
+
+  test('CS-FN-006: BA Spec SCG001→SCG002 — Double-click dòng trong List mở Detail', async ({ page }) => {
+    await navigateTo(page, GROUP_LIST_URL);
+    await page.waitForTimeout(2000);
+
+    // Double-click dòng đầu tiên trong Table Grid
+    const firstRow = page.locator('.ant-table-row').first();
+    if (await firstRow.isVisible()) {
+      await firstRow.dblclick();
+      await page.waitForTimeout(2000);
+      // Kiểm tra chuyển sang trang Detail (URL chứa /group/ + ID)
+      expect(page.url()).toMatch(/\/master-data\/cost\/group\/\d+/);
+    }
   });
 });
 

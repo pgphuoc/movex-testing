@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
-  test('UI-001: Trang danh sách Common Codes tải đúng', async ({ page }) => {
+  test('CC-UI-001: Trang danh sách Common Codes tải đúng', async ({ page }) => {
     await navigateTo(page, LIST_URL);
     await expect(page.locator('text=Common Code List').first()).toBeVisible();
     

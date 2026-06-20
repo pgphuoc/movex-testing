@@ -82,27 +82,38 @@ const test = base.extend({
   }
 });
 
+const { ENV } = require('./env');
+
 /**
- * Tài khoản test mặc định
- * ⚠️ Thay đổi nếu dùng tài khoản khác
+ * Tài khoản test — đọc từ biến môi trường hoặc file .env
+ * ⚠️ Copy .env.example → .env và điền giá trị thật.
+ * ⚠️ KHÔNG hardcode credentials trong source code.
  */
 const TEST_ACCOUNTS = {
   admin: {
-    email: process.env.TEST_EMAIL || 'tenant.admin@gmail.vn',
-    password: process.env.TEST_PASSWORD || 'AdminTeant@1466!'
-  }
+    email: ENV.admin.email,
+    password: ENV.admin.password,
+  },
+  owner: {
+    email: ENV.owner.email,
+    password: ENV.owner.password,
+  },
+  viewer: {
+    email: ENV.viewer.email,
+    password: ENV.viewer.password,
+  },
 }
 
-/**
- * Đăng nhập hệ thống MoveX
- * @param {import('@playwright/test').Page} page
- * @param {{ email: string, password: string }} credentials
- */
 async function login(page, credentials = TEST_ACCOUNTS.admin) {
   await page.goto('/login')
 
-  // Chờ trang login tải xong
+  // Chờ trang load xong (có thể là trang login hoặc đã redirect sang trang chủ nếu có session)
   await page.waitForLoadState('networkidle')
+
+  // Nếu app đã tự động redirect khỏi /login (nghĩa là storageState có hiệu lực), thì bỏ qua bước điền form
+  if (!page.url().includes('/login')) {
+    return;
+  }
 
   // Điền email — MoveX dùng XInputText, render ra input[name="email"] (không phải type="email")
   const emailInput = page.locator('input[name="email"]').first()
@@ -114,8 +125,7 @@ async function login(page, credentials = TEST_ACCOUNTS.admin) {
   await passwordInput.waitFor({ state: 'visible', timeout: 5_000 })
   await passwordInput.fill(credentials.password)
 
-  // Nhấn nút đăng nhập — XButton hiển thị text từ i18n key 'login.loginButton'
-  // Có thể là "Login", "Sign in", "Đăng nhập" tuỳ ngôn ngữ
+  // Nhấn nút đăng nhập
   const loginButton = page
     .locator(
       'button:has-text("Login"), button:has-text("Sign in"), button:has-text("Đăng nhập"), button:has-text("Log in")'

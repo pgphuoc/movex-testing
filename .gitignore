@@ -4,3 +4,14 @@ playwright-report/
 blob-report/
 .DS_Store
 *.pdf
+
+# Environment secrets — NEVER commit
+.env
+.env.local
+.env.*.local
+
+# Large binary test artifacts (screenshots tracked in reports/screenshots/ via registry)
+reports/screenshots/
+reports/videos/
+reports/modules/
+reports/results.json

@@ -1,19 +1,14 @@
 // @ts-check
 const { test, expect } = require('../../helpers/auth');
-const { login, navigateTo } = require('../../helpers/auth');
+const { login, navigateTo, TEST_ACCOUNTS } = require('../../helpers/auth');
 
 const MODULE_NAME = 'Business Partner';
 const LIST_URL = '/master-data/business-partner';
 const CREATE_URL = `${LIST_URL}/create`;
 
-// Dùng tài khoản Owner của tenant đang chạy test
-const TENANT_CREDENTIALS = {
-  email: process.env.TEST_EMAIL || 'owner.368329@qtllogistics.vn',
-  password: process.env.TEST_PASSWORD || 'Movex@2026'
-};
-
 test.beforeEach(async ({ page }) => {
-  await login(page, TENANT_CREDENTIALS);
+  // BP module yêu cầu quyền Tenant Owner
+  await login(page, TEST_ACCOUNTS.owner);
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {

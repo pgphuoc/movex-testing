@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện & Chức năng`, () => {
-  test('UI-001: Trang danh sách Toll Station tải đúng', async ({ page }) => {
+  test('TS-UI-001: Trang danh sách Toll Station tải đúng', async ({ page }) => {
     await navigateTo(page, LIST_URL);
     await expect(page.locator('text=Toll Station').first()).toBeVisible();
     
@@ -20,7 +20,7 @@ test.describe(`${MODULE_NAME} — Giao diện & Chức năng`, () => {
     await expect(addNewBtn).toBeVisible();
   });
 
-  test('UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con', async ({ page }) => {
+  test('TS-UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con', async ({ page }) => {
     await navigateTo(page, CREATE_URL);
     
     // Tiêu đề
@@ -31,7 +31,7 @@ test.describe(`${MODULE_NAME} — Giao diện & Chức năng`, () => {
     await expect(page.locator('.ant-tabs-tab-btn:has-text("Toll Tariff")').first().or(page.locator('text=Toll Tariff').first())).toBeVisible();
   });
 
-  test('FN-001: Validation lỗi bắt buộc khi lưu form trống', async ({ page }) => {
+  test('TS-FN-001: Validation lỗi bắt buộc khi lưu form trống', async ({ page }) => {
     await navigateTo(page, CREATE_URL);
     
     const saveBtn = page.getByRole('button', { name: /save/i }).or(page.locator('button:has-text("Save")')).first();
@@ -43,7 +43,7 @@ test.describe(`${MODULE_NAME} — Giao diện & Chức năng`, () => {
     expect(count).toBeGreaterThanOrEqual(1);
   });
 
-  test('FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách', async ({ page }) => {
+  test('TS-FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách', async ({ page }) => {
     await navigateTo(page, CREATE_URL);
     
     const cancelBtn = page.getByRole('button', { name: /cancel/i }).or(page.locator('button:has-text("Cancel")')).first();

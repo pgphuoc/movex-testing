@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
-  test('UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
+  test('AZ-UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
     await navigateTo(page, LIST_URL);
     await expect(page.locator('text=Authorization').or(page.locator('text=Role & Permission').or(page.locator('text=Role Management'))).first()).toBeVisible();
     await expect(page.getByRole('button', { name: /add new|thêm mới/i }).first()).toBeVisible();

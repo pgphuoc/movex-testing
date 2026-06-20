@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
-  test('UI-001: Trang Offices tải đúng bố cục', async ({ page }) => {
+  test('ORG-UI-001: Trang Offices tải đúng bố cục', async ({ page }) => {
     await navigateTo(page, OFFICES_URL);
     
     // Check if redirected to a 403 page or URL changes to /403 or page displays forbidden text
@@ -27,7 +27,7 @@ test.describe(`${MODULE_NAME} — Giao diện`, () => {
     }
   });
 
-  test('UI-002: Trang Departments tải đúng bố cục', async ({ page }) => {
+  test('ORG-UI-002: Trang Departments tải đúng bố cục', async ({ page }) => {
     await navigateTo(page, DEPARTMENTS_URL);
     
     // Check if redirected to a 403 page or URL changes to /403 or page displays forbidden text

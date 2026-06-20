@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
-  test('UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
+  test('AI-UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
     await navigateTo(page, LIST_URL);
     // Tiêu đề hoặc breadcrumb
     await expect(page.locator('text=Administrative Info').first()).toBeVisible();
@@ -20,7 +20,7 @@ test.describe(`${MODULE_NAME} — Giao diện`, () => {
     await expect(addNewBtn).toBeVisible();
   });
 
-  test('UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con', async ({ page }) => {
+  test('AI-UI-002: Trang tạo mới hiển thị đầy đủ các trường và tab con', async ({ page }) => {
     await navigateTo(page, CREATE_URL);
     
     // Tiêu đề
@@ -36,7 +36,7 @@ test.describe(`${MODULE_NAME} — Giao diện`, () => {
 });
 
 test.describe(`${MODULE_NAME} — Chức năng & Nghiệp vụ`, () => {
-  test('FN-001: Validation lỗi bắt buộc khi lưu form trống', async ({ page }) => {
+  test('AI-FN-001: Validation lỗi bắt buộc khi lưu form trống', async ({ page }) => {
     await navigateTo(page, CREATE_URL);
     
     // Nhấn Lưu
@@ -50,7 +50,7 @@ test.describe(`${MODULE_NAME} — Chức năng & Nghiệp vụ`, () => {
     expect(count).toBeGreaterThanOrEqual(1);
   });
 
-  test('FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách', async ({ page }) => {
+  test('AI-FN-002: Nút Hủy từ màn hình tạo mới quay lại màn hình danh sách', async ({ page }) => {
     await navigateTo(page, CREATE_URL);
     
     const cancelBtn = page.getByRole('button', { name: /cancel/i }).or(page.locator('button:has-text("Cancel")')).first();

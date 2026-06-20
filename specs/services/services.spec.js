@@ -1,4 +1,23 @@
 // @ts-check
+/**
+ * ===================================================================
+ * Services — Playwright E2E Test
+ * ===================================================================
+ *
+ * Tham chiếu chéo (Cross-Reference):
+ *  - Đặc tả màn hình: 10-Screen-Specification / Tenant-Admin / Master-data / Service
+ *  - FE Routes: /master-data/services/* (Routes.ts → ROUTES.masterData.services)
+ *  - Quy tắc hệ thống: SR-SV-001 → SR-SV-00N (Service Group, Service)
+ *  - API: GET/POST /api/service-groups, /api/services
+ *  - Phân quyền: Owner (Full CRUD) / Admin (CRUD) / Viewer (Read Only)
+ *
+ * Danh mục test case:
+ *  - SV-UI-xxx: Layout & List Views
+ *  - SV-VL-xxx: Validation & Boundaries
+ *  - SV-FN-xxx: Functional (CRUD)
+ *  - SV-IF-xxx: Integration Flow
+ * ===================================================================
+ */
 const { test, expect } = require('../../helpers/auth');
 const { login, navigateTo } = require('../../helpers/auth');
 
@@ -273,5 +292,89 @@ test.describe(`${MODULE_NAME} — Giao diện & Chức năng`, () => {
       await page.waitForTimeout(2000);
       await expect(page.locator(`text=${serviceName}`).first()).toBeVisible();
     }
+  });
+});
+
+// --- BA Spec Gap Analysis: New tests from SR-SV-001, SSV001→SSV002 ---
+
+test.describe(`${MODULE_NAME} — BA Spec Gap Analysis`, () => {
+  test('SV-FN-003: BA Spec SSV001→SSV002 — Double-click dòng Service List mở Detail', async ({ page }) => {
+    await navigateTo(page, SERVICE_LIST_URL);
+    await page.waitForTimeout(2000);
+
+    // Double-click dòng đầu tiên trong Table Grid
+    const firstRow = page.locator('.ant-table-row').first();
+    if (await firstRow.isVisible()) {
+      await firstRow.dblclick();
+      await page.waitForTimeout(2000);
+      // Kiểm tra chuyển sang trang Detail (URL chứa /service/ + ID hoặc modal mở)
+      const urlChanged = page.url().match(/\/master-data\/services\/service\/\d+/);
+      const detailModal = await page.locator('.ant-modal-title').count();
+      expect(urlChanged || detailModal > 0).toBeTruthy();
+    }
+  });
+
+  test('SV-FN-004: BA Spec SR-SV-001 — Tạo Service trùng mã → Hiển thị lỗi', async ({ page }) => {
+    const timestamp = Date.now().toString().slice(-6);
+    const dupCode = `DUP${timestamp}`;
+    const dupName = `DupSvc ${timestamp}`;
+
+    // Step 1: Mở modal tạo service
+    await navigateTo(page, SERVICE_LIST_URL);
+    const addBtn = page.getByRole('button', { name: /add service/i })
+      .or(page.locator('button:has-text("Add Service")'))
+      .or(page.locator('button:has-text("Thêm dịch vụ")'))
+      .first();
+    await addBtn.click();
+    const modalTitle = page.locator('.ant-modal-title').first();
+    await expect(modalTitle).toBeVisible();
+
+    // Chọn nhóm dịch vụ
+    const groupSelect = page.locator('.ant-select').filter({ hasText: /Enter Service Group Name|Nhập tên nhóm dịch vụ/i }).first();
+    await groupSelect.click();
+    await page.waitForTimeout(1000);
+    await page.locator('.ant-select-item-option-content:visible').first().click();
+    await page.waitForTimeout(500);
+
+    // Điền Service Code + Name
+    const codeInput = page.locator('input[placeholder="Enter Service Code"]').or(page.locator('input[placeholder="Nhập mã dịch vụ"]')).first();
+    await codeInput.fill(dupCode);
+    const nameInput = page.locator('input[placeholder="Enter Service Name"]').or(page.locator('input[placeholder="Nhập tên dịch vụ"]')).first();
+    await nameInput.fill(dupName);
+
+    // Lưu bản gốc
+    const saveBtn = page.locator('button:has-text("Save")').or(page.locator('button:has-text("Lưu")')).first();
+    await saveBtn.click();
+    await page.waitForTimeout(3000);
+
+    // Step 2: Tạo bản trùng mã
+    const addBtn2 = page.getByRole('button', { name: /add service/i })
+      .or(page.locator('button:has-text("Add Service")'))
+      .or(page.locator('button:has-text("Thêm dịch vụ")'))
+      .first();
+    await addBtn2.click();
+    await page.waitForTimeout(1000);
+
+    // Chọn nhóm dịch vụ
+    const groupSelect2 = page.locator('.ant-select').filter({ hasText: /Enter Service Group Name|Nhập tên nhóm dịch vụ/i }).first();
+    await groupSelect2.click();
+    await page.waitForTimeout(1000);
+    await page.locator('.ant-select-item-option-content:visible').first().click();
+    await page.waitForTimeout(500);
+
+    // Điền trùng Service Code
+    const codeInput2 = page.locator('input[placeholder="Enter Service Code"]').or(page.locator('input[placeholder="Nhập mã dịch vụ"]')).first();
+    await codeInput2.fill(dupCode);
+    const nameInput2 = page.locator('input[placeholder="Enter Service Name"]').or(page.locator('input[placeholder="Nhập tên dịch vụ"]')).first();
+    await nameInput2.fill(`Duplicate ${dupName}`);
+
+    const saveBtn2 = page.locator('button:has-text("Save")').or(page.locator('button:has-text("Lưu")')).first();
+    await saveBtn2.click();
+    await page.waitForTimeout(2000);
+
+    // Kiểm tra lỗi trùng mã (409 Conflict hoặc error toast)
+    const dupError = page.locator('text=already exists').or(page.locator('text=duplicate')).or(page.locator('text=trùng')).or(page.locator('text=đã tồn tại')).or(page.locator('.ant-message-error'));
+    const errorCount = await dupError.count();
+    expect(errorCount).toBeGreaterThanOrEqual(1);
   });
 });

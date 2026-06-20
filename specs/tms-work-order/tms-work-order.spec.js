@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
-  test('UI-001: Trang Trucking Work Order List tải đúng bố cục', async ({ page }) => {
+  test('TWO-UI-001: Trang Trucking Work Order List tải đúng bố cục', async ({ page }) => {
     await navigateTo(page, LIST_URL);
     await expect(page.locator('text=Work Order').or(page.locator('text=Work Orders')).first()).toBeVisible();
   });

@@ -1,6 +1,7 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('../../helpers/auth');
 const { login, navigateTo } = require('../../helpers/auth');
+const { ListPage, FormPage, AntSelect, AntTable } = require('../../pages');
 
 /**
  * ===================================================================
@@ -14,51 +15,58 @@ const { login, navigateTo } = require('../../helpers/auth');
  *  - Phân quyền: Creator (CRUD) / Viewer (Chỉ xem)
  *
  * Hướng dẫn sử dụng template:
- *  1. Copy file này vào: e2e/specs/<tên-module>/<tên-module>.spec.js
+ *  1. Copy file này vào: specs/<tên-module>/<tên-module>.spec.js
  *  2. Tìm & thay thế các placeholder [VIẾT HOA TRONG NGOẶC VUÔNG]
  *  3. Thêm/bớt test case theo đặc tả BA
  *  4. Chạy: npx playwright test specs/<tên-module>/
+ *
+ * Test Tags:
+ *  - @smoke      → Quick validation (~5 min total suite)
+ *  - @regression → Full regression (~30 min)
+ *  - @critical   → Business-critical flows
  *
  * ===================================================================
  */
 
 // ============================================================
 // CẤU HÌNH MODULE
-// Thay đổi 2 dòng dưới đây cho module của bạn
+// Thay đổi các dòng dưới đây cho module của bạn
 // ============================================================
 const MODULE_NAME = '[TÊN MODULE]';           // VD: 'Business Partner'
 const LIST_URL = '/master-data/[đường-dẫn]';  // VD: '/master-data/business-partner'
 const CREATE_URL = `${LIST_URL}/create`;
 
 // ============================================================
+// PAGE OBJECTS — Khởi tạo trong beforeEach
+// ============================================================
+let listPage;
+let formPage;
+
+// ============================================================
 // ĐĂNG NHẬP TRƯỚC MỖI TEST
 // ============================================================
 test.beforeEach(async ({ page }) => {
   await login(page);
+  listPage = new ListPage(page, { url: LIST_URL, title: MODULE_NAME });
+  formPage = new FormPage(page, { url: CREATE_URL });
 });
 
 // ============================================================
-// 1. GIAO DIỆN / BỐ CỤC (UI)
+// 1. GIAO DIỆN / BỐ CỤC (UI) — @smoke
 // ============================================================
 test.describe(`${MODULE_NAME} — Giao diện`, () => {
 
-  test('UI-001: Trang danh sách tải đúng bố cục', async ({ page }) => {
-    await navigateTo(page, LIST_URL);
-
-    // Kiểm tra tiêu đề trang
-    await expect(page.locator(`text=${MODULE_NAME}`).first()).toBeVisible();
-
-    // Kiểm tra nút Thêm mới
-    await expect(
-      page.getByRole('button', { name: /add new/i })
-    ).toBeVisible();
+  test('XX-UI-001: Trang danh sách tải đúng bố cục', { tag: ['@smoke', '@ui'] }, async ({ page }) => {
+    await listPage.open();
+    await listPage.verifyLayout(expect);
 
     // Kiểm tra có bảng dữ liệu
-    await expect(page.getByRole('table')).toBeVisible();
+    const table = new AntTable(page);
+    await expect(page.getByRole('table').or(page.locator('.ant-table'))).toBeVisible();
   });
 
-  test('UI-002: Các cột mặc định hiển thị đúng', async ({ page }) => {
-    await navigateTo(page, LIST_URL);
+  test('XX-UI-002: Các cột mặc định hiển thị đúng', { tag: ['@regression', '@ui'] }, async ({ page }) => {
+    await listPage.open();
 
     // TODO: Thay bằng các cột thực tế từ đặc tả BA
     const expectedColumns = [
@@ -67,10 +75,10 @@ test.describe(`${MODULE_NAME} — Giao diện`, () => {
       // 'Cột 3',
     ];
 
+    const table = new AntTable(page);
     for (const col of expectedColumns) {
-      await expect(
-        page.getByRole('columnheader', { name: col })
-      ).toBeVisible();
+      const hasCol = await table.hasColumn(col);
+      expect(hasCol).toBeTruthy();
     }
   });
 });
@@ -80,44 +88,34 @@ test.describe(`${MODULE_NAME} — Giao diện`, () => {
 // ============================================================
 test.describe(`${MODULE_NAME} — Chức năng`, () => {
 
-  test('FN-001: Nhấn hàng → Trang Chi tiết', async ({ page }) => {
-    await navigateTo(page, LIST_URL);
-
-    // Nhấn hàng đầu tiên
-    const firstRow = page.getByRole('row').nth(1);
-    await firstRow.click();
+  test('XX-FN-001: Nhấn hàng → Trang Chi tiết', { tag: ['@smoke', '@functional'] }, async ({ page }) => {
+    await listPage.open();
+    await listPage.clickFirstRow();
 
     // Kiểm tra URL chuyển sang detail
     await expect(page).toHaveURL(new RegExp(`${LIST_URL}/\\d+`));
   });
 
-  test('FN-002: Nút Thêm mới → Trang tạo mới', async ({ page }) => {
-    await navigateTo(page, LIST_URL);
-
-    await page.getByRole('button', { name: /add new|add business/i }).click();
+  test('XX-FN-002: Nút Thêm mới → Trang tạo mới', { tag: ['@regression', '@functional'] }, async ({ page }) => {
+    await listPage.open();
+    await listPage.clickAdd();
 
     await expect(page).toHaveURL(new RegExp(`${LIST_URL}/create`));
   });
 
-  test('FN-003: Nút Hủy từ Tạo mới → quay về Danh sách', async ({ page }) => {
-    await navigateTo(page, CREATE_URL);
-
-    await page.getByRole('button', { name: /cancel/i }).click();
+  test('XX-FN-003: Nút Hủy từ Tạo mới → quay về Danh sách', { tag: ['@regression', '@functional'] }, async ({ page }) => {
+    await formPage.open();
+    await formPage.clickCancel();
 
     await expect(page).toHaveURL(new RegExp(`${LIST_URL}$`));
   });
 
-  test('FN-004: Nút Sửa trên Chi tiết → Trang chỉnh sửa', async ({ page }) => {
-    await navigateTo(page, LIST_URL);
-
-    // Vào chi tiết
-    const firstRow = page.getByRole('row').nth(1);
-    await firstRow.click();
+  test('XX-FN-004: Nút Sửa trên Chi tiết → Trang chỉnh sửa', { tag: ['@regression', '@functional'] }, async ({ page }) => {
+    await listPage.open();
+    await listPage.clickFirstRow();
     await expect(page).toHaveURL(new RegExp(`${LIST_URL}/\\d+`));
 
-    // Nhấn Sửa
-    await page.getByRole('button', { name: /edit/i }).click();
-
+    await formPage.clickEdit();
     await expect(page).toHaveURL(new RegExp(`${LIST_URL}/\\d+/edit`));
   });
 });
@@ -127,18 +125,14 @@ test.describe(`${MODULE_NAME} — Chức năng`, () => {
 // ============================================================
 test.describe(`${MODULE_NAME} — Validation`, () => {
 
-  test('VL-001: Lưu form trống hiện lỗi trường bắt buộc', async ({ page }) => {
-    await navigateTo(page, CREATE_URL);
-
-    // Nhấn Lưu khi form trống
-    await page.getByRole('button', { name: /save/i }).click();
+  test('XX-VL-001: Lưu form trống hiện lỗi trường bắt buộc', { tag: ['@regression', '@validation'] }, async ({ page }) => {
+    await formPage.open();
+    await formPage.clickSave();
 
     // Kiểm tra có thông báo lỗi
-    const errorMessages = page.locator('text=This field is required');
-    const count = await errorMessages.count();
-
+    const errorCount = await formPage.countValidationErrors();
     // TODO: Thay số bằng số trường bắt buộc thực tế
-    expect(count).toBeGreaterThanOrEqual(1);
+    expect(errorCount).toBeGreaterThanOrEqual(1);
   });
 });
 
@@ -150,13 +144,13 @@ test.describe(`${MODULE_NAME} — Quy tắc nghiệp vụ`, () => {
   // TODO: Thêm test case cho từng Systems Rule (SR-XX-YYY)
   // Ví dụ:
   //
-  // test('BR-001: [Mô tả rule] (SR-XX-001)', async ({ page }) => {
-  //   await navigateTo(page, CREATE_URL);
+  // test('XX-BR-001: [Mô tả rule] (SR-XX-001)', { tag: ['@regression', '@business-rule'] }, async ({ page }) => {
+  //   await formPage.open();
   //   // ... thao tác ...
   //   // ... kiểm tra kết quả ...
   // });
 
-  test.skip('BR-001: [Thêm rule ở đây]', async ({ page }) => {
+  test.skip('XX-BR-001: [Thêm rule ở đây]', async ({ page }) => {
     // Placeholder — xóa test.skip và thêm logic
   });
 });
@@ -166,20 +160,14 @@ test.describe(`${MODULE_NAME} — Quy tắc nghiệp vụ`, () => {
 // ============================================================
 test.describe(`${MODULE_NAME} — Phân quyền`, () => {
 
-  test('PM-001: Admin thấy các nút hành động', async ({ page }) => {
-    await navigateTo(page, LIST_URL);
+  test('XX-PM-001: Admin thấy các nút hành động', { tag: ['@regression', '@permission'] }, async ({ page }) => {
+    await listPage.open();
 
     // Admin thấy nút Thêm mới
-    await expect(
-      page.getByRole('button', { name: /add new|add business/i })
-    ).toBeVisible();
+    await expect(listPage.addButton).toBeVisible();
 
     // Vào chi tiết → Admin thấy nút Sửa
-    const firstRow = page.getByRole('row').nth(1);
-    await firstRow.click();
-
-    await expect(
-      page.getByRole('button', { name: /edit/i })
-    ).toBeVisible();
+    await listPage.clickFirstRow();
+    await expect(formPage.editButton).toBeVisible();
   });
 });

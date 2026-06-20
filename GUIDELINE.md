@@ -278,15 +278,18 @@ movex-fe-masterdata/
 
 | # | Module | SR Rules | Trạng thái | Report |
 |---|--------|----------|------------|--------|
-| 1 | **Vehicle** | SR-VH-001→008 | ✅ Done | [PDF](reports/vehicle-test-report-2026-05-12.pdf) |
-| 2 | **Business Partner** | SR-BP-001→009 | ⏳ Pending | — |
-| 3 | **Administrative Info** | SR-AD-001→005 | ⏳ Pending | — |
-| 4 | **Source Master** | SR-SM-001→009 | ⏳ Pending | — |
-| 5 | **Toll Station** | SR-TS-01→08 | ⏳ Pending | — |
-| 6 | **Routing** | SR-RT-001→008 | ⏳ Pending | — |
-| 7 | **Cost** | BR-COST-001→018 | ⏳ Pending | — |
-| 8 | **Common Code** | SR-CC-001→007 | ⏳ Pending | — |
-| 9 | **Settings** | SR-SET-001→008 | ⏳ Pending | — |
+| 1 | **Vehicle** | SR-VH-001→008 | ✅ Done | [Report](reports/vehicle-test-report-2026-05-12.md) |
+| 2 | **Business Partner** | SR-BP-001→009 | ✅ Done | [Dashboard](reports/html/index.html) |
+| 3 | **Administrative Info** | SR-AD-001→005 | ✅ Done | [Dashboard](reports/html/index.html) |
+| 4 | **Source Master** | SR-SM-001→009 | ✅ Done | [Dashboard](reports/html/index.html) |
+| 5 | **Toll Station** | SR-TS-01→08 | ✅ Done | [Dashboard](reports/html/index.html) |
+| 6 | **Routing** | SR-RT-001→008 | ✅ Done | [Dashboard](reports/html/index.html) |
+| 7 | **Cost** | BR-COST-001→018 | ✅ Done | [Dashboard](reports/html/index.html) |
+| 8 | **Services** | SR-SV-001→00N | ✅ Done | [Dashboard](reports/html/index.html) |
+| 9 | **Pricing** | BR-PR-001→00N | ✅ Done | [Dashboard](reports/html/index.html) |
+| 10 | **Common Code** | SR-CC-001→007 | ⏳ Pending | — |
+| 11 | **Settings** | SR-SET-001→008 | ⏳ Pending | — |
+| 12 | **Vendor Tariff** | SR-VT-001→00N | ✅ Done | [Dashboard](reports/html/index.html) |
 
 ---
 
