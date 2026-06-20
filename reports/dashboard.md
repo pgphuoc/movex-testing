@@ -33,7 +33,7 @@
 
 | Hệ thống / Module | Trạng thái kịch bản | Chỉ số kiểm thử | Chạy lần cuối | Chi tiết lỗi / Ghi chú | Báo cáo chi tiết |
 | :--- | :---: | :---: | :---: | :--- | :---: |
-| **Tenant-Admin / Master-data / Business Partner** | 🟢 **ACTIVE** | **7 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
+| **Tenant-Admin / Master-data / Business Partner** | 🟢 **ACTIVE** | **7 Passed** / 0 Failed / 0 Skipped | 2026-06-20 01:35:40 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Vehicle** | 🟢 **ACTIVE** | **12 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Administrative Info** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |
 | **Tenant-Admin / Master-data / Source Master** | 🟢 **ACTIVE** | **4 Passed** / 0 Failed / 0 Skipped | 2026-06-18 11:39:33 | Kịch bản kiểm thử hoạt động bình thường. | [Xem HTML](html/index.html) |

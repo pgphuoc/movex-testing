@@ -102,6 +102,15 @@ test.describe(`${MODULE_NAME} — Chức năng & Nghiệp vụ`, () => {
   });
 
   test('BP-BR-001 & BP-BR-002: Tạo mới doanh nghiệp thành công, tìm kiếm và kiểm tra trùng MST', async ({ page }) => {
+    test.info().annotations.push({
+      type: 'description',
+      description: 'Kiểm tra luồng tạo mới một Business Partner (Đối tác kinh doanh) với đầy đủ thông tin hợp lệ. Sau đó kiểm tra tính năng tìm kiếm và xác nhận hệ thống chặn tạo trùng Mã số thuế (Tax Code).'
+    });
+    test.info().annotations.push({
+      type: 'pre-action',
+      description: 'Đăng nhập với tài khoản Tenant Owner. Chuẩn bị một mã số thuế (Tax Code) ngẫu nhiên chưa tồn tại trong hệ thống.'
+    });
+
     const timestamp = Date.now().toString().slice(-6);
     const taxCode = `83${timestamp}28`; // 10 chữ số
     const partnerName = `QTL Auto BP ${timestamp}`;
@@ -109,121 +118,122 @@ test.describe(`${MODULE_NAME} — Chức năng & Nghiệp vụ`, () => {
 
     console.log(`Creating Business Partner: ${partnerName} with Tax Code: ${taxCode}`);
 
-    await navigateTo(page, CREATE_URL);
+    await test.step('Bước 1: Điều hướng tới trang Tạo mới', async () => {
+      await navigateTo(page, CREATE_URL);
+    });
 
-    // 1. Chọn Legal Type
-    const legalDropdown = page.locator('div[data-form-field="legalType"] .ant-select-selector');
-    await legalDropdown.click();
-    await page.waitForTimeout(500);
-    // Chọn Company
-    await page.locator('.ant-select-item-option-content:visible').first().click();
-
-    // 2. Điền Tax Code
-    await page.locator('input[name="identifyId"]').fill(taxCode);
-
-    // 3. Điền Invoice Serial
-    await page.locator('input[name="invoiceSerial"]').fill(invoiceSerial);
-
-    // 4. Điền Local Name
-    await page.locator('textarea[name="localName"]').fill(partnerName);
-
-    // 5. Điền Phone Number
-    await page.locator('input[name="phoneNumber"]').fill(`0912${timestamp}`);
-
-    // 6. Chọn Currency
-    const currencyDropdown = page.locator('div[data-form-field="currency"] .ant-select-selector');
-    await currencyDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
-
-    // 7. Chọn Country
-    const countryDropdown = page.locator('div[data-form-field="country"] .ant-select-selector');
-    await countryDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
-
-    // 8. Chọn ProvinceCity
-    const provinceDropdown = page.locator('div[data-form-field="provinceCity"] .ant-select-selector');
-    if (await provinceDropdown.isVisible()) {
-      await provinceDropdown.click();
+    await test.step('Bước 2: Điền thông tin chung (General Information)', async () => {
+      // 1. Chọn Legal Type
+      const legalDropdown = page.locator('div[data-form-field="legalType"] .ant-select-selector');
+      await legalDropdown.click();
       await page.waitForTimeout(500);
       await page.locator('.ant-select-item-option-content:visible').first().click();
-    }
 
-    // 9. Điền Address
-    await page.locator('textarea[name="localAddress"]').fill('123 Logistics St, District 1, HCMC');
+      // 2. Điền Tax Code & Invoice Serial
+      await page.locator('input[name="identifyId"]').fill(taxCode);
+      await page.locator('input[name="invoiceSerial"]').fill(invoiceSerial);
 
-    // 10. Chọn Business Category
-    const categoryDropdown = page.locator('div[data-form-field="businessCategory"] .ant-select-selector');
-    await categoryDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click(); // Chọn vai trò đầu tiên
+      // 3. Điền Tên và SĐT
+      await page.locator('textarea[name="localName"]').fill(partnerName);
+      await page.locator('input[name="phoneNumber"]').fill(`0912${timestamp}`);
+    });
 
-    // 11. Chọn Partner Group
-    const groupDropdown = page.locator('div[data-form-field="partnerGroup"] .ant-select-selector');
-    await groupDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
+    await test.step('Bước 3: Chọn khu vực và địa chỉ', async () => {
+      const currencyDropdown = page.locator('div[data-form-field="currency"] .ant-select-selector');
+      await currencyDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
 
-    await page.screenshot({ path: `reports/BP-BR-001-Form-Filled-${timestamp}.png` });
+      const countryDropdown = page.locator('div[data-form-field="country"] .ant-select-selector');
+      await countryDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
 
-    // Click Save
-    await page.getByRole('button', { name: /save/i }).click();
+      const provinceDropdown = page.locator('div[data-form-field="provinceCity"] .ant-select-selector');
+      if (await provinceDropdown.isVisible()) {
+        await provinceDropdown.click();
+        await page.waitForTimeout(500);
+        await page.locator('.ant-select-item-option-content:visible').first().click();
+      }
 
-    // Đợi redirect sang chi tiết
-    await page.waitForURL(new RegExp(`${LIST_URL}/\\d+`), { timeout: 15_000 });
-    await expect(page.url()).toMatch(new RegExp(`${LIST_URL}/\\d+`));
-    await page.screenshot({ path: `reports/BP-BR-001-Created-${timestamp}.png` });
+      await page.locator('textarea[name="localAddress"]').fill('123 Logistics St, District 1, HCMC');
+    });
 
-    // Quay lại danh sách và kiểm tra tìm kiếm
-    await navigateTo(page, LIST_URL);
-    const searchInput = page.getByPlaceholder(/search/i);
-    if (await searchInput.isVisible()) {
-      await searchInput.fill(partnerName);
-      await page.keyboard.press('Enter');
-      await page.waitForTimeout(2000);
-      await expect(page.locator(`text=${partnerName}`).first()).toBeVisible();
-    }
+    await test.step('Bước 4: Chọn phân loại doanh nghiệp (Category & Group)', async () => {
+      const categoryDropdown = page.locator('div[data-form-field="businessCategory"] .ant-select-selector');
+      await categoryDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
 
-    // Test Case: Check trùng MST (Unique Tax Code - SR-BP-001)
-    console.log(`Testing Duplicate Tax Code validation with MST: ${taxCode}`);
-    await navigateTo(page, CREATE_URL);
+      const groupDropdown = page.locator('div[data-form-field="partnerGroup"] .ant-select-selector');
+      await groupDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
+      
+      await page.screenshot({ path: `reports/BP-BR-001-Form-Filled-${timestamp}.png` });
+    });
 
-    // Điền form với cùng taxCode
-    await legalDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
-    await page.locator('input[name="identifyId"]').fill(taxCode);
-    await page.locator('input[name="invoiceSerial"]').fill(invoiceSerial);
-    await page.locator('textarea[name="localName"]').fill(`Duplicate MST Test ${timestamp}`);
-    await page.locator('input[name="phoneNumber"]').fill(`0912${timestamp}`);
-    
-    await currencyDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
+    await test.step('Bước 5: Nhấn Lưu và xác nhận tạo thành công', async () => {
+      await page.getByRole('button', { name: /save/i }).click();
+      await page.waitForURL(new RegExp(`${LIST_URL}/\\d+`), { timeout: 15_000 });
+      await expect(page.url()).toMatch(new RegExp(`${LIST_URL}/\\d+`));
+      await page.screenshot({ path: `reports/BP-BR-001-Created-${timestamp}.png` });
+    });
 
-    await countryDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
+    await test.step('Bước 6: Quay lại danh sách và tìm kiếm đối tác vừa tạo', async () => {
+      await navigateTo(page, LIST_URL);
+      const searchInput = page.getByPlaceholder(/search/i);
+      if (await searchInput.isVisible()) {
+        await searchInput.fill(partnerName);
+        await page.keyboard.press('Enter');
+        await page.waitForTimeout(2000);
+        await expect(page.locator(`text=${partnerName}`).first()).toBeVisible();
+      }
+    });
 
-    await page.locator('textarea[name="localAddress"]').fill('123 Duplicate St');
+    await test.step('Bước 7: Kiểm tra validate chặn tạo trùng Mã số thuế (Duplicate Tax Code)', async () => {
+      console.log(`Testing Duplicate Tax Code validation with MST: ${taxCode}`);
+      await navigateTo(page, CREATE_URL);
 
-    await categoryDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
+      const legalDropdown = page.locator('div[data-form-field="legalType"] .ant-select-selector');
+      await legalDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
+      
+      await page.locator('input[name="identifyId"]').fill(taxCode);
+      await page.locator('input[name="invoiceSerial"]').fill(invoiceSerial);
+      await page.locator('textarea[name="localName"]').fill(`Duplicate MST Test ${timestamp}`);
+      await page.locator('input[name="phoneNumber"]').fill(`0912${timestamp}`);
+      
+      const currencyDropdown = page.locator('div[data-form-field="currency"] .ant-select-selector');
+      await currencyDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
 
-    await groupDropdown.click();
-    await page.waitForTimeout(500);
-    await page.locator('.ant-select-item-option-content:visible').first().click();
+      const countryDropdown = page.locator('div[data-form-field="country"] .ant-select-selector');
+      await countryDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
 
-    // Click Save
-    await page.getByRole('button', { name: /save/i }).click();
-    await page.waitForTimeout(3000);
+      await page.locator('textarea[name="localAddress"]').fill('123 Duplicate St');
 
-    // Kiểm tra có thông báo lỗi trùng MST
-    const duplicateError = page.locator('text=exist').or(page.locator('text=already')).or(page.locator('text=trùng')).or(page.locator('.ant-message-error')).or(page.locator('.ant-notification-notice-message'));
-    await expect(duplicateError.first()).toBeVisible();
-    await page.screenshot({ path: `reports/BP-BR-002-Duplicate-Error-${timestamp}.png` });
+      const categoryDropdown = page.locator('div[data-form-field="businessCategory"] .ant-select-selector');
+      await categoryDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
+
+      const groupDropdown = page.locator('div[data-form-field="partnerGroup"] .ant-select-selector');
+      await groupDropdown.click();
+      await page.waitForTimeout(500);
+      await page.locator('.ant-select-item-option-content:visible').first().click();
+
+      await page.getByRole('button', { name: /save/i }).click();
+      await page.waitForTimeout(3000);
+
+      const duplicateError = page.locator('text=exist').or(page.locator('text=already')).or(page.locator('text=trùng')).or(page.locator('.ant-message-error')).or(page.locator('.ant-notification-notice-message'));
+      await expect(duplicateError.first()).toBeVisible();
+      await page.screenshot({ path: `reports/BP-BR-002-Duplicate-Error-${timestamp}.png` });
+    });
   });
 
   test('BP-BR-003: Hiển thị có điều kiện Tab Cộng tác viên', async ({ page }) => {

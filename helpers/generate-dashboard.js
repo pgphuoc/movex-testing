@@ -153,7 +153,10 @@ function extractTests(suite, filePath = '') {
           screenshot,
           video,
           apiLog,
-          skipReason
+          skipReason,
+          description: test.annotations?.find(a => a.type === 'description')?.description || null,
+          preAction: test.annotations?.find(a => a.type === 'pre-action')?.description || null,
+          testSteps: result?.steps || []
         });
       }
     }
@@ -260,7 +263,10 @@ function main() {
                 screenshot,
                 video,
                 apiLog,
-                skipReason: rt.skipReason
+                skipReason: rt.skipReason,
+                description: rt.description,
+                preAction: rt.preAction,
+                testSteps: rt.testSteps
               };
             });
             registry[mId].lastRun = nowStr;
@@ -1134,6 +1140,44 @@ function main() {
                                 <span>Thời gian: <strong>${(t.duration / 1000).toFixed(2)}s</strong></span>
                               </div>
                             </div>
+                            ${t.description ? `
+                              <div style="margin-top: 1rem; font-size: 0.95rem; color: #e2e8f0;">
+                                <strong>📝 Mô tả kịch bản (Description):</strong> ${t.description}
+                              </div>
+                            ` : ''}
+                            ${t.preAction ? `
+                              <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #cbd5e1;">
+                                <strong>🔧 Tiền điều kiện (Pre-action):</strong> ${t.preAction}
+                              </div>
+                            ` : ''}
+                            ${t.testSteps && t.testSteps.length > 0 ? `
+                              <div style="margin-top: 1rem; margin-bottom: 1rem;">
+                                <div style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; margin-bottom: 0.5rem;">📍 Thao tác từng bước (Step-by-step):</div>
+                                <table class="board-table" style="font-size: 0.85rem; margin-bottom: 0;">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 70%; padding: 0.5rem;">Bước thực hiện (Step)</th>
+                                      <th style="width: 15%; padding: 0.5rem; text-align: right;">Thời gian (ms)</th>
+                                      <th style="width: 15%; padding: 0.5rem; text-align: center;">Trạng thái</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    ${t.testSteps.map(step => `
+                                      <tr>
+                                        <td style="padding: 0.5rem; color: #e2e8f0;">
+                                          <strong>${step.title}</strong>
+                                          ${step.error ? `<div style="color: var(--danger); font-size: 0.8rem; margin-top: 0.25rem;">Lỗi: ${step.error}</div>` : ''}
+                                        </td>
+                                        <td style="padding: 0.5rem; text-align: right; color: #94a3b8;">${step.duration}</td>
+                                        <td style="padding: 0.5rem; text-align: center;">
+                                          ${step.error ? '<span style="color: var(--danger);">🔴 Lỗi</span>' : '<span style="color: var(--success);">🟢 OK</span>'}
+                                        </td>
+                                      </tr>
+                                    `).join('')}
+                                  </tbody>
+                                </table>
+                              </div>
+                            ` : ''}
                             ${t.skipReason ? `
                               <div class="skip-reason" style="margin-top: 0.75rem; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.15); padding: 0.75rem 1rem; border-radius: 6px; color: #fcd34d; font-size: 0.85rem;">
                                 <strong>Lý do bỏ qua:</strong> ${t.skipReason}

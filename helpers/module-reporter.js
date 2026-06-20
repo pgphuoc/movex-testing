@@ -6,6 +6,30 @@ class ModuleReporter {
     this.testsByFile = {};
   }
 
+  _extractSteps(steps) {
+    if (!steps || !Array.isArray(steps)) return [];
+    let output = [];
+    for (const step of steps) {
+      if (step.category === 'test.step' || step.category === 'hook' || step.category === 'expect') {
+        // Lọc bỏ những step expect không quan trọng hoặc nội bộ, chỉ giữ lại step do user định nghĩa hoặc có ích
+        if (step.category === 'expect' && (!step.title || step.title.includes('toBe'))) {
+          // Bỏ qua các expect mặc định nếu không có tên rõ ràng
+        } else {
+          output.push({
+            title: step.title,
+            duration: step.duration,
+            error: step.error ? step.error.message : null,
+            category: step.category
+          });
+        }
+        if (step.steps && step.steps.length > 0) {
+          output = output.concat(this._extractSteps(step.steps));
+        }
+      }
+    }
+    return output;
+  }
+
   onTestEnd(test, result) {
     const file = test.location.file;
     if (!this.testsByFile[file]) {
@@ -88,14 +112,24 @@ class ModuleReporter {
       }
     }
 
-    // Extract skip reason
+    // Extract skip reason, description, and pre-action from annotations
     let skipReason = null;
+    let description = null;
+    let preAction = null;
+    
     if (test.annotations && test.annotations.length > 0) {
       const skipAnno = test.annotations.find(a => a.type === 'skip' || a.type === 'fixme');
-      if (skipAnno) {
-        skipReason = skipAnno.description || null;
-      }
+      if (skipAnno) skipReason = skipAnno.description || null;
+      
+      const descAnno = test.annotations.find(a => a.type === 'description');
+      if (descAnno) description = descAnno.description || null;
+      
+      const preAnno = test.annotations.find(a => a.type === 'pre-action');
+      if (preAnno) preAction = preAnno.description || null;
     }
+    
+    // Extract step-by-step
+    const testSteps = this._extractSteps(result.steps || []);
 
     // Status mapping
     let status = 'skipped';
@@ -111,7 +145,10 @@ class ModuleReporter {
       screenshot,
       video,
       apiLog,
-      skipReason
+      skipReason,
+      description,
+      preAction,
+      testSteps
     });
   }
 
